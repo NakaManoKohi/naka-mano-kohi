@@ -23,22 +23,22 @@
 				<form class="w-75">
 					<h1 class="h3 mb-3 fw-bold">Buat Akun</h1>
 					<div class="form-floating">
-						<input type="email" class="form-control mb-4 rounded-0 border-0" id="floatingInput" placeholder="name@example.com">
+						<input type="email" class="form-control mb-4 rounded-0 border-0" id="floatingInput" placeholder="name@example.com" name="name">
 						<label for="floatingInput">Name</label>
 					</div>
 					<div class="form-floating">
-						<input type="email" class="form-control mb-4 rounded-0 border-0" id="floatingInput" placeholder="name@example.com">
+						<input type="email" class="form-control mb-4 rounded-0 border-0" id="floatingInput" placeholder="name@example.com" name="username">
 						<label for="floatingInput">Username</label>
 					</div>
 					<div class="form-floating">
-						<input type="email" class="form-control mb-4 rounded-0 border-0" id="floatingInput" placeholder="name@example.com">
+						<input type="email" class="form-control mb-4 rounded-0 border-0" id="floatingInput" placeholder="name@example.com" name="email">
 						<label for="floatingInput">Email</label>
 					</div>
 					<div class="form-floating">
-						<input type="password" class="form-control mb-4 rounded-0 border-0" id="floatingPassword" placeholder="Password">
+						<input type="password" class="form-control mb-4 rounded-0 border-0" id="floatingPassword" placeholder="Password" name="password">
 						<label for="floatingPassword">Password</label>
 					</div>
-					<button class="w-50 btn btn btn-brown rounded-0 mb-3 text-white fs-6" type="submit">Shot</button>
+					<button class="w-50 button button-brown mb-3 fs-5" type="submit">Shot</button>
 					<p class="fs-5">Akun nya udah ada? <a href="/login" class="text-primary text-decoration-none">Tamping</a></p>
 					{{-- Make your own button effect --}}
 					<p class="text-muted">&copy; Naka Mano Kohi 2022</p>

@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.101.0">
-    <title>Signin Template · Bootstrap v5.2</title>
+    <title>Naka Mano Kohi | {{ $title }}</title>
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -62,6 +62,7 @@
 
     
     <!-- Custom styles for this template -->
+    <link rel="icon" type="image/png" href="images/Naka_Mano_Kohi_yellow.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech&display=swap" rel="stylesheet">

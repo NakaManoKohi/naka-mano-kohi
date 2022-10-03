@@ -34,3 +34,7 @@ body {
   background-image: url(../images/coffee-image.png);
   background-size: contain;
 }
+
+.auth-box-shadow{
+  box-shadow: 10px 10px rgba(0, 0, 0, 0.3);
+}

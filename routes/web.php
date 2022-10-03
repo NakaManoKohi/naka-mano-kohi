@@ -22,9 +22,13 @@ Route::get('/', function () {
 });
 
 Route::get('/login', function(){
-    return view('auth.index');
+    return view('auth.index',[
+        'title' => 'Login'
+    ]);
 });
 
 Route::get('/register', function(){
-    return view('auth.register');
+    return view('auth.register',[
+        'title' => 'Register'
+    ]);
 });

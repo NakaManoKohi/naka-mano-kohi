@@ -11,14 +11,26 @@
     background-color: var(--yellow);
 }
 
-.btn-brown{
-    background-color: var(--brown);
-}
-
-.btn-brown:hover{
-    background-color: var;
-}
-
 .bg-brown{
     background-color: var(--brown);
+}
+
+.button{
+    padding: 16px 8px;
+    border: none;
+    color: #fff;
+    transition: all 0.2s ease-in;
+    border-radius: 10px;
+}
+
+.button:hover{
+    color: var(--brown);
+}
+
+.button-brown{
+    background-color: var(--brown);
+}
+
+.button-brown:hover{
+    background-color: #fff;
 }
