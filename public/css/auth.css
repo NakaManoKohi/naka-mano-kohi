@@ -19,3 +19,18 @@ body {
 .form-signin .form-floating:focus-within {
   z-index: 2;
 }
+
+.img-column{
+  border-top-left-radius: 20px;
+  border-bottom-left-radius:20px ;
+}
+
+.form-column{
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.left-side-decoration{
+  background-image: url(../images/coffee-image.png);
+  background-size: contain;
+}
