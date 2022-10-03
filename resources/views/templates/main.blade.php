@@ -12,7 +12,7 @@
 
   @include('components.nav')
   
-  <div class="container">
+  <div class="col-12">
     @yield('container')
   </div>
 
