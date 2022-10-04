@@ -17,18 +17,14 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', function () {return view('home', [
+    'title' => 'Home'
+]);});
 
-Route::get('/login', function(){
-    return view('auth.index',[
-        'title' => 'Login'
-    ]);
-});
+Route::get('/login', function(){return view('auth.index',[
+    'title' => 'Login'
+]);});
 
-Route::get('/register', function(){
-    return view('auth.register',[
-        'title' => 'Register'
-    ]);
-});
+Route::get('/register', function(){return view('auth.register',[
+    'title' => 'Register'
+]);});

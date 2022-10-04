@@ -2,35 +2,7 @@
     --brown : #B26221;
     --yellow : #FEDB39;
 }
-
-.bg-brown{
-    background-color: var(--brown);
-}
-
-.bg-yellow{
-    background-color: var(--yellow);
-}
-
-.bg-brown{
-    background-color: var(--brown);
-}
-
-.button{
-    padding: 16px 8px;
-    border: none;
-    color: #fff;
-    transition: all 0.2s ease-in;
-    border-radius: 10px;
-}
-
-.button:hover{
-    color: var(--brown);
-}
-
-.button-brown{
-    background-color: var(--brown);
-}
-
-.button-brown:hover{
-    background-color: #fff;
-}
+.bg-brown{background-color: var(--brown);}
+.bg-yellow{background-color: var(--yellow);}
+.button-brown{background-color: var(--brown);}
+.button-brown:hover{background-color: #fff;}

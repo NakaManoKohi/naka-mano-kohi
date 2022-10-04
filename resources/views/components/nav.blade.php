@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-primary p-2">
+<nav class="navbar navbar-expand-lg navbar-light bg-brown p-2">
   <div class="container-fluid d-flex justify-content-between align-items-center text-white">
     <a href="#" class="text-white d-flex align-items-center text-decoration-none">
       <img src="images/Naka_Mano_Kohi_yellow.png" alt="" width="60" class="me-4">
