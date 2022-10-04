@@ -38,3 +38,13 @@ body {
 .auth-box-shadow{
   box-shadow: 10px 10px rgba(0, 0, 0, 0.3);
 }
+
+#form-wrapper{
+  height: 650px;
+}
+
+@media screen and (max-width:1200px) {
+  #form-wrapper{
+    height: 100%;
+  }
+}

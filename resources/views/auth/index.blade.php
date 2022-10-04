@@ -20,7 +20,8 @@
 				<img class="mb-4 w-50" src="/images/Naka_Mano_Kohi_yellow.png" alt="kohi-logo">
 			</div>
 			<div class="form-column col-md-7 p-0 bg-yellow h-100 d-flex justify-content-center align-items-center auth-box-shadow">
-				<form class="w-75">
+				<form class="w-75" action="/login" method="post">
+					@csrf
 					<h1 class="h3 mb-3 fw-bold">Masuk Kohiverse</h1>
 					<div class="form-floating">
 						<input type="email" class="form-control mb-4 rounded-0 border-0" id="floatingInput" placeholder="name@example.com">
