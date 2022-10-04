@@ -19,9 +19,9 @@ use App\Http\Controllers\RegisterController;
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', function () {return view('home', [
+    'title' => 'Home'
+]);});
 
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate']);
