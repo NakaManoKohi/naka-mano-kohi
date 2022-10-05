@@ -11,7 +11,7 @@
     <ul class="navbar-nav">
       @auth
         <li class="nav-item btn-group">
-          <a class="nav-link text-white text-decoration-none dropdown-toggle no-arrow me-4" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link text-white text-decoration-none dropdown-toggle no-arrow me-4" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             {{ auth()->user()->name }}
             <img src="images/lilgru.jpg" alt="profile" width="44" class="rounded-circle ms-2">
           </a>
