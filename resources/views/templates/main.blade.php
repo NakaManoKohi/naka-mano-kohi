@@ -15,8 +15,11 @@
 
   @include('components.nav')
   
-  <div class="col-12">
-    @yield('container')
+  <div class="col-12 d-flex">
+    @include('components.sidenav')
+    <div class="content bg-secondary-grey">
+      @yield('content')
+    </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>

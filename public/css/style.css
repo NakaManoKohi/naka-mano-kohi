@@ -1,8 +1,23 @@
 :root{
-    --brown : #B26221;
-    --yellow : #FEDB39;
+    --brown: #B26221;
+    --yellow: #FEDB39;
+    --primary-grey: #EEEEEE;
+    --secondary-grey: #BBBBBB;
 }
+.text-brown{color: var(--brown);}
+.text-yellow{color: var(--yellow);}
 .bg-brown{background-color: var(--brown);}
 .bg-yellow{background-color: var(--yellow);}
+.bg-primary-grey {background-color: var(--primary-grey);}
+.bg-secondary-grey {background-color: var(--secondary-grey);}
 .button-brown{background-color: var(--brown);}
 .button-brown:hover{background-color: #fff;}
+.sidenav{
+    top: 76px!important;
+    width: 100px;
+    height: calc(100vh - 76px)
+}
+.content {
+    width: calc(100vw - 100px);
+    height: 1000px
+}
