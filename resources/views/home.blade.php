@@ -1,5 +1,75 @@
 @extends('templates.main')
 
 @section('content')
-
+  <div class="col-12 d-flex p-3">
+    <main class="col-9 pe-2">
+      <section class="col-12 bg-primary-grey card card-section">
+        <div class="card-header bg-brown text-white">
+          <h3 class="h3">Home</h3>
+        </div>
+        <div class="card-body">
+          <h6 class="h6 px-4 fw-bold">Events</h6>
+          <div class="col-12 overflow-auto scrollbar-none">
+            <div class="d-flex w-fit">
+              <div class="card border-yellow-5 me-3 card-events">
+  
+              </div>
+              <div class="card border-yellow-5 me-3 card-events">
+  
+              </div>
+              <div class="card border-yellow-5 me-3 card-events">
+  
+              </div>
+              <div class="card border-yellow-5 me-3 card-events">
+  
+              </div>
+              <div class="card border-yellow-5 me-3 card-events">
+  
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <aside class="col-3 ps-2">
+      <section class="col-12 bg-primary-grey card card-section">
+        <div class="card-header bg-brown text-white">
+          <h6 class="h6">Member Of The Month</h6>
+        </div>
+        <div class="card-body">
+          <div class="card-body bg-yellow rounded mb-3">
+            <div class="d-flex align-items-center">
+              <img src="images/lilgru.jpg" alt="profile" width="44" class="me-3 rounded-circle border-black-3">
+              <div class="d-flex flex-column text-nowrap overflow-hidden">
+                <h6 class="h6 fw-bold m-0">Rank #1</h6>
+                <h6 class="h6 fw-normal m-0">Lil Gru</h6>
+                <h6 class="h6 fw-normal m-0">1M Followers</h6>
+              </div>
+            </div>
+          </div>
+          <div class="card-body bg-secondary-grey rounded mb-3">
+            <div class="d-flex align-items-center">
+              <img src="images/uraracak.png" alt="profile" width="44" class="me-3 rounded-circle border-black-3">
+              <div class="d-flex flex-column text-nowrap overflow-hidden">
+                <h6 class="h6 fw-bold m-0">Rank #2</h6>
+                <h6 class="h6 fw-normal m-0">Uraracak</h6>
+                <h6 class="h6 fw-normal m-0">0.8M Followers</h6>
+              </div>
+            </div>
+          </div>
+          <div class="card-body bg-brown rounded">
+            <div class="d-flex align-items-center">
+              <img src="images/jelek_tetep_good.png" alt="profile" width="44" class="me-3 rounded-circle border-black-3">
+              <div class="d-flex flex-column text-nowrap overflow-hidden">
+                <h6 class="h6 fw-bold m-0">Rank #3</h6>
+                <h6 class="h6 fw-normal m-0">jelek tetep good</h6>
+                <h6 class="h6 fw-normal m-0">0 Followers</h6>
+                {{-- Note: nanti pas di hover kasi animasi, biar bisa keliatan namanya --}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </aside>
+  </div>
 @endsection
