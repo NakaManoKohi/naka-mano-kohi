@@ -19,7 +19,12 @@
             <li><a class="dropdown-item" href="#">Profile</a></li>
             <li><a class="dropdown-item" href="#">Dashboard</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+            <li>
+              <form action="/logout" method="post">
+                @csrf
+                <input class="dropdown-item" value="Logout" type="submit">
+              </form>
+            </li>
           </ul>
         </li>
       @else
