@@ -35,3 +35,4 @@
 }
 .card-events{height: 240px; width: 170px;}
 .card-section{border: 0;}
+.dropdown-toggle.no-arrow::after {display: none;}

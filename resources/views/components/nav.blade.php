@@ -8,29 +8,23 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
-      <!-- Example single danger button -->
+    <ul class="navbar-nav">
       @auth
-      <div class="btn-group d-flex align-items-center">
-        <div type="button" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-          {{ auth()->user()->name }}
-        </div>
-        <img src="images/lilgru.jpg" alt="profile" width="44" class="me-4 p-1 rounded-circle ms-2">
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Profile</a></li>
-          <li><a class="dropdown-item" href="#">Dashboard</a></li>
-          <li><hr class="dropdown-divider"></li>
-          <li>
-            <form action="/logout" method="post">
-              @csrf
-              <input class="dropdown-item" type="submit" value="Logout">
-            </form>
-          </li>
-        </ul>
-      </div>
+        <li class="nav-item btn-group">
+          <a class="nav-link text-white text-decoration-none dropdown-toggle no-arrow me-4" data-bs-toggle="dropdown" aria-expanded="false">
+            {{ auth()->user()->name }}
+            <img src="images/lilgru.jpg" alt="profile" width="44" class="rounded-circle ms-2">
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end mt-2 me-4">
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" href="#">Dashboard</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+          </ul>
+        </li>
       @else
-      <li><a href="#">Login</a></li>
+        <li><a href="#" class="nav-link text-white text-decoration-none me-4">Login</a></li>
       @endauth
-      </ul>
-    </div>
+    </ul>
   </div>
 </nav>
