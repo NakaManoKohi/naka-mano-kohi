@@ -20,14 +20,15 @@
 				<img class="mb-4 w-50" src="/images/Naka_Mano_Kohi_yellow.png" alt="kohi-logo">
 			</div>
 			<div class="form-column col-7 p-0 bg-yellow h-100 d-flex justify-content-center align-items-center" style="box-shadow: 10px 10px rgba(0,0,0,0.3)">
-				<form class="w-75" action="/" method="get">
+				<form class="w-75" action="/register" method="post">
+					@csrf
 					<h1 class="h3 mb-3 fw-bold">Buat Akun</h1>
 					<div class="form-floating">
-						<input type="email" class="form-control mb-4 rounded-0 border-0" id="floatingInput" placeholder="name@example.com" name="name">
+						<input type="text" class="form-control mb-4 rounded-0 border-0" id="floatingInput" placeholder="name@example.com" name="name">
 						<label for="floatingInput">Name</label>
 					</div>
 					<div class="form-floating">
-						<input type="email" class="form-control mb-4 rounded-0 border-0" id="floatingInput" placeholder="name@example.com" name="username">
+						<input type="text" class="form-control mb-4 rounded-0 border-0" id="floatingInput" placeholder="name@example.com" name="username">
 						<label for="floatingInput">Username</label>
 					</div>
 					<div class="form-floating">

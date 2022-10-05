@@ -24,11 +24,11 @@
 					@csrf
 					<h1 class="h3 mb-3 fw-bold">Masuk Kohiverse</h1>
 					<div class="form-floating">
-						<input type="email" class="form-control mb-4 rounded-0 border-0" id="floatingInput" placeholder="name@example.com">
+						<input type="email" class="form-control mb-4 rounded-0 border-0" id="floatingInput" placeholder="name@example.com" name="email">
 						<label for="floatingInput">Email address</label>
 					</div>
 					<div class="form-floating">
-						<input type="password" class="form-control mb-4 rounded-0 border-0" id="floatingPassword" placeholder="Password">
+						<input type="password" class="form-control mb-4 rounded-0 border-0" id="floatingPassword" placeholder="Password" name="password">
 						<label for="floatingPassword">Password</label>
 					</div>
 					<button class="w-50 button button-brown mb-3 fs-5" type="submit">Shot</button>

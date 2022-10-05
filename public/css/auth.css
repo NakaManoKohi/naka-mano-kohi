@@ -45,6 +45,6 @@ body {
 
 @media screen and (max-width:1200px) {
   #form-wrapper{
-    height: 100%;
+  height: 100%;
   }
 }
