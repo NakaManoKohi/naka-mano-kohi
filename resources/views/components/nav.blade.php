@@ -8,12 +8,22 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a href="#" class="nav-link text-white text-decoration-none">Papoy, LilGru
-            <img src="images/lilgru.jpg" alt="profile" width="44" class="me-4 p-1 rounded-circle">
-          </a>
-        </li>
+      <!-- Example single danger button -->
+      @auth
+      <div class="btn-group">
+        <div type="button" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          {{ auth()->user()->name }}
+        </div>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Profile</a></li>
+          <li><a class="dropdown-item" href="#">Dashboard</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="/logout">Logout</a></li>
+        </ul>
+      </div>
+      @else
+      <li><a href="#">Login</a></li>
+      @endauth
       </ul>
     </div>
   </div>
