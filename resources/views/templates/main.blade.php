@@ -17,7 +17,7 @@
   
   <div class="col-12 d-flex">
     @include('components.sidenav')
-    <div class="content bg-secondary-grey">
+    <div class="content position-fixed overflow-auto bg-secondary-grey">
       @yield('content')
     </div>
   </div>

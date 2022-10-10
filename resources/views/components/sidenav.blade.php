@@ -1,3 +1,3 @@
-<div class="bg-yellow sticky-top sidenav">
+<div class="bg-yellow position-fixed sidenav">
 
 </div>
