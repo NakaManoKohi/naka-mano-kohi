@@ -30,9 +30,13 @@
 }
 .card-events{height: 240px; width: 170px;}
 .card-section{border: 0;}
+.card-aside{height: calc(50% - 0.5rem);}
 .dropdown-toggle.no-arrow::after {display: none;}
 .blog-card{margin-bottom: 1rem;}
 .blog-card:nth-child(odd){padding-right: 0.5rem;}
 .blog-card:nth-child(even){padding-left: 0.5rem;}
 .blog-card > * {height: 200px;} /* Testing */
 .aside-home{top: 1rem!important; height: calc(100vh - 108px);}
+.ranking{border-radius: 0 0 var(--bs-card-border-radius) var(--bs-card-border-radius);}
+.ranking > *{margin-bottom: 1rem!important;}
+.ranking > *:nth-last-child(1) {margin-bottom: 0!important;}
