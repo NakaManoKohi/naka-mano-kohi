@@ -25,17 +25,30 @@
 					@if(session()->has('success'))
 					<div class="alert alert-success alert-dismissible fade show" role="alert">
 						{{ session('success') }}
-						<button type="button" class="btn-close" data-bs-dissmiss="alert" aria-label="close"></button>
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
 					</div>
 					@endif
+
+					@if(session()->has('loginError'))
+					<div class="alert alert-warning alert-dismissible fade show" role="alert">
+						{{ session('loginError') }}
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					  </div>
+					@endif
 					@csrf
-					<div class="form-floating">
-						<input type="email" class="form-control mb-4 rounded-0 border-0" id="floatingInput" placeholder="name@example.com" name="email">
+					<div class="form-floating mb-3">
+						<input type="email" class="form-control rounded-0 border-0" id="floatingInput" placeholder="name@example.com" name="email" autofocus required value="{{ old('email') }}">
 						<label for="floatingInput">Email address</label>
+						@error('email')
+							<div class="invalid-feedback">{{ $message }}</div>
+						@enderror
 					</div>
 					<div class="form-floating">
-						<input type="password" class="form-control mb-4 rounded-0 border-0" id="floatingPassword" placeholder="Password" name="password">
+						<input type="password" class="form-control mb-4 rounded-0 border-0" id="floatingPassword" placeholder="Password" name="password" required>
 						<label for="floatingPassword">Password</label>
+						@error('password')
+							<div class="invalid-feedback">{{ $message }}</div>
+						@enderror
 					</div>
 					<button class="w-50 button button-brown mb-3 fs-5" type="submit">Shot</button>
 					<p class="fs-5">Buat Akun Kopi Mu! <a href="/register" class="text-primary text-decoration-none">Shot It</a></p>

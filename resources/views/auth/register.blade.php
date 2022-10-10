@@ -23,21 +23,33 @@
 				<form class="w-75" action="/register" method="post">
 					@csrf
 					<h1 class="h3 mb-3 fw-bold">Buat Akun</h1>
-					<div class="form-floating">
-						<input type="text" class="form-control mb-4 rounded-0 border-0" id="floatingInput" placeholder="name@example.com" name="name">
+					<div class="form-floating mb-3">
+						<input type="text" class="form-control rounded-0 border-0 @error('name') is-invalid @enderror" id="floatingInput" placeholder="name@example.com" name="name" value="{{ old('name') }}" autofocus required>
 						<label for="floatingInput">Name</label>
+						@error('email')
+							<div class="invalid-feedback">{{ $message }}</div>
+						@enderror
 					</div>
-					<div class="form-floating">
-						<input type="text" class="form-control mb-4 rounded-0 border-0" id="floatingInput" placeholder="name@example.com" name="username">
+					<div class="form-floating mb-3">
+						<input type="text" class="form-control rounded-0 border-0 @error('username') is-invalid @enderror" id="floatingInput" placeholder="name@example.com" name="username" value="{{ old('username') }}" required>
 						<label for="floatingInput">Username</label>
+						@error('username')
+							<div class="invalid-feedback">{{ $message }}</div>
+						@enderror
 					</div>
-					<div class="form-floating">
-						<input type="email" class="form-control mb-4 rounded-0 border-0" id="floatingInput" placeholder="name@example.com" name="email">
+					<div class="form-floating mb-3">
+						<input type="email" class="form-control rounded-0 border-0 @error('email') is-invalid @enderror" id="floatingInput" placeholder="name@example.com" name="email" value="{{ old('email') }}" required>
 						<label for="floatingInput">Email</label>
+						@error('email')
+							<div class="invalid-feedback">{{ $message }}</div>
+						@enderror
 					</div>
-					<div class="form-floating">
-						<input type="password" class="form-control mb-4 rounded-0 border-0" id="floatingPassword" placeholder="Password" name="password">
+					<div class="form-floating mb-3 ">
+						<input type="password" class="form-control rounded-0 border-0 @error('password') is-invalid @enderror" id="floatingPassword" placeholder="Password" name="password" required>
 						<label for="floatingPassword">Password</label>
+						@error('password')
+							<div class="invalid-feedback">{{ $message }}</div>
+						@enderror
 					</div>
 					<button class="w-50 button button-brown mb-3 fs-5" type="submit">Shot</button>
 					<p class="fs-5">Akun nya udah ada? <a href="/login" class="text-primary text-decoration-none">Tamping</a></p>
