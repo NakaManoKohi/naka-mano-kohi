@@ -14,16 +14,9 @@
 .bg-secondary-grey {background-color: var(--secondary-grey);}
 .button-brown{background-color: var(--brown);}
 .button-brown:hover{background-color: #fff;}
-.border-yellow-1{border: 1px solid var(--yellow)!important;}
-.border-yellow-2{border: 2px solid var(--yellow)!important;}
-.border-yellow-3{border: 3px solid var(--yellow)!important;}
-.border-yellow-4{border: 4px solid var(--yellow)!important;}
-.border-yellow-5{border: 5px solid var(--yellow)!important;}
-.border-black-1{border: 1px solid var(--bs-black)!important;}
-.border-black-2{border: 2px solid var(--bs-black)!important;}
-.border-black-3{border: 3px solid var(--bs-black)!important;}
-.border-black-4{border: 4px solid var(--bs-black)!important;}
-.border-black-5{border: 5px solid var(--bs-black)!important;}
+.border-1-rem{border: 1rem solid;}
+.border-yellow{border-color: var(--yellow)!important;}
+.border-primary-grey{border-color: var(--primary-grey)!important;}
 .scrollbar-none::-webkit-scrollbar{width: 0; height: 0;}
 .sidenav, .content{top: 76px!important;}
 .sidenav{
