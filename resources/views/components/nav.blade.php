@@ -4,6 +4,11 @@
       <img src="images/Naka_Mano_Kohi_yellow.png" alt="logo" width="60" class="me-4">
       <h6 class="h6 m-0 text-yellow">Naka Mano Kohi</h6>
     </a>
+    <form action="" class="col-5 p-2 align-self-stretch d-flex align-item-baseline gap-3">
+      @csrf
+      <input type="text" placeholder="Search" class="rounded col-10">
+      <button type="submit" class="rounded col-2 ms-auto">Search</button>
+    </form>
     <button class="navbar-toggler bg-white color-edge" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

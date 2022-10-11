@@ -24,12 +24,16 @@ Route::get('/', function () {return view('home', [
     'title' => 'Home'
 ]);});
 
-Route::get('/login', [LoginController::class, 'index']);
-Route::post('/login', [LoginController::class, 'authenticate']);
-Route::post('/logout', [LoginController::class, 'logout']);
+Route::controller(LoginController::class)->group(function() {
+    Route::get('/login', 'index');
+    Route::post('/login', 'authenticate');
+    Route::post('/logout', 'logout');
+});
 
-Route::get('/register', [RegisterController::class, 'index']);
-Route::post('/register', [RegisterController::class, 'registerUser']);
+Route::controller(RegisterController::class)->group(function() {
+    Route::get('/register', 'index');
+    Route::post('/register', 'registerUser');
+});
 
 Route::get('/dashboard', function(){
     return view('dashboard.index',[

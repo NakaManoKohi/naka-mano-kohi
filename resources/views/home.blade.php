@@ -11,19 +11,19 @@
           <h6 class="h6 px-4 mb-3 fw-bold">Events</h6>
           <div class="col-12 mb-4 overflow-auto scrollbar-none">
             <div class="d-flex w-fit">
-              <div class="card border-yellow-5 me-3 card-events">
+              <div class="card border-5 border-yellow border me-3 card-events">
   
               </div>
-              <div class="card border-yellow-5 me-3 card-events">
+              <div class="card border-5 border-yellow border me-3 card-events">
   
               </div>
-              <div class="card border-yellow-5 me-3 card-events">
+              <div class="card border-5 border-yellow border me-3 card-events">
   
               </div>
-              <div class="card border-yellow-5 me-3 card-events">
+              <div class="card border-5 border-yellow border me-3 card-events">
   
               </div>
-              <div class="card border-yellow-5 me-3 card-events">
+              <div class="card border-5 border-yellow border me-3 card-events">
   
               </div>
             </div>
@@ -31,22 +31,22 @@
           <h6 class="h6 px-4 mb-3 fw-bold">Blogs</h6>
           <div class="d-flex flex-wrap col-12">
             <div class="blog-card col-6">
-              <div class="card card-body border-yellow-5">
+              <div class="card card-body border border-5 border-yellow">
 
               </div>
             </div>
             <div class="blog-card col-6">
-              <div class="card card-body border-yellow-5">
+              <div class="card card-body border border-5 border-yellow">
 
               </div>
             </div>
             <div class="blog-card col-6">
-              <div class="card card-body border-yellow-5">
+              <div class="card card-body border border-5 border-yellow">
 
               </div>
             </div>
             <div class="blog-card col-6">
-              <div class="card card-body border-yellow-5">
+              <div class="card card-body border border-5 border-yellow">
 
               </div>
             </div>
@@ -54,13 +54,13 @@
         </div>
       </section>
     </main>
-    <aside class="col-3 ps-2 position-sticky aside-home">
-      <section class="col-12 bg-primary-grey card h-50 card-section">
+    <aside class="col-3 ps-2 position-sticky aside-home d-flex flex-column gap-3">
+      <section class="col-12 bg-primary-grey card card-section card-aside">
         <div class="card-header bg-brown text-white">
           <h6 class="h6">Member Of The Month</h6>
         </div>
-        <div class="card-body overflow-auto scrollbar-none">
-          <div class="card-body bg-yellow rounded mb-2">
+        <div class="card-body ranking p-0 border-1-rem border-primary-grey overflow-auto scrollbar-none">
+          <div class="card-body bg-yellow rounded">
             <div class="d-flex align-items-center">
               <img src="images/lilgru.jpg" alt="profile" width="44" class="me-3 rounded-circle border-black-3">
               <div class="d-flex flex-column text-nowrap overflow-hidden">
@@ -70,7 +70,7 @@
               </div>
             </div>
           </div>
-          <div class="card-body bg-secondary-grey rounded mb-2">
+          <div class="card-body bg-secondary-grey rounded">
             <div class="d-flex align-items-center">
               <img src="images/uraracak.png" alt="profile" width="44" class="me-3 rounded-circle border-black-3">
               <div class="d-flex flex-column text-nowrap overflow-hidden">
@@ -93,11 +93,20 @@
           </div>
         </div>
       </section>
-      {{-- <section class="col-12 bg-primary-grey card card-section">
+      <section class="col-12 bg-primary-grey card card-section card-aside">
         <div class="card-header bg-brown text-white">
           <h6 class="h6">Public Chat</h6>
         </div>
-      </section> --}}
+        <div class="card-body">
+
+        </div>
+        <div class="card-footer">
+          <form action="" class="d-flex align-items-stretch">
+            <input type="text" name="" id="" class="col-9 rounded-pill">
+            <button type="submit" class="ms-auto col-2 rounded-pill">Push</button>
+          </form>
+        </div>
+      </section>
     </aside>
   </div>
 @endsection
