@@ -30,3 +30,9 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'registerUser']);
+
+Route::get('/dashboard', function(){
+    return view('dashboard.index',[
+        'title' => 'Dashboard'
+    ]);
+});

@@ -17,7 +17,7 @@
           </a>
           <ul class="dropdown-menu dropdown-menu-end mt-2 me-4">
             <li><a class="dropdown-item" href="#">Profile</a></li>
-            <li><a class="dropdown-item" href="#">Dashboard</a></li>
+            <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
             <li><hr class="dropdown-divider"></li>
             <li>
               <form action="/logout" method="post">
