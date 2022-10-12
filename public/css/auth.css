@@ -8,8 +8,9 @@ body {font-family: 'Share Tech', sans-serif;}
   z-index: 2;
 }
 
+.bg-form{box-shadow: 10px 0 rgba(0, 0, 0, 0.3);}
 .bg-form-margin{width: 100px;}
-.container-form{margin-left: 100px; min-height: 500px;}
+.container-form{margin-left: 100px; min-height: 65%;}
 .img-column{border-radius: 20px 0 0 20px;}
 .form-column{border-radius: 0 20px 20px 0;}
 .coffee-img{
@@ -17,7 +18,8 @@ body {font-family: 'Share Tech', sans-serif;}
   background-size: contain;
   height: 320px;
   width: 320px;
-  right: -80px
+  right: -80px;
+  z-index: -99;
 }
 .coffee-img-top{top: -80px;}
 .coffee-img-bottom{bottom: -80px;}
