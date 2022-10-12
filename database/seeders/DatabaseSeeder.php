@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use App\Models\Blog;
 
 class DatabaseSeeder extends Seeder
 {
@@ -29,5 +30,6 @@ class DatabaseSeeder extends Seeder
         ]);
         
         User::factory(5)->create();
+        Blog::factory(20)->create();
     }
 }
