@@ -3,9 +3,9 @@
 @section('content')
   <div class="col-12 d-flex p-3">
     <main class="col-9 pe-2">
-      <section class="col-12 bg-primary-grey card card-section">
+      <section class="col-12 bg-primary-grey card border-0">
         <div class="card-header bg-brown text-white">
-          <h3 class="h3">Home</h3>
+          <h3>Home</h3>
         </div>
         <div class="card-body">
           <h6 class="h6 px-4 mb-3 fw-bold">Events</h6>
@@ -55,7 +55,7 @@
       </section>
     </main>
     <aside class="col-3 ps-2 position-sticky aside-home d-flex flex-column gap-3">
-      <section class="col-12 bg-primary-grey card card-section card-aside">
+      <section class="col-12 bg-primary-grey card border-0 card-aside">
         <div class="card-header bg-brown text-white">
           <h6 class="h6">Member Of The Month</h6>
         </div>
@@ -70,7 +70,7 @@
               </div>
             </div>
           </div>
-          <div class="card-body bg-secondary-grey rounded">
+          <div class="card-body bg-tertiary-grey rounded">
             <div class="d-flex align-items-center">
               <img src="images/uraracak.png" alt="profile" width="44" class="me-3 rounded-circle border-black-3">
               <div class="d-flex flex-column text-nowrap overflow-hidden">
@@ -93,7 +93,7 @@
           </div>
         </div>
       </section>
-      <section class="col-12 bg-primary-grey card card-section card-aside">
+      <section class="col-12 bg-primary-grey card border-0 card-aside">
         <div class="card-header bg-brown text-white">
           <h6 class="h6">Public Chat</h6>
         </div>

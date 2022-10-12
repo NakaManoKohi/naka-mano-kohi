@@ -1,6 +1,6 @@
 <nav class="sticky-top navbar navbar-expand-lg navbar-light bg-brown p-2">
   <div class="container-fluid d-flex justify-content-between align-items-center text-white">
-    <a href="#" class="text-white d-flex align-items-center text-decoration-none">
+    <a href="/" class="text-white d-flex align-items-center text-decoration-none">
       <img src="images/Naka_Mano_Kohi_yellow.png" alt="logo" width="60" class="me-4">
       <h6 class="h6 m-0 text-yellow">Naka Mano Kohi</h6>
     </a>
@@ -23,6 +23,7 @@
           <ul class="dropdown-menu dropdown-menu-end mt-2 me-4">
             <li><a class="dropdown-item" href="#">Profile</a></li>
             <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
+            <li><a class="dropdown-item" href="/setting">Setting</a></li>
             <li><hr class="dropdown-divider"></li>
             <li>
               <form action="/logout" method="post">

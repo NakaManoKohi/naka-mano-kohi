@@ -25,6 +25,12 @@ use Illuminate\Http\Request;
 Route::get('/', function () {return view('home', [
     'title' => 'Home'
 ]);});
+Route::get('/home', function () {return view('home', [
+    'title' => 'Home'
+]);});
+Route::get('/setting', function() {return view('setting', [
+    'title' => 'Setting'
+]);});
 
 Route::controller(LoginController::class)->group(function() {
     Route::get('/login', 'index');
