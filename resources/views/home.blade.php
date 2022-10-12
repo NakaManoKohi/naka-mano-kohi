@@ -55,7 +55,7 @@
       </section>
     </main>
     <aside class="col-3 ps-2 position-sticky aside-home d-flex flex-column gap-3">
-      <section class="col-12 bg-primary-grey card border-0 card-aside">
+      <section class="col-12 bg-primary-grey card border-0 gap-halfed-height">
         <div class="card-header bg-brown text-white">
           <h6 class="h6">Member Of The Month</h6>
         </div>
@@ -93,7 +93,7 @@
           </div>
         </div>
       </section>
-      <section class="col-12 bg-primary-grey card border-0 card-aside">
+      <section class="col-12 bg-primary-grey card border-0 gap-halfed-height">
         <div class="card-header bg-brown text-white">
           <h6 class="h6">Public Chat</h6>
         </div>
