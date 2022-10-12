@@ -1,43 +1,29 @@
-html,
-body {
-  height: 100%;
-}
-
-body {
-  /* display: flex;
-  align-items: center;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background-color: #f5f5f5; */
-  font-family: 'Share Tech', sans-serif;
-}
+html, body {height: 100%;}
+body {font-family: 'Share Tech', sans-serif;}
 
 .form-signin {
   padding: 15px;
 }
-
 .form-signin .form-floating:focus-within {
   z-index: 2;
 }
 
-.img-column{
-  border-top-left-radius: 20px;
-  border-bottom-left-radius:20px ;
-}
-
-.form-column{
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-}
-
-.left-side-decoration{
+.bg-form{box-shadow: 10px 0 rgba(0, 0, 0, 0.3);}
+.bg-form-margin{width: 100px;}
+.container-form{margin-left: 100px; min-height: 65%;}
+.img-column{border-radius: 20px 0 0 20px;}
+.form-column{border-radius: 0 20px 20px 0;}
+.coffee-img{
   background-image: url(../images/coffee-image.png);
   background-size: contain;
+  height: 320px;
+  width: 320px;
+  right: -80px;
+  z-index: -99;
 }
-
-.auth-box-shadow{
-  box-shadow: 10px 10px rgba(0, 0, 0, 0.3);
-}
+.coffee-img-top{top: -80px;}
+.coffee-img-bottom{bottom: -80px;}
+.auth-box-shadow{box-shadow: 10px 10px rgba(0, 0, 0, 0.3);}
 
 #form-wrapper{
   height: 650px;
