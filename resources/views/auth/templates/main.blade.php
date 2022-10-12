@@ -72,7 +72,7 @@
     <link rel="stylesheet" href="/css/auth.css">
     
   </head>
-  <body class="text-center">
+  <body class="text-center overflow-hidden bg-tertiary-grey">
     @yield('container')
   </body>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
