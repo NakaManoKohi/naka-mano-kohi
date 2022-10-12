@@ -5,7 +5,7 @@
     <main class="col-9 pe-2">
       <section class="col-12 bg-primary-grey card border-0">
         <div class="card-header bg-brown text-white">
-          <h3>Home</h3>
+          <h3><a href="/" class="text-decoration-none text-white">Home</a></h3>
         </div>
         <div class="card-body">
           <h6 class="h6 px-4 mb-3 fw-bold">Events</h6>
@@ -30,27 +30,22 @@
           </div>
           <h6 class="h6 px-4 mb-3 fw-bold">Blogs</h6>
           <div class="d-flex flex-wrap col-12">
+            @foreach ($blogs as $blog)
             <div class="blog-card col-6">
-              <div class="card card-body border border-5 border-yellow">
-
+              <div class="card card-body border border-5 border-yellow card-bg
+              ">
+                  <h5>{{ $blog->title }}</h5>
+                  <p style="font-size: 12px;">{{ $blog->excerpt }}</p>
+                  <div class="col-4">
+                    <button class="btn btn-primary">Read More</button>
+                  </div>
               </div>
             </div>
-            <div class="blog-card col-6">
-              <div class="card card-body border border-5 border-yellow">
-
-              </div>
-            </div>
-            <div class="blog-card col-6">
-              <div class="card card-body border border-5 border-yellow">
-
-              </div>
-            </div>
-            <div class="blog-card col-6">
-              <div class="card card-body border border-5 border-yellow">
-
-              </div>
-            </div>
-          </div>
+            @endforeach
+          </div>              
+          <div class="mt-4 d-flex justify-content-end">
+            {{ $blogs->links() }}
+        </div>
         </div>
       </section>
     </main>

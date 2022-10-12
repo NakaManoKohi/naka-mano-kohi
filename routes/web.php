@@ -1,11 +1,18 @@
 <?php
 
+// Illuminate/support
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+
+// Controller
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\DashboardBlogController;
-use Illuminate\Http\Request;
+
+
+// Models
+use App\Models\Blog;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +30,8 @@ use Illuminate\Http\Request;
 // });
 
 Route::get('/', function () {return view('home', [
-    'title' => 'Home'
+    'title' => 'Home',
+    'blogs' => Blog::latest()->paginate(4)
 ]);});
 Route::get('/home', function () {return view('home', [
     'title' => 'Home'
@@ -44,7 +52,8 @@ Route::controller(RegisterController::class)->group(function() {
 });
 
 Route::controller(BlogController::class)->group(function(){
-    Route::get('blog', 'index');
+    Route::get('/blog', 'index');
+    Route::get('/blog/{blog:slug}', 'show');
 });
 
 Route::resource('/dashboard/blog', DashboardBlogController::class);

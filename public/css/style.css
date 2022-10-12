@@ -54,3 +54,8 @@
     background-color: var(--secondary-black);
     height: fit-content;
 }
+
+.card-bg{
+    background-image: url('https://source.unsplash.com/800x600/?coffee');
+    background-size: cover;
+}
