@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\DashboardBlogController;
 use Illuminate\Http\Request;
 
 /*
@@ -40,6 +42,12 @@ Route::controller(RegisterController::class)->group(function() {
     Route::get('/register', 'index');
     Route::post('/register', 'registerUser');
 });
+
+Route::controller(BlogController::class)->group(function(){
+    Route::get('blog', 'index');
+});
+
+Route::resource('/dashboard/blog', DashboardBlogController::class);
 
 Route::get('/dashboard', function(){
     return view('dashboard.index',[
