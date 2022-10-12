@@ -40,3 +40,9 @@ Route::controller(RegisterController::class)->group(function() {
     Route::get('/register', 'index');
     Route::post('/register', 'registerUser');
 });
+
+Route::get('/dashboard', function(){
+    return view('dashboard.index',[
+        'title' => 'Dashboard'
+    ]);
+});
