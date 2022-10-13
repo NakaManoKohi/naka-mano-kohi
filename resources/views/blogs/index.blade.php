@@ -8,7 +8,7 @@
           <h3><a href="/" class="text-decoration-none text-white">Home</a> / <a href="/blog" class="text-decoration-none text-white">Blog</a></h3>
         </div>
         <div class="card-body">
-            <div class="blog-card col-12">
+            <div class="col-12 mb-3">
                 <div class="card card-body border border-5 border-yellow card-bg">
                     <div class="col-6">
                         <h2>{{ $blogs[0]->title }}</h2>
