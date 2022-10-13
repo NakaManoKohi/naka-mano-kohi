@@ -49,7 +49,10 @@ class DashboardBlogController extends Controller
      */
     public function show(Blog $blog)
     {
-        //
+        return view('dashboard.blogs.show',[
+            'title' => $blog->title,
+            'blog' => $blog
+        ]);
     }
 
     /**
