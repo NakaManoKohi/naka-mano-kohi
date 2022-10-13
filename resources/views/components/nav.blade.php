@@ -34,7 +34,7 @@
           </ul>
         </li>
       @else
-        <li><a href="/login" class="nav-link text-white text-decoration-none me-4">Login</a></li>
+        <li><a href="/login" class="nav-link text-white text-decoration-none me-4">Login <i class="fa-solid fa-right-to-bracket"></i></a></li>
       @endauth
     </ul>
   </div>
