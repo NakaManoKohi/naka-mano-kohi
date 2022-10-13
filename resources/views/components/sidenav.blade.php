@@ -1,16 +1,16 @@
-<div class="bg-yellow position-fixed sidenav pt-4">
-  <div class="d-flex justify-content-center">
-    <ul class="list-unstyled">
-      <li class="mb-4">
-        <a href="/" class="{{ Request::is('/') ? 'text-brown' : 'text-dark' }}">
+<div class="bg-yellow position-fixed sidenav">
+    <ul class="list-unstyled mb-0">
+      <li class="sidenav-nav">
+        <a href="/" class="{{ Request::is('/') ? 'text-dark active' : 'text-brown' }}">
           <i class="fa fas fa-home fs-2"></i>
+          <span>Home</span>
         </a>
       </li>
-      <li class="mb-4">
-        <a href="/blog" class="{{ Request::is('blog*') ? 'text-brown' : 'text-dark' }}">
+      <li class="sidenav-nav">
+        <a href="/blog" class="{{ Request::is('blog*') ? 'text-dark active' : 'text-brown' }}">
           <i class="fa-solid fa-newspaper fs-2"></i>
+          <span>Blogs</span>
         </a>
       </li>
     </ul>
-  </div>
 </div>
