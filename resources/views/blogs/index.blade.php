@@ -19,7 +19,7 @@
             </div>
           <h4 class="h4 px-4 mb-3 fw-bold">Blogs</h4>
           <div class="d-flex flex-wrap col-12">
-            @foreach ($blogs as $blog)
+            @foreach ($blogs->skip(1) as $blog)
             <div class="blog-card col-6">
             <div class="card card-body border border-5 border-yellow card-bg
               ">
