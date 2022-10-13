@@ -1,7 +1,7 @@
 @extends('templates.main')
 @section('content')
   <div class="col-12 d-flex p-3 content-container">
-    <main class="col-12 d-flex card border-0">
+    <main class="col-12 d-flex card border-0 bg-primary-grey">
       <div class="card-header bg-brown text-white">
         <h3>Setting</h3>
       </div>
@@ -13,7 +13,6 @@
           <a class="setting-nav-item border-bottom border-2 border-white text-decoration-none" role="button" id="password"><h4 class="fw-normal text-white">Password</h4></a>
         </nav>
         <section class="col-9 p-3 setting-content">
-          <setting-profile></setting-profile>
         </section>
       </div>
     </main>

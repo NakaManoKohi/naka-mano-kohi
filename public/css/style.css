@@ -38,6 +38,10 @@
     height: calc(100vh - 76px);
 }
 .card-events{height: 240px; width: 170px;}
+.card-bg{
+    background-image: url('https://source.unsplash.com/800x600/?coffee');
+    background-size: cover;
+}
 .dropdown-toggle.no-arrow::after {display: none;}
 .blog-card{margin-bottom: 1rem;}
 .blog-card:nth-child(odd){padding-right: 0.5rem;}
@@ -55,13 +59,10 @@
     background-color: var(--secondary-black);
     height: fit-content;
 }
-<<<<<<< HEAD
-
-.card-bg{
-    background-image: url('https://source.unsplash.com/800x600/?coffee');
-    background-size: cover;
-}
-=======
 .setting-nav-item.active{background-color: var(--primary-black);}
 .setting-nav-item.active > *{font-weight: bold!important;}
->>>>>>> 717b528393308a32596d1b1c96868d41b9d0d5d9
+.setting-message>img{height: 80px;}
+.setting-message>*>p{margin: 0!important;}
+.setting-message span{font-weight: bold!important;}
+.setting-message:nth-child(1){border-top-left-radius: var(--bs-card-border-radius); border-top-right-radius: var(--bs-card-border-radius);}
+.setting-message:nth-last-child(1){border-bottom-left-radius: var(--bs-card-border-radius); border-bottom-right-radius: var(--bs-card-border-radius);}
