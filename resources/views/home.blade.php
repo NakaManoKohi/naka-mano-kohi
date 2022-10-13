@@ -8,27 +8,17 @@
           <h3><a href="/" class="text-decoration-none text-white">Home</a></h3>
         </div>
         <div class="card-body">
-          <h6 class="h6 px-4 mb-3 fw-bold">Events</h6>
-          <div class="col-12 mb-4 overflow-auto scrollbar-none">
-            <div class="d-flex w-fit">
-              <div class="card border-5 border-yellow border me-3 card-events">
-  
-              </div>
-              <div class="card border-5 border-yellow border me-3 card-events">
-  
-              </div>
-              <div class="card border-5 border-yellow border me-3 card-events">
-  
-              </div>
-              <div class="card border-5 border-yellow border me-3 card-events">
-  
-              </div>
-              <div class="card border-5 border-yellow border me-3 card-events">
-  
+          <h6 class="px-4 mb-3 fw-bold">Events</h6>
+          <div class="col-12 mb-3">
+            <div class="card card-body border border-5 border-yellow card-bg">
+              <div class="col-6">
+                <h2>{{ $blogs[0]->title }}</h2>
+                <p>{{ $blogs[0]->excerpt }}</p>
+                <a href="/blog/{{ $blogs[0]->slug }}" class="btn btn-primary btn-sm col-2">Read More</a>
               </div>
             </div>
           </div>
-          <h6 class="h6 px-4 mb-3 fw-bold">Blogs</h6>
+          <h6 class="px-4 mb-3 fw-bold">Blogs</h6>
           <div class="d-flex flex-wrap col-12">
             @foreach ($blogs as $blog)
             <div class="blog-card col-6">
