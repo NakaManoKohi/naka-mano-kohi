@@ -7,13 +7,15 @@
       </div>
       <div class="card-body d-flex align-items-stretch p-0">
         <nav class="col-3 d-flex flex-column bg-secondary-grey h-100 overflow-auto setting-nav border-end border-5 border-dark">
-          <a class="setting-nav-item border-bottom border-2 border-white text-decoration-none active" role="button" id="general"><h4 class="fw-normal text-white">General</h4></a>
-          <a class="setting-nav-item border-bottom border-2 border-white text-decoration-none" role="button" id="profile"><h4 class="fw-normal text-white">Proflie</h4></a>
-          <a class="setting-nav-item border-bottom border-2 border-white text-decoration-none" role="button" id="notifications"><h4 class="fw-normal text-white">Notifications</h4></a>
-          <a class="setting-nav-item border-bottom border-2 border-white text-decoration-none" role="button" id="membership"><h4 class="fw-normal text-white">Membership</h4></a>
-          <a class="setting-nav-item border-bottom border-2 border-white text-decoration-none" role="button" id="password"><h4 class="fw-normal text-white">Password</h4></a>
+          <a class="setting-nav-item {{ Request::is('setting#general') ? 'active' : '' }}" role="button" data="general"><h4 class="fw-normal text-white">General</h4></a>
+          <a class="setting-nav-item {{ Request::is('setting#profile') ? 'active' : '' }}" role="button" data="profile"><h4 class="fw-normal text-white">Profile</h4></a>
+          <a class="setting-nav-item {{ Request::is('setting#notifications') ? 'active' : '' }}" role="button" data="notifications"><h4 class="fw-normal text-white">Notifications</h4></a>
+          <a class="setting-nav-item {{ Request::is('setting#membership') ? 'active' : '' }}" role="button" data="membership"><h4 class="fw-normal text-white">Membership</h4></a>
+          <a class="setting-nav-item {{ Request::is('setting#password') ? 'active' : '' }}" role="button" data="password"><h4 class="fw-normal text-white">Password</h4></a>
         </nav>
+        {{-- when active --}}
         <section class="col-9 p-3 setting-content">
+
         </section>
       </div>
     </main>

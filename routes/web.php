@@ -39,6 +39,9 @@ Route::get('/home', function () {return view('home', [
 Route::get('/setting', function() {return view('setting', [
     'title' => 'Setting'
 ]);});
+Route::get('/profile', function() {return view('profile', [
+    'title' => 'Profile'
+]);});
 
 Route::controller(LoginController::class)->group(function() {
     Route::get('/login', 'index');

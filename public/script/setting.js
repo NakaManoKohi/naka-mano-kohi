@@ -1,17 +1,42 @@
-const content = document.querySelector(".setting-content");
-const general = document.querySelector("#general");
-const profile = document.querySelector("#profile");
-const notifications = document.querySelector("#notifications");
-const membership = document.querySelector("#membership");
-const password = document.querySelector("#password");
+class Setting {
+  constructor() {
+    const container = document.querySelector(".setting-content");
+    const hash = window.location.hash;
+    const general = document.querySelector("[data='general']");
+    const profile = document.querySelector("[data='profile']");
+    const notifications = document.querySelector("[data='notifications']");
+    const membership = document.querySelector("[data='membership']");
+    const password = document.querySelector("[data='password']");
+    this.event([general, profile, notifications, membership, password]);
+    if(hash.includes('#profile')) {
+      this.content(container, 'setting-profile', profile);
+    } else if(hash.includes('#notifications')) {
+      this.content(container, 'setting-notifications', notifications);
+    } else if(hash.includes('#membership')) {
+      this.content(container, 'setting-membership', membership);
+    } else if(hash.includes('#password')) {
+      this.content(container, 'setting-password', password);
+    } else {
+      this.content(container, 'setting-general', general);
+    }
+  }
 
-general.addEventListener("click", () => {content.innerHTML = `<setting-general></setting-general>`; active(general);});
-profile.addEventListener("click", () => {content.innerHTML = `<setting-profile></setting-profile>`; active(profile);});
-notifications.addEventListener("click", () => {content.innerHTML = `<setting-notifications></setting-notifications>`;active(notifications);});
-membership.addEventListener("click", () => {content.innerHTML = `<setting-membership></setting-membership>`; active(membership);});
-password.addEventListener("click", () => {content.innerHTML = `<setting-password></setting-password>`;active(password);});
+  event(navItems) {
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        window.location.hash=`#${item.getAttribute('data')}`;
+        window.location.reload();
+      })
+    });
+  }
 
-function active(element) {
-  (document.querySelector('.setting-nav .active')).classList.remove('active');
-  element.classList.add('active');
+  content(container, element, elementNav) {
+    container.innerHTML = `<${element}></${element}>`;
+  }
+
+  active(elementNav) {
+    (document.querySelector('.setting-nav .active')).classList.remove('active');
+    elementNav.classList.add('active');
+  }
 }
+new Setting();

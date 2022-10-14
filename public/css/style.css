@@ -75,6 +75,8 @@
     width: 100%;
     background-color: var(--secondary-black);
     height: fit-content;
+    border-bottom: 2px solid var(--bs-white);
+    text-decoration: none;
 }
 .setting-nav-item.active{background-color: var(--primary-black);}
 .setting-nav-item.active > *{font-weight: bold!important;}
