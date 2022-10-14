@@ -7,7 +7,8 @@
       </div>
       <div class="card-body d-flex align-items-stretch p-0">
         <nav class="col-3 d-flex flex-column bg-secondary-grey h-100 overflow-auto setting-nav border-end border-5 border-dark">
-          <a class="setting-nav-item border-bottom border-2 border-white text-decoration-none active" role="button" id="profile"><h4 class="fw-normal text-white">Proflie</h4></a>
+          <a class="setting-nav-item border-bottom border-2 border-white text-decoration-none active" role="button" id="general"><h4 class="fw-normal text-white">General</h4></a>
+          <a class="setting-nav-item border-bottom border-2 border-white text-decoration-none" role="button" id="profile"><h4 class="fw-normal text-white">Proflie</h4></a>
           <a class="setting-nav-item border-bottom border-2 border-white text-decoration-none" role="button" id="notifications"><h4 class="fw-normal text-white">Notifications</h4></a>
           <a class="setting-nav-item border-bottom border-2 border-white text-decoration-none" role="button" id="membership"><h4 class="fw-normal text-white">Membership</h4></a>
           <a class="setting-nav-item border-bottom border-2 border-white text-decoration-none" role="button" id="password"><h4 class="fw-normal text-white">Password</h4></a>

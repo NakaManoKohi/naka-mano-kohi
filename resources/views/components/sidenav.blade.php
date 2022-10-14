@@ -12,5 +12,11 @@
           <span>Blogs</span>
         </a>
       </li>
+      <li class="sidenav-nav">
+        <a href="/setting" class="{{ Request::is('setting*') ? 'text-dark active' : 'text-brown' }}">
+          <i class="fa-solid fa-gear fs-2"></i>
+          <span>Setting</span>
+        </a>
+      </li>
     </ul>
 </div>
