@@ -8,8 +8,8 @@
   <link rel="icon" type="image/png" href="images/Naka_Mano_Kohi_yellow.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
   <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css">
-    <link rel="stylesheet" href="/css/dashboard.css">
-    
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <link rel="stylesheet" href="/assets/fontAwesome/css/all.css">
 
     <style>
       .bd-placeholder-img {
@@ -71,7 +71,12 @@
   <body>
     
 <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">Company name</a>
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">
+    <div class="logo-container d-flex justify-content-center align-items-center flex-row">
+      <img src="/images/Naka_Mano_Kohi_yellow.png" alt="logo" class="mx-2 h-100">
+      Dashboard
+    </div>
+  </a>
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -101,7 +106,7 @@
           </button>
         </div>
     </div>
-    @yield('container')
+    @yield('content')
     </main>
   </div>
 </div>

@@ -1,5 +1,5 @@
 @extends('dashboard.templates.main')
 
-@section('container')
+@section('content')
     <h1>Hello World</h1>
 @endsection
