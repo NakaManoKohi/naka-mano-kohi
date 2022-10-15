@@ -32,10 +32,10 @@ class Setting {
 
   content(container, element, elementNav) {
     container.innerHTML = `<${element}></${element}>`;
+    this.active(elementNav);
   }
 
   active(elementNav) {
-    (document.querySelector('.setting-nav .active')).classList.remove('active');
     elementNav.classList.add('active');
   }
 }
