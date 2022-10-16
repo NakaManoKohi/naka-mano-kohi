@@ -9,7 +9,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\DashboardBlogController;
-
+use App\Http\Controllers\ProfileController;
 
 // Models
 use App\Models\Blog;
@@ -39,9 +39,6 @@ Route::get('/home', function () {return view('home', [
 Route::get('/setting', function() {return view('setting', [
     'title' => 'Setting'
 ]);});
-Route::get('/profile', function() {return view('profile', [
-    'title' => 'Profile'
-]);});
 
 Route::controller(LoginController::class)->group(function() {
     Route::get('/login', 'index');
@@ -65,4 +62,9 @@ Route::get('/dashboard', function(){
     return view('dashboard.index',[
         'title' => 'Dashboard'
     ]);
+});
+
+Route::controller(ProfileController::class)->group(function(){
+    Route::get('/profile', 'index');
+    Route::get('/profile/{user:username}', 'index');
 });

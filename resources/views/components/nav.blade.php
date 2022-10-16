@@ -21,7 +21,7 @@
             <img src="/images/lilgru.jpg" alt="profile" width="44" class="rounded-circle ms-2">
           </a>
           <ul class="dropdown-menu dropdown-menu-end mt-2 me-4">
-            <li><a class="dropdown-item" href="/profile">Profile</a></li>
+            <li><a class="dropdown-item" href="/profile/{{ auth()->user()->username }}">Profile</a></li>
             <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
             <li><a class="dropdown-item" href="/setting">Setting</a></li>
             <li><hr class="dropdown-divider"></li>
