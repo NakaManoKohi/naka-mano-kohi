@@ -13,12 +13,16 @@
           @if (($user->name) === (auth()->user()->name))
             <a href="/setting#profile" class="btn button-brown col-12 border border-3 border-dark">Edit Profile</a>
           @else
-            <a href="#" class="btn button-brown col-12 border border-3 border-dark">Follow</a>
+            @if ($following_user > 0)
+              <a href="/follow" class="btn button-brown col-12 border border-3 border-dark">Unfollow</a>
+            @else
+              <a href="/follow" class="btn button-brown col-12 border border-3 border-dark">Follow</a>
+            @endif
           @endif
           <div class="col-12 d-flex gap-2">
-            <p class="m-0 w-auto">{{ $followers }} Followers</p>
+            <p class="m-0 w-auto">{{ $followers->count() }} Followers</p>
             <p class="m-0 w-auto px-1 fw-bold">.</p>
-            <p class="m-0 w-auto">{{ $following }} Following</p>
+            <p class="m-0 w-auto">{{ $following->count() }} Following</p>
           </div>
         </div>
       </div>
