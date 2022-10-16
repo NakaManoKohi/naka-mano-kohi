@@ -9,10 +9,12 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\DashboardBlogController;
+use App\Http\Controllers\FollowsController;
 use App\Http\Controllers\ProfileController;
 
 // Models
 use App\Models\Blog;
+use App\Models\Follows;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,4 +69,6 @@ Route::get('/dashboard', function(){
 Route::controller(ProfileController::class)->group(function(){
     Route::get('/profile', 'index');
     Route::get('/profile/{user:username}', 'index');
+    Route::get('/profile/{user:username}/{follow}', 'follows');
+    Route::get('/profile/{user:username}/{unfollow}', 'follows');
 });
