@@ -86,3 +86,5 @@
 .setting-message span{font-weight: bold!important;}
 .setting-message:nth-child(1){border-top-left-radius: var(--bs-card-border-radius); border-top-right-radius: var(--bs-card-border-radius);}
 .setting-message:nth-last-child(1){border-bottom-left-radius: var(--bs-card-border-radius); border-bottom-right-radius: var(--bs-card-border-radius);}
+/* Page Profile */
+.profile-card, .timeline-card {min-height: calc(100vh - 108px);}
