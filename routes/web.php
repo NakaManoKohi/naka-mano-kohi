@@ -67,8 +67,7 @@ Route::get('/dashboard', function(){
 });
 
 Route::controller(ProfileController::class)->group(function(){
-    Route::get('/profile', 'index');
-    Route::get('/profile/{user:username}', 'index');
-    Route::get('/profile/{user:username}/{follow}', 'follows');
-    Route::get('/profile/{user:username}/{unfollow}', 'follows');
+    Route::get('/{user:username}', 'index');
+    Route::get('/{user:username}/{follow}', 'follows');
+    Route::get('/{user:username}/{unfollow}', 'follows');
 });

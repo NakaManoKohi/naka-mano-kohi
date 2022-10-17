@@ -27,10 +27,10 @@ class ProfileController extends Controller
     public function follows(User $user, $index) {
         if($index === 'follow') {
             Follows::create(['user_id' => $user->id, 'followed_by' => auth()->user()->id]);
-            return redirect('/profile/'.$user->username);
+            return redirect('/'.$user->username);
         } else {
             Follows::where([['user_id', $user->id], ['followed_by', auth()->user()->id]])->delete();
-            return redirect('/profile/'.$user->username);
+            return redirect('/'.$user->username);
         }
     }
 }

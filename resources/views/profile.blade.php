@@ -15,9 +15,9 @@
               <a href="/setting#profile" class="btn button-brown col-12 border border-3 border-dark">Edit Profile</a>
             @else
               @if ($following_user > 0)
-                <a href="/profile/{{ $user->username }}/unfollow" class="btn button-brown col-12 border border-3 border-dark">Unfollow</a>
+                <a href="/{{ $user->username }}/unfollow" class="btn button-brown col-12 border border-3 border-dark">Unfollow</a>
               @else
-                <a href="/profile/{{ $user->username }}/follow" class="btn button-brown col-12 border border-3 border-dark">Follow</a>
+                <a href="/{{ $user->username }}/follow" class="btn button-brown col-12 border border-3 border-dark">Follow</a>
               @endif
             @endif
           @endif
