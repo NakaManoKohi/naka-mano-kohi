@@ -61,6 +61,10 @@ Route::resource('/dashboard/blog', DashboardBlogController::class);
 Route::get('/dashboard/blog/checkSlug', [DashboardBlogController::class, 'checkSlug']);
 
 Route::resource('dashboard/user', DashboardUserController::class);
+Route::controller(DashboardUserController::class)->group(function(){
+    Route::get('/dashboard/user/{user:username}/activate', 'activate');
+    Route::get('/dashboard/user/{user:username}/suspend', 'suspend');
+});
 
 Route::get('/dashboard', function(){
     return view('dashboard.index',[

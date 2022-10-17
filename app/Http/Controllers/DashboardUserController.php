@@ -105,4 +105,15 @@ class DashboardUserController extends Controller
 
         return redirect('dashboard/user')->with('success', 'User has been deleted');
     }
+
+    public function suspend(User $user){
+        User::where('username', $user->username)->update(['suspend' => 1]);
+        
+        return redirect('dashboard/user')->with('suspended', $user->username . ' has been suspended');
+    }
+
+    public function activate(User $user){
+        User::where('username', $user->username)->update(['suspend' => 0]);
+        return redirect('/dashboard/user')->with('success', $user->username . ' has been activated');
+    }
 }

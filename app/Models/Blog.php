@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Blog extends Model
 {
     use HasFactory;
-    use \Cviebrock\EloquentSluggable\Sluggable;
-    
+    // use \Cviebrock\EloquentSluggable\Sluggable;
+
     protected $guarded = ['id'];
 
     public function getRouteKeyName()

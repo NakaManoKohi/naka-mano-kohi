@@ -124,8 +124,8 @@ class DashboardBlogController extends Controller
     }
 
     public function checkSlug(Request $request){
-        $slug = \Cviebrock\EloquentSluggable\Services\SlugService::createSlug(Blog::class, 'slug', $request->title);
-        return response()->json(['slug' => $slug]);
+        // $slug = \Cviebrock\EloquentSluggable\Services\SlugService::createSlug(Blog::class, 'slug', $request->title);
+        // return response()->json(['slug' => $slug]);
 
     }
 }
