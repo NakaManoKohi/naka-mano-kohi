@@ -12,8 +12,8 @@
           </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">
-            <span data-feather="file" class="align-text-bottom"></span>
+            <a class="nav-link {{ Request::is('dashboard/event*') ? 'active' : '' }}" href="/dashboard/event">
+            <i class="fa-solid fa-calendar-days"></i>
             Events
             </a>
         </li>

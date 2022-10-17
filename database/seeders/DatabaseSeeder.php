@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Blog;
+use App\Models\Events;
 use App\Models\Follows;
 
 class DatabaseSeeder extends Seeder
@@ -32,6 +33,8 @@ class DatabaseSeeder extends Seeder
         
         User::factory(5)->create();
         Blog::factory(30)->create();
+        Events::factory(10)->create();
+
         Follows::create(['user_id' => '2', 'followed_by' => '3']);
         Follows::create(['user_id' => '2', 'followed_by' => '4']);
         Follows::create(['user_id' => '2', 'followed_by' => '5']);
