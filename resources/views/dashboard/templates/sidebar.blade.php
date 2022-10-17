@@ -18,9 +18,9 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">
-            <span data-feather="file" class="align-text-bottom"></span>
-            Members
+            <a class="nav-link {{ Request::is('dashboard/user*') ? 'active' : '' }}" href="/dashboard/user">
+            <i class="fa-solid fa-user"></i>
+            Users
             </a>
           </li>
       </ul>
