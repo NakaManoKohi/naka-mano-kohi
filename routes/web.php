@@ -59,6 +59,7 @@ Route::controller(BlogController::class)->group(function(){
 });
 
 Route::resource('/dashboard/blog', DashboardBlogController::class);
+Route::get('/dashboard/blog/checkSlug', [DashboardBlogController::class, 'checkSlug']);
 
 Route::get('/dashboard', function(){
     return view('dashboard.index',[

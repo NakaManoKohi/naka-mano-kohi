@@ -42,7 +42,7 @@ class DashboardBlogController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'title' => 'required|max:255',
+            'title' => 'required|max:255|min:5',
             'slug' => 'required|unique:blogs',
             'image' => 'image|file|max:1024',
             'category_id' => 'required',
@@ -79,7 +79,10 @@ class DashboardBlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        //
+        return view('dashboard.blogs.edit',[
+            'title' => 'Dashboard Edit',
+            'blog' => $blog
+        ]);
     }
 
     /**
@@ -91,7 +94,20 @@ class DashboardBlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required|max:255|min:5',
+            'slug' => 'required|unique:blogs',
+            'image' => 'image|file|max:1024',
+            'category_id' => 'required',
+            'body' => 'required'
+        ]);
+
+        $validatedData['user_id'] = auth()->user()->id;
+        $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
+
+        Blog::where('id', $blog->id)->update($validatedData);
+
+        return redirect('/dashboard/blog')->with('success', 'The blog has been edited');
     }
 
     /**
@@ -105,5 +121,11 @@ class DashboardBlogController extends Controller
         Blog::destroy($blog->id);
 
         return redirect('/dashboard/blog')->with('success', 'The blog has been deleted');
+    }
+
+    public function checkSlug(Request $request){
+        $slug = \Cviebrock\EloquentSluggable\Services\SlugService::createSlug(Blog::class, 'slug', $request->title);
+        return response()->json(['slug' => $slug]);
+
     }
 }

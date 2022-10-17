@@ -23,7 +23,7 @@
                         <td>{{ $blog->title }}</td>
                         <td>
                         <a href="/dashboard/blog/{{ $blog->slug }}" class="btn btn-info"><i class="fa-solid fa-circle-info"></i> Detail</a>
-                        <a href="#" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
+                        <a href="/dashboard/blog/{{ $blog->slug }}/edit" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
                         <form action="/dashboard/blog/{{ $blog->slug }}" method="post" class="d-inline">
                             @method('delete')
                             @csrf
