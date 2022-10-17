@@ -14,6 +14,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardBlogController;
 use App\Http\Controllers\DashboardUserController;
+use App\Http\Controllers\DashboardEventsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,7 @@ use App\Http\Controllers\DashboardUserController;
 //     return view('welcome');
 // });
 
+// Home Route
 Route::get('/', function () {return view('home', [
     'title' => 'Home',
     'blogs' => Blog::latest()->paginate(4)
@@ -37,10 +39,13 @@ Route::get('/', function () {return view('home', [
 Route::get('/home', function () {return view('home', [
     'title' => 'Home'
 ]);});
+
+// Setting Route
 Route::get('/setting', function() {return view('setting', [
     'title' => 'Setting'
 ]);});
 
+// Authenticate Routes
 Route::controller(LoginController::class)->group(function() {
     Route::get('/login', 'index');
     Route::post('/login', 'authenticate');
@@ -52,26 +57,34 @@ Route::controller(RegisterController::class)->group(function() {
     Route::post('/register', 'registerUser');
 });
 
+// Blog Routes
 Route::controller(BlogController::class)->group(function(){
     Route::get('/blog', 'index');
     Route::get('/blog/{blog:slug}', 'show');
 });
 
-Route::resource('/dashboard/blog', DashboardBlogController::class);
-Route::get('/dashboard/blog/checkSlug', [DashboardBlogController::class, 'checkSlug']);
-
-Route::resource('dashboard/user', DashboardUserController::class);
-Route::controller(DashboardUserController::class)->group(function(){
-    Route::get('/dashboard/user/{user:username}/activate', 'activate');
-    Route::get('/dashboard/user/{user:username}/suspend', 'suspend');
-});
-
+// Dashboard Route
 Route::get('/dashboard', function(){
     return view('dashboard.index',[
         'title' => 'Dashboard'
     ]);
 });
 
+// Dashboard Blog Routes
+Route::resource('/dashboard/blog', DashboardBlogController::class);
+Route::get('/dashboard/blog/checkSlug', [DashboardBlogController::class, 'checkSlug']);
+
+// Dashboard User Routes
+Route::resource('/dashboard/user', DashboardUserController::class);
+Route::controller(DashboardUserController::class)->group(function(){
+    Route::get('/dashboard/user/{user:username}/activate', 'activate');
+    Route::get('/dashboard/user/{user:username}/suspend', 'suspend');
+});
+
+// Dashboard Event Routes
+Route::resource('/dashboard/event', DashboardEventsController::class);
+
+// Profile Routes
 Route::controller(ProfileController::class)->group(function(){
     Route::get('/{user:username}', 'index');
     Route::get('/{user:username}/{follow}', 'follows');
