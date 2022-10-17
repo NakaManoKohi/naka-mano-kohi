@@ -12,9 +12,10 @@
           <div class="col-12 mb-3">
             <div class="card card-body border border-5 border-yellow card-bg">
               <div class="col-6">
-                <h2>{{ $blogs[0]->title }}</h2>
-                <p>{{ $blogs[0]->excerpt }}</p>
-                <a href="/blog/{{ $blogs[0]->slug }}" class="btn btn-primary btn-sm col-2">Read More</a>
+                <h2>{{ $events[0]->title }}</h2>
+                <h5>{{ $events[0]->date }}</h5>
+                <p>{{ $events[0]->excerpt }}</p>
+                <a href="/blog/{{ $events[0]->slug }}" class="btn btn-primary btn-sm col-2">Read More</a>
               </div>
             </div>
           </div>

@@ -7,6 +7,12 @@
         </a>
       </li>
       <li class="sidenav-nav">
+        <a href="/event" class="{{ Request::is('event*') ? 'text-dark active' : 'text-brown' }}">
+          <i class="fa-solid fa-calendar-days fs-2"></i>
+          <span>Events</span>
+        </a>
+      </li>
+      <li class="sidenav-nav">
         <a href="/blog" class="{{ Request::is('blog*') ? 'text-dark active' : 'text-brown' }}">
           <i class="fa-solid fa-newspaper fs-2"></i>
           <span>Blogs</span>
