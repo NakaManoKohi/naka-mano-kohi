@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
         ]);
         
         User::factory(5)->create();
-        Blog::factory(20)->create();
+        Blog::factory(30)->create();
         Follows::create(['user_id' => '2', 'followed_by' => '3']);
         Follows::create(['user_id' => '2', 'followed_by' => '4']);
         Follows::create(['user_id' => '2', 'followed_by' => '5']);
