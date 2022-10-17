@@ -42,4 +42,8 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Follows::class);
     }
+
+    public function getRouteKeyName(){
+        return 'username';
+    }
 }

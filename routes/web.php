@@ -1,20 +1,19 @@
 <?php
 
-// Illuminate/support
-use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
-
-// Controller
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\DashboardBlogController;
-use App\Http\Controllers\FollowsController;
-use App\Http\Controllers\ProfileController;
-
 // Models
 use App\Models\Blog;
 use App\Models\Follows;
+
+// Controller & Illuminate
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\FollowsController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\DashboardBlogController;
+use App\Http\Controllers\DashboardUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +59,8 @@ Route::controller(BlogController::class)->group(function(){
 
 Route::resource('/dashboard/blog', DashboardBlogController::class);
 Route::get('/dashboard/blog/checkSlug', [DashboardBlogController::class, 'checkSlug']);
+
+Route::resource('dashboard/user', DashboardUserController::class);
 
 Route::get('/dashboard', function(){
     return view('dashboard.index',[
