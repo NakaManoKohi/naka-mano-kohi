@@ -15,7 +15,10 @@ class EventsController extends Controller
      */
     public function index()
     {
-        return view('events.index');
+        return view('events.index',[
+            'title' => "Events",
+            'events' => Events::latest()->paginate(4)
+        ]); 
     }
 
     /**
@@ -45,9 +48,12 @@ class EventsController extends Controller
      * @param  \App\Models\Events  $events
      * @return \Illuminate\Http\Response
      */
-    public function show(Events $events)
+    public function show(Events $event)
     {
-        //
+        return view('events.show',[
+            'title' => 'Events | ' . $event->title,
+            'event' => $event
+        ]);
     }
 
     /**

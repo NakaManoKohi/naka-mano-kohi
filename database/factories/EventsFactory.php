@@ -20,7 +20,7 @@ class EventsFactory extends Factory
             'excerpt' => $this->faker->paragraph(),
             // 'body' => $this->faker->paragraph(mt_rand(4,8)),
             'body' => collect($this->faker->paragraphs(mt_rand(5,10)))->map(fn($p) => "<p>$p</p>")->implode(''),
-            'date' => $this->faker->dateTime('', '+2 weeks')
+            'date' => $this->faker->dateTime()
         ];
     }
 }

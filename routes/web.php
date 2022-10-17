@@ -2,12 +2,14 @@
 
 // Models
 use App\Models\Blog;
+use App\Models\Events;
 use App\Models\Follows;
 
 // Controller & Illuminate
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\EventsController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\FollowsController;
 use App\Http\Controllers\ProfileController;
@@ -34,7 +36,8 @@ use App\Http\Controllers\DashboardEventsController;
 // Home Route
 Route::get('/', function () {return view('home', [
     'title' => 'Home',
-    'blogs' => Blog::latest()->paginate(4)
+    'blogs' => Blog::latest()->paginate(4),
+    'events' => Events::latest()->get()
 ]);});
 Route::get('/home', function () {return view('home', [
     'title' => 'Home'
@@ -61,6 +64,12 @@ Route::controller(RegisterController::class)->group(function() {
 Route::controller(BlogController::class)->group(function(){
     Route::get('/blog', 'index');
     Route::get('/blog/{blog:slug}', 'show');
+});
+
+// Event Routes
+Route::controller(EventsController::class)->group(function(){
+    Route::get('/event', 'index');
+    Route::get('/event/{event:slug}', 'show');
 });
 
 // Dashboard Route
