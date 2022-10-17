@@ -4,7 +4,7 @@
     <aside class="pe-2 col-3">
       <div class="card bg-primary-grey profile-card">
         <div class="card-header bg-brown text-white">
-          <h4>Profile</h4>
+          <h4 class="mb-0">Profile</h4>
         </div>
         <div class="card-body d-flex flex-column align-items-center">
           <img src="/images/lilgru.jpg" alt="profile.jpg" class="col-9 rounded-circle border border-5 border-dark mb-4">
@@ -30,11 +30,19 @@
       </div>
     </aside>
     <main class="ps-2 col-9">
-      <div class="card bg-primary-grey timeline-card">
-        <div class="card-header bg-brown text-white">
-          <h4>Time Line</h4>
+      <div class="timeline-card d-flex flex-column align-items-stretch">
+        <div class="pb-3 card bg-transparent border-0">
+          <nav class="col-12 profile-nav">
+            <a href="/{{ $user->username }}?tab=activity" class="profile-nav-item">
+              <h5 class="mb-0">Activity</h5></a>
+            <a href="/{{ $user->username }}?tab=blog" class="profile-nav-item">
+              <h5 class="mb-0">Blog</h5></a>
+          </nav>
         </div>
-        <div class="card-body">
+        <div class="card bg-primary-grey h-100">
+          <div class="card-body">
+
+          </div>
         </div>
       </div>
     </main>
