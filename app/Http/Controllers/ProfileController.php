@@ -11,14 +11,17 @@ class ProfileController extends Controller
 {
     public function index(User $user)
     {
-        // dd(Follows::where([['user_id', $user->id], ['followed_by', auth()->user()->id]])->count());
-        return view('profile', [
+        $data = [
             'title' => 'Profile',
             'user' => $user,
             'followers' => Follows::where('user_id', $user->id)->get(),
             'following' => Follows::where('followed_by', $user->id)->get(),
-            'following_user' => Follows::where([['user_id', $user->id], ['followed_by', auth()->user()->id]])->count()
-        ]);
+        ];
+        if (auth()->user() != null) {
+            $data['following_user'] = Follows::where([['user_id', $user->id], ['followed_by', auth()->user()->id]])->count();
+        }
+        // dd($data);
+        return view('profile', $data);
     }
 
     public function follows(User $user, $index) {

@@ -10,13 +10,15 @@
           <img src="/images/lilgru.jpg" alt="profile.jpg" class="col-9 rounded-circle border border-5 border-dark mb-4">
           <h4 class="w-100 fw-bold mb-0">{{ $user->name }}</h4>
           <h5 class="fw-normal w-100">{{ $user->username }}</h5>
-          @if (($user->name) === (auth()->user()->name))
-            <a href="/setting#profile" class="btn button-brown col-12 border border-3 border-dark">Edit Profile</a>
-          @else
-            @if ($following_user > 0)
-              <a href="/profile/{{ $user->username }}/unfollow" class="btn button-brown col-12 border border-3 border-dark">Unfollow</a>
+          @if (auth()->user() != null)
+            @if (($user->name) === (auth()->user()->name))
+              <a href="/setting#profile" class="btn button-brown col-12 border border-3 border-dark">Edit Profile</a>
             @else
-              <a href="/profile/{{ $user->username }}/follow" class="btn button-brown col-12 border border-3 border-dark">Follow</a>
+              @if ($following_user > 0)
+                <a href="/profile/{{ $user->username }}/unfollow" class="btn button-brown col-12 border border-3 border-dark">Unfollow</a>
+              @else
+                <a href="/profile/{{ $user->username }}/follow" class="btn button-brown col-12 border border-3 border-dark">Follow</a>
+              @endif
             @endif
           @endif
           <div class="col-12 d-flex gap-2">
