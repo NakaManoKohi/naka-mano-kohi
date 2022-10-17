@@ -33,13 +33,13 @@
       <div class="timeline-card d-flex flex-column align-items-stretch">
         <div class="pb-3 card bg-transparent border-0">
           <nav class="col-12 profile-nav">
-            <a href="/{{ $user->username }}?tab=activity" class="profile-nav-item">
+            <a href="/{{ $user->username }}?tab=activity" class="profile-nav-item active">
               <h5 class="mb-0">Activity</h5></a>
             <a href="/{{ $user->username }}?tab=blog" class="profile-nav-item">
               <h5 class="mb-0">Blog</h5></a>
           </nav>
         </div>
-        <div class="card bg-primary-grey h-100">
+        <div class="card bg-primary-grey flex-grow-1">
           <div class="card-body">
 
           </div>
