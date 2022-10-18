@@ -18,6 +18,8 @@ use App\Http\Controllers\DashboardBlogController;
 use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\DashboardEventsController;
 
+use Carbon\Carbon;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,7 +39,8 @@ use App\Http\Controllers\DashboardEventsController;
 Route::get('/', function () {return view('home', [
     'title' => 'Home',
     'blogs' => Blog::latest()->paginate(4),
-    'events' => Events::latest()->get()
+    'events' => Events::latest()->get(),
+    'date' => Carbon::now()->nthOfMonth(4, Carbon::SATURDAY)
 ]);});
 Route::get('/home', function () {return view('home', [
     'title' => 'Home'
