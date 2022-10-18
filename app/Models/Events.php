@@ -10,6 +10,7 @@ class Events extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+    protected $dates = ['date'];
 
     public function getRouteKeyName()
     {

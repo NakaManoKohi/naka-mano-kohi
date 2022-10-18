@@ -12,7 +12,7 @@
                 <div class="card card-body border border-5 border-yellow card-bg">
                     <div class="col-6">
                         <h2>{{ $events[0]->title }}</h2>
-                        <h5 class="text-brown">{{ $date->diffForHumans() }}</h5>
+                        <h5 class="text-brown"> <i class="fa-solid fa-calendar-days"></i> {{ $events[0]->date->diffForHumans() }}</h5>
                         <p>{{ $events[0]->excerpt }}</p>
                         <a href="/event/{{ $events[0]->slug }}" class="btn btn-primary btn-sm col-2">Read More</a>
                     </div>
@@ -25,7 +25,7 @@
             <div class="card card-body border border-5 border-yellow card-bg
               ">
                   <h5>{{ $event->title }}</h5>
-                  <h6 class="text-brown">{{ $date->diffForHumans() }}</h6>
+                  <h6 class="text-brown"> <i class="fa-solid fa-calendar-days"></i> {{ $event->date->diffForHumans() }}</h6>
                   <p style="font-size: 12px;">{{ $event->excerpt }}</p>
                   <div class="col-4">
                     <a href="/event/{{ $event->slug }}" class="btn btn-primary">Read More</a>
