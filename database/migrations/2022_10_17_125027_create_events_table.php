@@ -21,7 +21,7 @@ class CreateEventsTable extends Migration
             $table->text('excerpt');
             $table->text('body');
             $table->string('image')->nullable();
-            $table->date('date');
+            $table->timestamp('date');
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });

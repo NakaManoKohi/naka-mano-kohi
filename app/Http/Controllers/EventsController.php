@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Events;
 use App\Http\Requests\StoreEventsRequest;
 use App\Http\Requests\UpdateEventsRequest;
+use Carbon\Carbon;
 
 class EventsController extends Controller
 {
@@ -17,7 +18,8 @@ class EventsController extends Controller
     {
         return view('events.index',[
             'title' => "Events",
-            'events' => Events::latest()->paginate(4)
+            'events' => Events::latest()->paginate(4),
+            'date' => Carbon::now()->nthOfMonth(4, Carbon::SATURDAY)
         ]); 
     }
 

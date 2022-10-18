@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Events;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class DashboardEventsController extends Controller
 {
@@ -27,7 +28,9 @@ class DashboardEventsController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.events.create',[
+            'title' => 'Dashboard Create',
+        ]);
     }
 
     /**
@@ -38,7 +41,20 @@ class DashboardEventsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required|max:255',
+            'slug' => 'required|max:255',
+            'body' => 'required',
+            'date' => 'required'
+        ]);
+
+        $validatedData['user_id'] = auth()->user()->id;
+        $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
+
+        Events::create($validatedData);
+
+        return redirect('/dashboard/event')->with('success', 'New Event has been created');
+
     }
 
     /**
