@@ -12,11 +12,11 @@
             <div class="col-8">
               <img src="https://source.unsplash.com/1000x400/?coffee" alt="{{ $event->title }}-image" class="w-75">
               <h3 class="mt-3">{{ $event->title }}</h3>
-              <h5 class="mt-3 text-brown">{{ $event->date }}</h5>
+              <h5 class="mt-3 text-brown">{{ $event->date->diffForHumans() }}</h5>
               <article class="mt-2">
                 {!! $event->body !!}
               </article>
-              <a href="/event" class="btn btn-success"><i class="fa-solid fa-arrow-left"></i> Back to Events</a>
+              <a href="/event" class="btn btn-success mt-3"><i class="fa-solid fa-arrow-left"></i> Back to Events</a>
             </div>
           </div>
         </div>
