@@ -1,7 +1,7 @@
 @extends('dashboard.templates.main')
 
 @section('content')
-<div class="col-lg-8 mb-5">
+<div class="col-lg-6 mb-5">
     <form method="post" action="/dashboard/event" enctype="multipart/form-data">
       @csrf
         <div class="mb-3">
@@ -24,7 +24,7 @@
         </div>
         <div class="mb-3">
           <label for="date" class="form-label">Date</label>
-          <input type="date" class="form-control @error('date') is-invalid @enderror" id="date" name="date" required value="{{ old('date') }}">
+          <input type="datetime-local" class="form-control @error('date') is-invalid @enderror" id="date" name="date" required value="{{ old('date') }}">
           @error('date')
             <div class="invalid-feedback">
               {{ $message }}
