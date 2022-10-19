@@ -1,7 +1,7 @@
 <div class="bg-yellow position-fixed sidenav">
     <ul class="list-unstyled mb-0">
       <li class="sidenav-nav">
-        <a href="/" class="{{ Request::is('/') ? 'text-dark active' : 'text-brown' }}">
+        <a href="/" class="{{ Request::is('/', 'home*') ? 'text-dark active' : 'text-brown' }}">
           <i class="fa fas fa-home fs-2"></i>
           <span>Home</span>
         </a>

@@ -9,14 +9,14 @@ use App\Models\Follows;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
-use App\Http\Controllers\EventsController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\FollowsController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardBlogController;
 use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\DashboardEventsController;
+use App\Http\Controllers\EventsController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SettingController;
 
 use Carbon\Carbon;
 
@@ -36,20 +36,17 @@ use Carbon\Carbon;
 // });
 
 // Home Route
-Route::get('/', function () {return view('home', [
+Route::get('/{home}', function () {return view('home', [
     'title' => 'Home',
     'blogs' => Blog::latest()->paginate(4),
     'events' => Events::latest()->get(),
     'date' => Carbon::now()->nthOfMonth(4, Carbon::SATURDAY)
-]);});
-Route::get('/home', function () {return view('home', [
-    'title' => 'Home'
-]);});
+]);})->where('home', '(|home)');
 
 // Setting Route
-Route::get('/setting', function() {return view('setting', [
-    'title' => 'Setting'
-]);});
+Route::controller(SettingController::class)->group(function() {
+    Route::get('/setting', 'index');
+});
 
 // Authenticate Routes
 Route::controller(LoginController::class)->group(function() {
