@@ -41,4 +41,8 @@ class User extends Authenticatable
     public function getRouteKeyName(){
         return 'username';
     }
+
+    public function followsHistories(){
+        return $this->hasMany(FollowsHistories::class);
+    }
 }

@@ -1,5 +1,6 @@
 @extends('templates.main')
 @section('content')
+  {{-- {{ dd($activities) }} --}}
   <div class="col-12 d-flex p-3">
     <aside class="pe-2 col-3">
       <div class="card bg-primary-grey profile-card">
@@ -41,7 +42,12 @@
         </div>
         <div class="card bg-primary-grey flex-grow-1">
           <div class="card-body">
-
+            @foreach ($activities as $activity)
+              <div class="col-12 d-flex justify-content-between">
+                <p class="m-0"><span class="fw-bold">{{ $activity->user_following }}</span> {{ $activity->status }} <span class="fw-bold">{{ $activity->user }}</span></p>
+                <p class="m-0">{{ $activity->updated_at }}</p>
+              </div>
+            @endforeach
           </div>
         </div>
       </div>
