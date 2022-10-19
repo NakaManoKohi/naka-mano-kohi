@@ -87,4 +87,23 @@
 .setting-message:nth-child(1){border-top-left-radius: var(--bs-card-border-radius); border-top-right-radius: var(--bs-card-border-radius);}
 .setting-message:nth-last-child(1){border-bottom-left-radius: var(--bs-card-border-radius); border-bottom-right-radius: var(--bs-card-border-radius);}
 /* Page Profile */
-.profile-card, .timeline-card {min-height: calc(100vh - 108px);}
+.profile-card, .timeline-card{min-height: calc(100vh - 108px);}
+.profile-nav-item{
+    text-decoration: none;
+    padding: 0.5rem;
+    color: rgba(var(--bs-dark-rgb),var(--bs-text-opacity))!important;
+    border-radius: var(--bs-card-border-radius) var(--bs-card-border-radius) 0 0;
+}
+.profile-nav{
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem 0.5rem 0 0.5rem;
+    background-color: var(--primary-grey);
+    border-bottom: 3px solid var(--bs-dark);
+    border-radius: var(--bs-card-border-radius) var(--bs-card-border-radius) 0 0;
+}
+.profile-nav-item:hover,
+.profile-nav-item.active{
+    background-color: var(--secondary-grey);
+    font-weight: bold;
+}
