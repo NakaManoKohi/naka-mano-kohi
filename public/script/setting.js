@@ -1,5 +1,8 @@
 class Setting {
-  constructor() {
+  constructor(data) {
+    data = data.replace(/&quot;/g, `"`)
+    data = JSON.parse(data);
+    console.log(data);
     const container = document.querySelector(".setting-content");
     const hash = window.location.hash;
     const general = document.querySelector("[data='general']");
@@ -9,7 +12,7 @@ class Setting {
     const password = document.querySelector("[data='password']");
     this.event([general, profile, notifications, membership, password]);
     if(hash.includes('#profile')) {
-      this.content(container, 'setting-profile', profile);
+      this.content(container, 'setting-profile', profile, data);
     } else if(hash.includes('#notifications')) {
       this.content(container, 'setting-notifications', notifications);
     } else if(hash.includes('#membership')) {
@@ -30,8 +33,10 @@ class Setting {
     });
   }
 
-  content(container, element, elementNav) {
-    container.innerHTML = `<${element}></${element}>`;
+  content(container, element, elementNav, data = null) {
+    let el = document.createElement(`${element}`);
+    el.data = data;
+    container.appendChild(el);
     this.active(elementNav);
   }
 
@@ -39,4 +44,4 @@ class Setting {
     elementNav.classList.add('active');
   }
 }
-new Setting();
+new Setting(user)

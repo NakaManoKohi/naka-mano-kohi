@@ -1,6 +1,6 @@
 class SettingProfile extends HTMLElement {
-  constructor() {
-    super();
+  set data(dataset) {
+    this._dataset = dataset;
     this.create();
   }
 
@@ -12,10 +12,11 @@ class SettingProfile extends HTMLElement {
         <img src="images/lilgru.jpg" alt="profile.jpg" width="200" class="rounded-circle border border-3 border-dark">
       </div>
       <form class="col-12 d-flex flex-wrap gap-3">
-        <input type="text" name="" id="" class="gap-halfed-width border border-3 border-dark rounded bg-secondary-grey p-2">
-        <input type="text" name="" id="" class="gap-halfed-width border border-3 border-dark rounded bg-secondary-grey p-2">
-        <input type="text" name="" id="" class="gap-halfed-width border border-3 border-dark rounded bg-secondary-grey p-2">
-        <input type="text" name="" id="" class="gap-halfed-width border border-3 border-dark rounded bg-secondary-grey p-2">
+        <input type="text" name="name" id="" class="gap-halfed-width border border-3 border-dark rounded bg-secondary-grey p-2" value="${this._dataset.name}">
+        <input type="text" name="username" id="" class="gap-halfed-width border border-3 border-dark rounded bg-secondary-grey p-2" value="${this._dataset.username}">
+        <input type="text" name="email" id="" class="gap-halfed-width border border-3 border-dark rounded bg-secondary-grey p-2" value="${this._dataset.email}">
+        <input type="text" name="" id="" class="gap-halfed-width border border-3 border-dark rounded bg-secondary-grey p-2"
+        value="Input nama bapak lo">
         <textarea name="" id="" rows="5" class="col-12 border border-3 border-dark rounded bg-secondary-grey p-2"></textarea>
         <button class="col-3 ms-auto button button-brown mb-3 fw-bold border border-3 border-dark rounded" type="submit">Update</button>
       </form>
