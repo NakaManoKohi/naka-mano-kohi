@@ -5,7 +5,7 @@
     <main class="col-12 pe-2">
       <section class="col-12 bg-primary-grey card border-0">
         <div class="card-header bg-brown text-white">
-          <h3><a href="/" class="text-decoration-none text-white">Home</a> / <a href="#" class="text-decoration-none text-white">Search</a> / </h3>
+          <h3><a href="/" class="text-decoration-none text-white">Home</a> / <a href="#" class="text-decoration-none text-white">Search</a> / {{ request('search') }}</h3>
         </div>
         @if($blogs->count())
         <div class="card-body">
@@ -28,8 +28,7 @@
         </div>
         </div>
         @else
-        <h4 class="h4 px-4 mb-3 fw-bold">Blogs</h4>
-        <h3 class="px-4">No Blogs Found</h3>
+
         @endif
 
       @if($events->count())
@@ -46,8 +45,18 @@
         </div>
       @endforeach
       @else
-      <h4 class="h4 px-4 mb-3 fw-bold">Events</h4>
-      <h3 class="px-4">No Events Found</h3>
+
+      @endif
+
+      @if($users->count())
+        @foreach($users as $user)
+          <h3><a href="/{{ $user->username }}">{{ $user->username }}</a></h3>
+        @endforeach
+        {{-- <a href="/{{ $users->username }}">
+          {{ $users->username }}
+        </a> --}}
+      @else
+
       @endif
       </section>
     </main>

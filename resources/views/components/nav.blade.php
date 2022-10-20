@@ -5,11 +5,11 @@
       <h6 class="h6 m-0 text-yellow">Naka Mano Kohi</h6>
     </a>
     <form action="/search" class="col-5 p-2 align-self-stretch d-flex align-item-baseline gap-3">
-      @csrf
+      {{-- @csrf --}}
       {{-- <input type="text" placeholder="Search" class="rounded col-10">
       <button type="submit" class="btn btn-yellow rounded col-2 ms-auto">Search</button> --}}
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search" aria-label="Recipient's username" aria-describedby="button-addon2" name="search" value="{{ old('search') }}">
+        <input type="text" class="form-control" placeholder="Search" aria-label="Recipient's username" aria-describedby="button-addon2" name="search" value="{{ request('search') }}">
         <button class="btn btn-primary" type="button" id="button-addon2"><i class="fa-solid fa-magnifying-glass"></i></button>
       </div>
     </form>

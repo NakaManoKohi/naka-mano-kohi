@@ -12,6 +12,7 @@ class SearchController extends Controller
     public function index(Request $request){
         $blogs = Blog::latest();
         $events = Events::latest();
+        $users = User::latest();
 
         if(request('search')){
             $blogs->where('title', 'like', '%' . request('search') . '%');
@@ -21,10 +22,15 @@ class SearchController extends Controller
             $events->where('title', 'like', '%'. request('search') . '%');
         }
 
+        if(request('search')){
+            $users->where('username', 'like', '%' . request('search') . '%' );
+        }
+
         return view('search.index',[
             'title' => 'Search',    
-            'blogs' => $blogs->paginate(7),
-            'events' =>  $events->paginate(7)
+            'blogs' => $blogs->get(),
+            'events' =>  $events->get(),
+            'users' => $users->get()    
         ]);
         // dd(request('search'));
     }
