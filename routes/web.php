@@ -45,12 +45,16 @@ Route::get('/{home}', function () {return view('home', [
 
 // Setting Route
 Route::controller(SettingController::class)->group(function() {
-    Route::get('/setting', 'index');
+    Route::get('/setting{general}', 'index')->where('general', '(|/general)');
+    Route::get('/setting/profile', 'profile')->middleware('auth');
+    Route::get('/setting/notifications', 'notifications')->middleware('auth');
+    Route::get('/setting/membership', 'membership')->middleware('auth');
+    Route::get('/setting/password', 'password')->middleware('auth');
 });
 
 // Authenticate Routes
 Route::controller(LoginController::class)->group(function() {
-    Route::get('/login', 'index');
+    Route::get('/login', 'index')->name('login');
     Route::post('/login', 'authenticate');
     Route::post('/logout', 'logout');
 });

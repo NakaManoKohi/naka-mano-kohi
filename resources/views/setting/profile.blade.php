@@ -6,11 +6,11 @@
       <img src="/images/lilgru.jpg" alt="profile.jpg" width="200" class="rounded-circle border border-3 border-dark">
     </div>
     <form class="col-12 d-flex flex-wrap gap-3">
-      <input type="text" name="" id="" class="gap-halfed-width border border-3 border-dark rounded bg-secondary-grey p-2">
-      <input type="text" name="" id="" class="gap-halfed-width border border-3 border-dark rounded bg-secondary-grey p-2">
-      <input type="text" name="" id="" class="gap-halfed-width border border-3 border-dark rounded bg-secondary-grey p-2">
-      <input type="text" name="" id="" class="gap-halfed-width border border-3 border-dark rounded bg-secondary-grey p-2">
-      <textarea name="" id="" rows="5" class="col-12 border border-3 border-dark rounded bg-secondary-grey p-2"></textarea>
+      <input type="text" name="name" id="" class="gap-halfed-width border border-3 border-dark rounded bg-secondary-grey p-2" value="{{ auth()->user()->name }}">
+      <input type="text" name="username" id="" class="gap-halfed-width border border-3 border-dark rounded bg-secondary-grey p-2"value="{{ auth()->user()->username }}">
+      <input type="text" name="email" id="" class="gap-halfed-width border border-3 border-dark rounded bg-secondary-grey p-2" value="{{ auth()->user()->email }}">
+      <input type="text" name="" id="" class="gap-halfed-width border border-3 border-dark rounded bg-secondary-grey p-2" value="Input nama Bapak lo">
+      <textarea name="" id="" rows="5" class="col-12 border border-3 border-dark rounded bg-secondary-grey p-2">Ceritakan kekuranganmu disini...</textarea>
       <button class="col-3 ms-auto button button-brown mb-3 fw-bold border border-3 border-dark rounded" type="submit">Update</button>
     </form>
   </div>
