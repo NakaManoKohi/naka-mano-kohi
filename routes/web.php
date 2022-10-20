@@ -17,6 +17,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\SearchController;
 
 use Carbon\Carbon;
 
@@ -75,6 +76,9 @@ Route::controller(EventsController::class)->group(function(){
     Route::get('/event', 'index');
     Route::get('/event/{event:slug}', 'show');
 });
+
+// Search Route
+Route::get('/search',[SearchController::class, 'index']);
 
 // Dashboard Route
 Route::get('/dashboard', function(){
