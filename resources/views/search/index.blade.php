@@ -50,7 +50,16 @@
 
       @if($users->count())
         @foreach($users as $user)
-          <h3><a href="/{{ $user->username }}">{{ $user->username }}</a></h3>
+          <div class="d-flex px-4 m-3 rounded align-items-center bg-yellow col-3">
+            <a class="nav-link text-white text-decoration-none dropdown-toggle no-arrow me-3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="/images/lilgru.jpg" alt="profile" width="44" class="rounded-circle ms-2">
+            </a>
+            <div class="profile-text flex-column">
+              <h3><a href="/{{ $user->name }}" class="text-brown text-decoration-none">{{ $user->name }}</a></h3>
+              <h5><a href="/{{ $user->username }}" class="text-brown text-decoration-none">{{ $user->username }}</a></h5>
+            </div>
+            
+          </div> 
         @endforeach
         {{-- <a href="/{{ $users->username }}">
           {{ $users->username }}
