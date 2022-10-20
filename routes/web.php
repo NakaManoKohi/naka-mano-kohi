@@ -15,10 +15,11 @@ use App\Http\Controllers\DashboardEventsController;
 use App\Http\Controllers\EventsController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PublicChatController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SettingController;
-
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,16 +32,13 @@ use Carbon\Carbon;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 // Home Route
 Route::get('/{home}', function () {return view('home', [
     'title' => 'Home',
     'blogs' => Blog::latest()->paginate(4),
     'events' => Events::latest()->get(),
-    'date' => Carbon::now()->nthOfMonth(4, Carbon::SATURDAY)
+    'date' => Carbon::now()->nthOfMonth(4, Carbon::SATURDAY),
+    'publicChat' => DB::table('public_chats')->join('users', 'public_chats.user_id', '=', 'users.id')->select('public_chats.*', 'users.username')->orderByDesc('updated_at')->get()->all()
 ]);})->where('home', '(|home)');
 
 // Setting Route
@@ -102,4 +100,9 @@ Route::controller(ProfileController::class)->group(function(){
     Route::get('/{user:username}', 'index');
     Route::get('/{user:username}/{follow}', 'follows');
     Route::get('/{user:username}/{unfollow}', 'follows');
+});
+
+// Public Chat Routes
+Route::controller(PublicChatController::class)->group(function(){
+    Route::post('/chat/public', 'store')->middleware('auth');
 });

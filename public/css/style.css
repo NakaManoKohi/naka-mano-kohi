@@ -68,6 +68,29 @@
 .ranking{border-radius: 0 0 var(--bs-card-border-radius) var(--bs-card-border-radius);}
 .ranking>*{margin-bottom: 1rem!important;}
 .ranking>*:nth-last-child(1) {margin-bottom: 0!important;}
+.chat-box:nth-child(1){margin-bottom: 0!important;}
+.chat-image-left{
+    position: relative;
+    bottom: 16px;
+    margin-right: 0.75rem;
+}
+.chat-image-right{
+    position: relative;
+    bottom: 16px;
+    margin-left: 0.75rem;
+}
+.chat-arrow-left{
+    position: absolute;
+    left: -8px;
+    top: 0;
+    fill: var(--yellow);
+}
+.chat-arrow-right{
+    position: absolute;
+    right: -8px;
+    top: 0;
+    fill: var(--brown);
+}
 /* Page Setting */
 .setting-nav{border-radius: 0 0 0 var(--bs-card-border-radius);}
 .setting-nav-item{
