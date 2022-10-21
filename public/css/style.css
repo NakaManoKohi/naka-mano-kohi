@@ -68,7 +68,6 @@
 .ranking{border-radius: 0 0 var(--bs-card-border-radius) var(--bs-card-border-radius);}
 .ranking>*{margin-bottom: 1rem!important;}
 .ranking>*:nth-last-child(1) {margin-bottom: 0!important;}
-.chat-box:nth-child(1){margin-bottom: 0!important;}
 .chat-image-left{
     position: relative;
     bottom: 16px;

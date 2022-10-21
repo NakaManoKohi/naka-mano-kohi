@@ -35,12 +35,19 @@ use Illuminate\Support\Facades\DB;
 */
 
 // Home Route
-Route::get('/{home}', function () {return view('home', [
+
+Route::get('/{home}', function () {
+    $ip = file_get_contents("http://ipecho.net/plain");
+    $url = 'http://ip-api.com/json/'.$ip;
+    $tz = file_get_contents($url);
+    $tz = json_decode($tz,true)['timezone'];
+    return view('home', [
     'title' => 'Home',
     'blogs' => Blog::latest()->paginate(4),
     'events' => Events::latest()->get(),
     'date' => Carbon::now()->nthOfMonth(4, Carbon::SATURDAY),
-    'publicChat' => DB::table('public_chats')->join('users', 'public_chats.user_id', '=', 'users.id')->select('public_chats.*', 'users.username')->orderByDesc('updated_at')->get()->all()
+    'publicChat' => DB::table('public_chats')->join('users', 'public_chats.user_id', '=', 'users.id')->select('public_chats.*', 'users.username')->orderByDesc('updated_at')->get()->all(),
+    'tz' => $tz
 ]);})->where('home', '(|home)');
 
 // Setting Route
