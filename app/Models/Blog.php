@@ -25,4 +25,11 @@ class Blog extends Model
             ]
         ];
     }
+
+    public function scopeFilter($query, Array $filters){
+        $query->when($filters['search'] ?? false, function($query, $search){
+            return $query->where('title', 'like', '%' . $search . '%' )
+            ->orWhere('body', 'like', '%' . $search . '%');
+        });
+    }
 }
