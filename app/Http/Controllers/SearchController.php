@@ -10,28 +10,11 @@ use App\Models\User;
 class SearchController extends Controller
 {
     public function index(Request $request){
-        $blogs = Blog::latest();
-        $events = Events::latest();
-        $users = User::latest();
-
-        if(request('search')){
-            $blogs->where('title', 'like', '%' . request('search') . '%');
-        }
-
-        if(request('search')){
-            $events->where('title', 'like', '%'. request('search') . '%');
-        }
-
-        if(request('search')){
-            $users->where('username', 'like', '%' . request('search') . '%' );
-        }
-
         return view('search.index',[
             'title' => 'Search',    
-            'blogs' => $blogs->get(),
-            'events' =>  $events->get(),
-            'users' => $users->get()    
+            'blogs' => Blog::latest()->filter(request(['search']))->paginate(7),
+            'events' =>  Events::latest()->filter(request(['search']))->paginate(7),
+            'users' => User::filter(request(['search']))->get()    
         ]);
-        // dd(request('search'));
     }
 }
