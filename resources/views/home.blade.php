@@ -112,7 +112,7 @@
               @endauth
                   <p class="m-0">{{ $chat->message }}</p>
                 </div>
-                <p class="m-0 align-self-end mx-1"><sub>{{ (\Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $chat->created_at)->setTimezone($tz))->format('H:i A') }}</sub></p>
+                <p class="m-0 align-self-end mx-1"><sub>{{ (\Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $chat->created_at)->setTimezone($tz))->format('h:i A') }}</sub></p>
               </div>
             @endif
           @endforeach
