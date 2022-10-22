@@ -59,7 +59,7 @@
                 <img src="/images/lilgru.jpg" alt="profile" width="44" class="rounded-circle ms-2">
               </a>
               <div class="profile-text flex-column">
-                <h3><a href="/{{ $user->name }}" class="text-brown text-decoration-none">{{ $user->name }}</a></h3>
+                <h3><a href="/{{ $user->username }}" class="text-brown text-decoration-none">{{ $user->name }}</a></h3>
                 <h5><a href="/{{ $user->username }}" class="text-brown text-decoration-none">{{ $user->username }}</a></h5>
               </div>
               
