@@ -19,9 +19,17 @@ use App\Http\Controllers\PublicChatController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SearchController;
-
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+
+// Functions
+function getTimezone() {
+    $ip = file_get_contents("http://ipecho.net/plain");
+    $url = 'http://ip-api.com/json/'.$ip;
+    $tz = file_get_contents($url);
+    $tz = json_decode($tz,true)['timezone'];
+    return $tz;
+};
 
 /*
 |--------------------------------------------------------------------------
@@ -37,17 +45,13 @@ use Illuminate\Support\Facades\DB;
 // Home Route
 
 Route::get('/{home}', function () {
-    $ip = file_get_contents("http://ipecho.net/plain");
-    $url = 'http://ip-api.com/json/'.$ip;
-    $tz = file_get_contents($url);
-    $tz = json_decode($tz,true)['timezone'];
     return view('home', [
     'title' => 'Home',
     'blogs' => Blog::latest()->paginate(4),
     'events' => Events::latest()->get(),
     'date' => Carbon::now()->nthOfMonth(4, Carbon::SATURDAY),
     'publicChat' => DB::table('public_chats')->join('users', 'public_chats.user_id', '=', 'users.id')->select('public_chats.*', 'users.username')->orderByDesc('updated_at')->get()->all(),
-    'tz' => $tz
+    'tz' => getTimezone()
 ]);})->where('home', '(|home)');
 
 // Setting Route

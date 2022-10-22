@@ -1,3 +1,4 @@
+{{-- {{ dd($blogs->links()) }} --}}
 @extends('templates.main')
 @section('content')
   <div class="col-12 d-flex p-3">
@@ -14,7 +15,7 @@
                 <h2>{{ $events[0]->title }}</h2>
                 <h5 class="text-brown"> <i class="fa-solid fa-calendar-days"></i> {{ $events[0]->date->diffForHumans() }}</h5>
                 <p class=" flex-fill">{{ $events[0]->excerpt }}</p>
-                <a href="/blog/{{ $events[0]->slug }}" class="btn btn-primary btn-sm w-fit">Read More</a>
+                <a href="/event/{{ $events[0]->slug }}" class="btn btn-primary btn-sm w-fit">Read More</a>
               </div>
             </div>
           </div>
@@ -34,7 +35,7 @@
           </div>              
           <div class="mt-4 d-flex justify-content-end">
             {{ $blogs->links() }}
-        </div>
+          </div>
         </div>
       </section>
     </main>
