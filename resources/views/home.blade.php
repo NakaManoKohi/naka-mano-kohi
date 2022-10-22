@@ -23,9 +23,9 @@
             @foreach ($blogs as $blog)
             <div class="blog-card col-6">
               <div class="card card-body border border-5 border-yellow blog-card-small">
-                <div class="blog-card-desc">
+                <div class="col-8 blog-card-desc">
                   <h5>{{ $blog->title }}</h5>
-                  <p style="font-size: 12px;" class=" flex-fill text-truncate">{{ $blog->excerpt }}</p>
+                  <p style="font-size: 12px;" class=" flex-fill">{{ $blog->excerpt }}</p>
                   <a href="/blog/{{ $blog->slug }}" class="btn btn-primary btn-sm w-fit">Read More</a>
                 </div>
               </div>

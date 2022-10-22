@@ -9,7 +9,7 @@
         </div>
         <div class="card-body">
             <div class="col-12 mb-3">
-                <div class="card card-body border border-5 border-yellow card-bg">
+                <div class="card card-body border border-5 border-yellow blog-card-highlight">
                     <div class="col-6">
                         <h2>{{ $blogs[0]->title }}</h2>
                         <p>{{ $blogs[0]->excerpt }}</p>
@@ -21,13 +21,12 @@
           <div class="d-flex flex-wrap col-12">
             @foreach ($blogs->skip(1) as $blog)
             <div class="blog-card col-6">
-            <div class="card card-body border border-5 border-yellow card-bg
-              ">
+              <div class="card card-body border border-5 border-yellow blog-card-small">
+                <div class="col-8 blog-card-desc">
                   <h5>{{ $blog->title }}</h5>
-                  <p style="font-size: 12px;">{{ $blog->excerpt }}</p>
-                  <div class="col-4">
-                    <button class="btn btn-primary">Read More</button>
-                  </div>
+                  <p style="font-size: 12px;" class=" flex-fill">{{ $blog->excerpt }}</p>
+                  <a href="/blog/{{ $blog->slug }}" class="btn btn-primary btn-sm w-fit">Read More</a>
+                </div>
               </div>
             </div>
             @endforeach
