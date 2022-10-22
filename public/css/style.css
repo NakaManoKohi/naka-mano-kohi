@@ -73,6 +73,9 @@
 .aside-home{top: 1rem!important; height: calc(100vh - 108px);}
 .ranking{border-radius: 0 0 var(--bs-card-border-radius) var(--bs-card-border-radius);}
 .ranking>*{margin-bottom: 1rem!important;}
+.ranking>*:nth-child(1){background-color: var(--yellow);}
+.ranking>*:nth-child(2){background-color: var(--secondary-grey);}
+.ranking>*:nth-child(3){background-color: var(--brown);}
 .ranking>*:nth-last-child(1) {margin-bottom: 0!important;}
 .chat-image-left{
     position: relative;
