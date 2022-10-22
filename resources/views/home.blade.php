@@ -9,12 +9,12 @@
         <div class="card-body">
           <h6 class="px-4 mb-3 fw-bold">Events</h6>
           <div class="col-12 mb-3">
-            <div class="card card-body border border-5 border-yellow card-bg">
-              <div class="col-6">
+            <div class="card card-body border border-5 border-yellow blog-card-highlight">
+              <div class="col-6 blog-card-desc">
                 <h2>{{ $events[0]->title }}</h2>
                 <h5 class="text-brown"> <i class="fa-solid fa-calendar-days"></i> {{ $events[0]->date->diffForHumans() }}</h5>
-                <p>{{ $events[0]->excerpt }}</p>
-                <a href="/blog/{{ $events[0]->slug }}" class="btn btn-primary btn-sm col-2">Read More</a>
+                <p class=" flex-fill">{{ $events[0]->excerpt }}</p>
+                <a href="/blog/{{ $events[0]->slug }}" class="btn btn-primary btn-sm w-fit">Read More</a>
               </div>
             </div>
           </div>
@@ -22,13 +22,12 @@
           <div class="d-flex flex-wrap col-12">
             @foreach ($blogs as $blog)
             <div class="blog-card col-6">
-              <div class="card card-body border border-5 border-yellow card-bg
-              ">
+              <div class="card card-body border border-5 border-yellow blog-card-small">
+                <div class="blog-card-desc">
                   <h5>{{ $blog->title }}</h5>
-                  <p style="font-size: 12px;">{{ $blog->excerpt }}</p>
-                  <div class="col-4">
-                    <button class="btn btn-primary">Read More</button>
-                  </div>
+                  <p style="font-size: 12px;" class=" flex-fill text-truncate">{{ $blog->excerpt }}</p>
+                  <a href="/blog/{{ $blog->slug }}" class="btn btn-primary btn-sm w-fit">Read More</a>
+                </div>
               </div>
             </div>
             @endforeach
