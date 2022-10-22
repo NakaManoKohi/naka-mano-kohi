@@ -26,6 +26,7 @@
 .border-yellow{border-color: var(--yellow)!important;}
 .border-primary-grey{border-color: var(--primary-grey)!important;}
 .scrollbar-none::-webkit-scrollbar{width: 0; height: 0;}
+.dropdown-toggle.no-arrow::after {display: none;}
 .gap-halfed-height{height: calc(50% - 0.5rem);}
 .gap-halfed-width{width: calc(50% - 0.5rem);}
 .content-container{min-height: 100%;}
@@ -65,8 +66,6 @@
     flex-direction: column;
     height: 100%;
 }
-/* .blog-card-desc>.btn{justify-self: flex-end; width: fit-content;} */
-.dropdown-toggle.no-arrow::after {display: none;}
 .blog-card{margin-bottom: 1rem;}
 .blog-card:nth-child(odd){padding-right: 0.5rem;}
 .blog-card:nth-child(even){padding-left: 0.5rem;}
@@ -116,18 +115,18 @@
 .setting-message:nth-last-child(1){border-bottom-left-radius: var(--bs-card-border-radius); border-bottom-right-radius: var(--bs-card-border-radius);}
 /* Page Profile */
 .profile-card, .timeline-card{min-height: calc(100vh - 108px);}
-.profile-nav-item{
-    text-decoration: none;
-    padding: 0.5rem;
-    color: rgba(var(--bs-dark-rgb),var(--bs-text-opacity))!important;
-    border-radius: var(--bs-card-border-radius) var(--bs-card-border-radius) 0 0;
-}
 .profile-nav{
     display: flex;
     justify-content: center;
     padding: 0.5rem 0.5rem 0 0.5rem;
     background-color: var(--primary-grey);
     border-bottom: 3px solid var(--bs-dark);
+    border-radius: var(--bs-card-border-radius) var(--bs-card-border-radius) 0 0;
+}
+.profile-nav-item{
+    text-decoration: none;
+    padding: 0.5rem;
+    color: rgba(var(--bs-dark-rgb),var(--bs-text-opacity))!important;
     border-radius: var(--bs-card-border-radius) var(--bs-card-border-radius) 0 0;
 }
 .profile-nav-item:hover,
