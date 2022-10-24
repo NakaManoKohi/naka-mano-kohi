@@ -1,11 +1,13 @@
 <?php namespace Cviebrock\EloquentSluggable\Tests\Models;
 
 /**
- * Class PostWithMultipleSlugs
+ * Class PostWithCustomEngineOptions
+ *
+ * A test model that customizes the Slugify engine with custom options.
  *
  * @package Cviebrock\EloquentSluggable\Tests\Models
  */
-class PostWithMultipleSlugs extends Post
+class PostWithCustomEngineOptions extends Post
 {
 
     /**
@@ -18,11 +20,11 @@ class PostWithMultipleSlugs extends Post
         return [
             'slug' => [
                 'source' => 'title',
-            ],
-            'dummy' => [
-                'source' => 'subtitle',
-                'separator' => '.',
-            ],
+                'slugEngineOptions' => [
+                    'lowercase' => false
+                ]
+            ]
         ];
     }
+
 }
