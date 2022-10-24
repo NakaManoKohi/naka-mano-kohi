@@ -77,6 +77,7 @@
 .ranking>*:nth-child(2){background-color: var(--secondary-grey);}
 .ranking>*:nth-child(3){background-color: var(--brown);}
 .ranking>*:nth-last-child(1) {margin-bottom: 0!important;}
+.ranking>*{background-color: var(--bs-white);}
 .chat-image-left{
     position: relative;
     bottom: 16px;
