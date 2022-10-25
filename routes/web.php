@@ -96,12 +96,12 @@ Route::get('/search',[SearchController::class, 'index']);
 Route::get('/dashboard', function(){
     return view('dashboard.index',[
         'title' => 'Dashboard'
-    ]);
+    ]); 
 });
 
 // Dashboard Blog Routes
-Route::resource('/dashboard/blog', DashboardBlogController::class);
 Route::get('/dashboard/blog/checkSlug', [DashboardBlogController::class, 'checkSlug']);
+Route::resource('/dashboard/blog', DashboardBlogController::class);
 
 // Dashboard User Routes
 Route::resource('/dashboard/user', DashboardUserController::class);

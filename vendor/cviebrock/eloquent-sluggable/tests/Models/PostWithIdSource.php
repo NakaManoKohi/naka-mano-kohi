@@ -1,11 +1,13 @@
 <?php namespace Cviebrock\EloquentSluggable\Tests\Models;
 
 /**
- * Class PostWithMultipleSlugs
+ * Class PostWithIdSource
+ *
+ * A test model that uses the model's ID in the slug source.
  *
  * @package Cviebrock\EloquentSluggable\Tests\Models
  */
-class PostWithMultipleSlugs extends Post
+class PostWithIdSource extends Post
 {
 
     /**
@@ -17,11 +19,8 @@ class PostWithMultipleSlugs extends Post
     {
         return [
             'slug' => [
-                'source' => 'title',
-            ],
-            'dummy' => [
-                'source' => 'subtitle',
-                'separator' => '.',
+                'source' => ['title','id'],
+                'onUpdate' => true,
             ],
         ];
     }

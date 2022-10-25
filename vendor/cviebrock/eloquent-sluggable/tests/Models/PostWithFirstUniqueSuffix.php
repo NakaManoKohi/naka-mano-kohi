@@ -1,11 +1,11 @@
 <?php namespace Cviebrock\EloquentSluggable\Tests\Models;
 
 /**
- * Class PostWithMultipleSlugs
+ * Class PostWithFirstUniqueSuffix
  *
  * @package Cviebrock\EloquentSluggable\Tests\Models
  */
-class PostWithMultipleSlugs extends Post
+class PostWithFirstUniqueSuffix extends Post
 {
 
     /**
@@ -18,11 +18,8 @@ class PostWithMultipleSlugs extends Post
         return [
             'slug' => [
                 'source' => 'title',
-            ],
-            'dummy' => [
-                'source' => 'subtitle',
-                'separator' => '.',
-            ],
+                'firstUniqueSuffix' => '42',
+            ]
         ];
     }
 }

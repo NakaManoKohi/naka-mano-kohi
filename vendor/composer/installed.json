@@ -201,17 +201,17 @@
         },
         {
             "name": "cviebrock/eloquent-sluggable",
-            "version": "8.0.0",
-            "version_normalized": "8.0.0.0",
+            "version": "8.0.8",
+            "version_normalized": "8.0.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cviebrock/eloquent-sluggable.git",
-                "reference": "becedfe5634740ee2bc3a3ee5ea01435547ee653"
+                "reference": "16e21db24d80180f870c3c7c4faf3d3af23f4117"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cviebrock/eloquent-sluggable/zipball/becedfe5634740ee2bc3a3ee5ea01435547ee653",
-                "reference": "becedfe5634740ee2bc3a3ee5ea01435547ee653",
+                "url": "https://api.github.com/repos/cviebrock/eloquent-sluggable/zipball/16e21db24d80180f870c3c7c4faf3d3af23f4117",
+                "reference": "16e21db24d80180f870c3c7c4faf3d3af23f4117",
                 "shasum": ""
             },
             "require": {
@@ -219,16 +219,16 @@
                 "illuminate/config": "^8.0",
                 "illuminate/database": "^8.0",
                 "illuminate/support": "^8.0",
-                "php": "^7.3"
+                "php": "^7.3|^8.0"
             },
             "require-dev": {
                 "limedeck/phpunit-detailed-printer": "^6.0",
                 "mockery/mockery": "^1.4.2",
                 "orchestra/database": "^6.0",
                 "orchestra/testbench": "^6.0",
-                "phpunit/phpunit": "^9.3"
+                "phpunit/phpunit": "^9.4"
             },
-            "time": "2020-09-10T21:45:05+00:00",
+            "time": "2021-06-12T01:05:33+00:00",
             "type": "library",
             "extra": {
                 "laravel": {
@@ -265,8 +265,14 @@
             ],
             "support": {
                 "issues": "https://github.com/cviebrock/eloquent-sluggable/issues",
-                "source": "https://github.com/cviebrock/eloquent-sluggable/tree/8.0.0"
+                "source": "https://github.com/cviebrock/eloquent-sluggable/tree/8.0.8"
             },
+            "funding": [
+                {
+                    "url": "https://github.com/cviebrock",
+                    "type": "github"
+                }
+            ],
             "install-path": "../cviebrock/eloquent-sluggable"
         },
         {

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
+
 
 class DashboardBlogController extends Controller
 {
@@ -42,7 +44,7 @@ class DashboardBlogController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'title' => 'required|max:255|min:5',
+            'title' => 'required|max:255|min:1',
             'slug' => 'required|unique:blogs',
             'image' => 'image|file|max:1024',
             'category_id' => 'required',
@@ -124,8 +126,7 @@ class DashboardBlogController extends Controller
     }
 
     public function checkSlug(Request $request){
-        // $slug = \Cviebrock\EloquentSluggable\Services\SlugService::createSlug(Blog::class, 'slug', $request->title);
-        // return response()->json(['slug' => $slug]);
-
+        $slug = SlugService::createSlug(Blog::class, 'slug', $request->title);
+        return response()->json(['slug' => $slug]);
     }
 }
