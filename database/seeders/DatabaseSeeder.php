@@ -2,11 +2,13 @@
 
 namespace Database\Seeders;
 
+use App\Models\benefit;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Blog;
 use App\Models\Events;
 use App\Models\Follows;
+use App\Models\Level;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,18 +19,27 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        Level::create(['level'=>'admin']);
+        Level::create(['level'=>'subadmin']);
+        Level::create(['level'=>'user']);
+        Benefit::create(['benefit'=>'admin']);
+        Benefit::create(['benefit'=>'subadmin']);
+        Benefit::create(['benefit'=>'user']);
+        
         User::create([
             'name' => "Eka Nata",
             'username' => "dreamerdream",
             'email' => "ekanata1411@gmail.com",
-            'password' => bcrypt("password")
+            'password' => bcrypt("password"),
+            'level' => 1
         ]);
 
         User::create([
             'name' => "Govin",
             'username' => "ExRyze",
             'email' => "vaisyagovinandas@gmail.com",
-            'password' => bcrypt("password")
+            'password' => bcrypt("password"),
+            'level' => 2
         ]);
         
         User::factory(5)->create();
