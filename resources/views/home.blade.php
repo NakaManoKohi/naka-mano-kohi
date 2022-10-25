@@ -11,10 +11,10 @@
           <h6 class="px-4 mb-3 fw-bold">Events</h6>
           <div class="col-12 mb-3">
             <div class="card card-body border border-5 border-yellow blog-card-highlight">
-              <div class="col-6 blog-card-desc">
-                <h2>{{ $events[0]->title }}</h2>
-                <h5 class="text-brown"> <i class="fa-solid fa-calendar-days"></i> {{ $events[0]->date->diffForHumans() }}</h5>
-                <p class=" flex-fill">{{ $events[0]->excerpt }}</p>
+              <div class="col-6 blog-card-desc gap-1">
+                <h2 class="title">{{ $events[0]->title }}</h2>
+                <h5 class="text-brown m-0"> <i class="fa-solid fa-calendar-days"></i> {{ $events[0]->date->diffForHumans() }}</h5>
+                <p class="desc">{{ $events[0]->excerpt }}</p>
                 <a href="/event/{{ $events[0]->slug }}" class="btn btn-primary btn-sm w-fit">Read More</a>
               </div>
             </div>
@@ -24,9 +24,9 @@
             @foreach ($blogs as $blog)
             <div class="blog-card col-6">
               <div class="card card-body border border-5 border-yellow blog-card-small">
-                <div class="col-8 blog-card-desc">
-                  <h5>{{ $blog->title }}</h5>
-                  <p style="font-size: 12px;" class=" flex-fill">{{ $blog->excerpt }}</p>
+                <div class="col-8 blog-card-desc gap-1">
+                  <h5 class="title">{{ $blog->title }}</h5>
+                  <p style="font-size: 12px;" class="desc">{{ $blog->excerpt }}</p>
                   <a href="/blog/{{ $blog->slug }}" class="btn btn-primary btn-sm w-fit">Read More</a>
                 </div>
               </div>
@@ -47,7 +47,7 @@
         <div class="card-body ranking p-0 border-1-rem border-primary-grey overflow-auto scrollbar-none">
           @php $i = 1; @endphp
           @foreach ($ranking as $user)
-            <div class="card-body rounded">
+            <div class="card-body rounded" onclick="window.location='/{{ $user->username }}'" role="button">
               <div class="d-flex align-items-center">
                 <img src="images/lilgru.jpg" alt="profile" width="44" class="me-3 rounded-circle border-black-3">
                 <div class="d-flex flex-column text-nowrap overflow-hidden">

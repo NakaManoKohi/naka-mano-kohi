@@ -10,11 +10,11 @@
         <div class="card-body">
             <div class="col-12 mb-3">
                 <div class="card card-body border border-5 border-yellow blog-card-highlight">
-                    <div class="col-6">
-                        <h2>{{ $events[0]->title }}</h2>
-                        <h5 class="text-brown"> <i class="fa-solid fa-calendar-days"></i> {{ $events[0]->date->diffForHumans() }}</h5>
-                        <p>{{ $events[0]->excerpt }}</p>
-                        <a href="/event/{{ $events[0]->slug }}" class="btn btn-primary btn-sm col-2">Read More</a>
+                    <div class="col-6 blog-card-desc gap-1">
+                        <h2 class="title">{{ $events[0]->title }}</h2>
+                        <h5 class="text-brown m-0"> <i class="fa-solid fa-calendar-days"></i> {{ $events[0]->date->diffForHumans() }}</h5>
+                        <p class="desc">{{ $events[0]->excerpt }}</p>
+                        <a href="/event/{{ $events[0]->slug }}" class="btn btn-primary btn-sm w-fit">Read More</a>
                     </div>
                 </div>
             </div>
@@ -23,10 +23,10 @@
             @foreach ($events->skip(1) as $event)
             <div class="blog-card col-6">
               <div class="card card-body border border-5 border-yellow blog-card-small">
-                <div class="col-8 blog-card-desc">
-                  <h5>{{ $event->title }}</h5>
-                  <h6 class="text-brown"> <i class="fa-solid fa-calendar-days"></i> {{ $event->date->diffForHumans() }}</h6>
-                  <p style="font-size: 12px;" class=" flex-fill">{{ $event->excerpt }}</p>
+                <div class="col-8 blog-card-desc gap-1">
+                  <h5 class="title">{{ $event->title }}</h5>
+                  <h6 class="text-brown m-0"> <i class="fa-solid fa-calendar-days"></i> {{ $event->date->diffForHumans() }}</h6>
+                  <p style="font-size: 12px;" class="desc">{{ $event->excerpt }}</p>
                   <a href="/event/{{ $event->slug }}" class="btn btn-primary btn-sm w-fit">Read More</a>
                 </div>
               </div>
