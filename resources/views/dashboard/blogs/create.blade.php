@@ -22,23 +22,15 @@
             </div>
           @enderror
         </div>
-        <input type="hidden" value="1" name="category_id">
-        {{-- <div class="mb-3">
-          <label for="category" class="form-label">Category</label>
-          <select class="form-select" name="category_id">
-            @foreach ($categories as $category)
-              @if('category_id' == $category->id)
-                  <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
-                @else
-                  <option value="{{ $category->id }}">{{ $category->name }}</option>
-                @endif
-            @endforeach
-          </select>
-        </div> --}}
         <div class="mb-3">
           <label for="formFile" class="form-label">Upload Image</label>
           <img class="img-preview img-fluid mb-3">
           <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image" onchange="previewImage()">
+          @error('image')
+            <div class="invalid-feedback">
+              {{ $message }}
+            </div>
+          @enderror
         </div>
         <div class="mb-3">
           <label for="body" class="form-label">Body</label>

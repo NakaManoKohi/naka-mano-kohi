@@ -20,7 +20,8 @@
             <table class="table table-striped">
                 <thead>
                     <th>No</th>
-                    <th>Title</th>
+                    <th>Name</th>
+                    <th>Username</th>
                     <th>Action</th>
                 </thead>
                 <tbody>
@@ -28,6 +29,7 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $user->name }}</td>
+                        <td>{{ $user->username }}</td>
                         <td>
                         <a href="/dashboard/user/{{ $user->username }}" class="btn btn-info"><i class="fa-solid fa-circle-info"></i> Detail</a>
                         <form action="/dashboard/user/{{ $user->username }}" method="post" class="d-inline">
@@ -40,8 +42,8 @@
                         @else
                             <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#suspendModal" data-id="{{ $user->username }}" id="suspendUser">Suspend</button>
                         @endif
-                    </td>
-                </tr>
+                        </td>
+                    </tr>
                 @endforeach
             </tbody>
         </table>

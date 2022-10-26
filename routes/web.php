@@ -1,27 +1,29 @@
 <?php
 
 // Models
+use Carbon\Carbon;
 use App\Models\Blog;
-use App\Models\Events;
-use App\Models\Follows;
+use App\Models\User;
 
 // Controller & Illuminate
+use App\Models\Events;
+use App\Models\Follows;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\EventsController;
+use App\Http\Controllers\SearchController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\PublicChatController;
 use App\Http\Controllers\DashboardBlogController;
 use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\DashboardEventsController;
-use App\Http\Controllers\EventsController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\PublicChatController;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\SettingController;
-use App\Http\Controllers\SearchController;
-use App\Models\User;
-use Carbon\Carbon;
-use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\DashboardSearchController;
+
 
 // Functions
 function getTimezone() {
@@ -91,6 +93,9 @@ Route::controller(EventsController::class)->group(function(){
 
 // Search Route
 Route::get('/search',[SearchController::class, 'index']);
+
+// Dashboard Search Route
+Route::get('/dashboard/search', [DashboardSearchController::class, 'index']);
 
 // Dashboard Route
 Route::get('/dashboard', function(){
