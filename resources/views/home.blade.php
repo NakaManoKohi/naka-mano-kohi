@@ -23,7 +23,7 @@
           <div class="d-flex flex-wrap col-12">
             @foreach ($blogs as $blog)
             <div class="blog-card col-6">
-              <div class="card card-body border border-5 border-yellow blog-card-small">
+              <div class="card card-body border border-5 border-yellow blog-card-small" data="images/lilgru.jpg">
                 <div class="col-8 blog-card-desc gap-1">
                   <h5 class="title">{{ $blog->title }}</h5>
                   <p style="font-size: 12px;" class="desc">{{ $blog->excerpt }}</p>
