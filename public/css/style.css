@@ -60,10 +60,6 @@
 .blog-card:nth-child(odd){padding-right: 0.5rem;}
 .blog-card:nth-child(even){padding-left: 0.5rem;}
 .blog-card-small{height: 15rem;}
-.blog-card-small, .blog-card-highlight{
-    background-image: linear-gradient(to right, var(--bs-white), transparent), url('https://source.unsplash.com/800x600/?coffee');
-    background-size: cover;
-}
 .blog-card-desc{
     display: flex;
     flex-direction: column;
