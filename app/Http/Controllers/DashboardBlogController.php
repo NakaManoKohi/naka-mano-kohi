@@ -19,7 +19,7 @@ class DashboardBlogController extends Controller
     {
         return view('dashboard.blogs.index',[
             'title' => 'Dashboard Blog',
-            'blogs' => Blog::where('user_id', auth()->user()->id)->get()
+            'blogs' => Blog::where('user_id', auth()->user()->id)->latest()->get()
         ]);
     }
 
@@ -47,7 +47,6 @@ class DashboardBlogController extends Controller
             'title' => 'required|max:255|min:1',
             'slug' => 'required|unique:blogs',
             'image' => 'image|file|max:1024',
-            'category_id' => 'required',
             'body' => 'required'
         ]);
 
