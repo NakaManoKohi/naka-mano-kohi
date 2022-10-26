@@ -49,7 +49,7 @@
     <!-- Button trigger modal -->
   
   <!-- Modal -->
-  <div class="modal fade" id="suspendModal" tabindex="-1" aria-labelledby="suspendModalLabel" aria-hidden="true">
+  <div class="modal fade" id="suspendModal" tabindex="-1" aria-labelledby="suspe  ndModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">

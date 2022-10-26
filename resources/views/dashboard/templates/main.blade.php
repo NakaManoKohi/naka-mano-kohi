@@ -65,7 +65,7 @@
 
     
     <!-- Custom styles for this template -->
-    <link href="dashboard.css" rel="stylesheet">
+    {{-- <link href="dashboard.css" rel="stylesheet"> --}}
     <link rel="stylesheet" href="/css/dashboard.css">
     <link rel="stylesheet" href="/css/trix.css">
 

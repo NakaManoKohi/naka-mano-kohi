@@ -11,6 +11,12 @@
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/override.css">
   <link rel="stylesheet" href="/assets/fontAwesome/css/all.css">
+  <style>
+    .blog-card>.blog-card-small, .blog-card-highlight{
+      background-image: linear-gradient(to right, var(--bs-white), transparent), url('https://source.unsplash.com/800x600/?coffee');
+      background-size: cover;
+    }
+  </style>
 </head>
 <body>
 

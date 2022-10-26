@@ -51,6 +51,10 @@ class DashboardBlogController extends Controller
             'body' => 'required'
         ]);
 
+        if($request->file('image')){
+            $validatedData['image'] = $request->file('image')->store('images');
+        }
+
         $validatedData['user_id'] = auth()->user()->id;
         $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
 

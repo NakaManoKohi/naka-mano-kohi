@@ -10,10 +10,7 @@
 				<form class="w-75" action="/login" method="post">
 					<h1 class="mb-3 fw-bold">Masuk Kohiverse</h1>
 					@if(session()->has('success'))
-					<div class="alert alert-success alert-dismissible fade show" role="alert">
-						{{ session('success') }}
-						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
-					</div>
+					
 					@endif
 
 					@if(session()->has('loginError'))
