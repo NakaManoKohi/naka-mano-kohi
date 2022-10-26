@@ -22,8 +22,12 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('image')->nullable();
             $table->boolean('suspend')->default(0);
+            $table->bigInteger('level')->default(3)->unsigned();
+            $table->bigInteger('benefit')->default(3)->unsigned();
             $table->rememberToken();
             $table->timestamps();
+            $table->foreign('level')->references('id')->on('levels');
+            $table->foreign('benefit')->references('id')->on('benefits');
         });
     }
 

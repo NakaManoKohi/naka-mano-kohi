@@ -20,6 +20,14 @@
     <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
     <ul class="navbar-nav">
       @auth
+        <li class="nav-link btn-group d-flex align-items-center">
+          <a class="nav-link text-white text-decoration-none dropdown-toggle no-arrow" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-plus"></i></a>
+          <ul class="dropdown-menu dropdown-menu-end mt-2">
+            <li><a class="dropdown-item" href="/post">Post</a></li>
+            <li><a class="dropdown-item" href="/blog">Blog</a></li>
+            <li><a class="dropdown-item" href="/event">Event</a></li>
+          </ul>
+        </li>
         <li class="nav-item btn-group">
           <a class="nav-link text-white text-decoration-none dropdown-toggle no-arrow me-4" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             {{ auth()->user()->name }}
@@ -27,7 +35,9 @@
           </a>
           <ul class="dropdown-menu dropdown-menu-end mt-2 me-4">
             <li><a class="dropdown-item" href="/{{ auth()->user()->username }}">Profile</a></li>
-            <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
+            @if (auth()->user()->level != 3)
+              <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
+            @endif
             <li><a class="dropdown-item" href="/setting">Setting</a></li>
             <li><hr class="dropdown-divider"></li>
             <li>
