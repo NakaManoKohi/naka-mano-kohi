@@ -17,7 +17,7 @@
           <label for="slug" class="form-label">Slug</label>
           <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" required value="{{ old('slug') }}">
           @error('slug')
-            <div class="invalid-fe  edback">
+            <div class="invalid-feedback">
               {{ $message }}
             </div>
           @enderror
@@ -65,11 +65,13 @@
 </div>
 
 <script>
-    const title = document.querySelector('#title');
-    const slug = document.querySelector('#title');
+  const title = document.querySelector('#title');
+  const slug = document.querySelector('#slug');
 
-    title.addEventListener('change', function(){
-        fetch('/dashboard/blog/checkSlug?title=' + title.value).then(response => response.json()).then(data => slug.value = data.slug)
-    })
+  title.addEventListener('change', function(){
+      fetch('/dashboard/blog/checkSlug?title=' + title.value)
+      .then(response => response.json())
+      .then(data => slug.value = data.slug)
+  })
 </script>
 @endsection
