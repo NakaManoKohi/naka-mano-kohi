@@ -10,7 +10,7 @@
         <div class="card-body">
             <div class="col-12 mb-3">
                 <div class="card card-body border border-5 border-yellow blog-card-highlight">
-                  <img src="{{ $events[0]->image }}" alt="" loading="lazy" class="blog-card-image">
+                  <img src="/storage/{{ $events[0]->image }}" alt="" loading="lazy" class="blog-card-image">
                   <div class="blog-card-background"></div>
                   <div class="col-6 blog-card-desc gap-1">
                     <h2 class="title">{{ $events[0]->title }}</h2>
@@ -25,7 +25,7 @@
             @foreach ($events->skip(1) as $event)
             <div class="blog-card col-6">
               <div class="card card-body border border-5 border-yellow blog-card-small">
-                <img src="{{ $event->image }}" alt="" loading="lazy" class="blog-card-image">
+                <img src="/storage/{{ $event->image }}" alt="" loading="lazy" class="blog-card-image">
                 <div class="blog-card-background"></div>
                 <div class="col-8 blog-card-desc gap-1">
                   <h5 class="title">{{ $event->title }}</h5>
