@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\EventsController;
 use App\Http\Controllers\SearchController;
@@ -23,6 +24,7 @@ use App\Http\Controllers\DashboardBlogController;
 use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\DashboardEventsController;
 use App\Http\Controllers\DashboardSearchController;
+
 
 
 // Functions
@@ -91,6 +93,9 @@ Route::controller(EventsController::class)->group(function(){
     Route::get('/event/{event:slug}', 'show');
 });
 
+// Post Routes
+Route::resource('/post', PostController::class);
+
 // Search Route
 Route::get('/search',[SearchController::class, 'index']);
 
@@ -121,8 +126,9 @@ Route::resource('/dashboard/event', DashboardEventsController::class);
 // Profile Routes
 Route::controller(ProfileController::class)->group(function(){
     Route::get('/{user:username}', 'index');
-    Route::get('/{user:username}/{follow}', 'follows');
-    Route::get('/{user:username}/{unfollow}', 'follows');
+    Route::get('/{user:username}/follow', 'follow');
+    Route::get('/{user:username}/unfollow', 'unfollow');
+    Route::get('/{user:username}/post', 'post');
 });
 
 // Public Chat Routes

@@ -34,6 +34,9 @@
                 @endforeach
             </tbody>
         </table>
+        <div class="mt-4 d-flex justify-content-end">
+            {{ $blogs->links() }}
+        </div>
     </div>
 </div>
 @endsection

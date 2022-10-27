@@ -36,6 +36,9 @@
                 @endforeach
             </tbody>
         </table>
+        <div class="mt-4 d-flex justify-content-end">
+            {{ $events->links() }}
+        </div>
     </div>
 </div>
 @endsection

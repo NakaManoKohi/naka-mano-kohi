@@ -9,6 +9,7 @@ use App\Models\Blog;
 use App\Models\Events;
 use App\Models\Follows;
 use App\Models\Level;
+use App\Models\Post;
 
 class DatabaseSeeder extends Seeder
 {
@@ -43,7 +44,8 @@ class DatabaseSeeder extends Seeder
         ]);
         
         User::factory(5)->create();
-        Blog::factory(30)->create();
+        Blog::factory(10)->create();
         Events::factory(10)->create();
+        Post::factory(10)->create();
     }
 }

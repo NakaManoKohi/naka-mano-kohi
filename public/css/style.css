@@ -172,3 +172,11 @@
 .activity-circle{
     right: calc(1.5px + 0.5rem + 5px);
 }
+/* Post CSS */
+.text-condensed{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}

@@ -1,6 +1,7 @@
 @extends('templates.main')
 @section('content')
   {{-- {{ dd($activities) }} --}}
+
   <div class="col-12 d-flex p-3">
     <aside class="pe-2 col-3">
       <div class="card bg-primary-grey profile-card">
@@ -38,6 +39,8 @@
               <h5 class="mb-0">Activity</h5></a>
             <a href="/{{ $user->username }}?tab=blog" class="profile-nav-item">
               <h5 class="mb-0">Blog</h5></a>
+            <a href="/{{ $user->username }}/post" class="profile-nav-item">
+              <h5 class="mb-0">Post</h5></a>
           </nav>
         </div>
         <div class="card bg-primary-grey flex-grow-1">
