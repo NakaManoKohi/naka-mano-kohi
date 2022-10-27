@@ -98,8 +98,10 @@
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
-    flex: 1 1 auto !important;
     margin-bottom: 0;
+}
+.blog-card-desc>.btn{
+    margin-top: auto;
 }
 .aside-home{top: 1rem!important; height: calc(100vh - 108px);}
 .ranking{border-radius: 0 0 var(--bs-card-border-radius) var(--bs-card-border-radius);}
