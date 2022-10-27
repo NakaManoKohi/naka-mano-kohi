@@ -19,6 +19,12 @@
         </a>
       </li>
       <li class="sidenav-nav">
+        <a href="/post" class="{{ Request::is('post*') ? 'text-dark active' : 'text-brown' }}">
+          <i class="fa-solid fa-image fs-2"></i>
+          <span>Posts</span>
+        </a>
+      </li>
+      <li class="sidenav-nav">
         <a href="/setting" class="{{ Request::is('setting*') ? 'text-dark active' : 'text-brown' }}">
           <i class="fa-solid fa-gear fs-2"></i>
           <span>Setting</span>
