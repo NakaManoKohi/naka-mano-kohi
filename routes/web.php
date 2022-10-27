@@ -126,8 +126,9 @@ Route::resource('/dashboard/event', DashboardEventsController::class);
 // Profile Routes
 Route::controller(ProfileController::class)->group(function(){
     Route::get('/{user:username}', 'index');
-    Route::get('/{user:username}/{follow}', 'follows');
-    Route::get('/{user:username}/{unfollow}', 'follows');
+    Route::get('/{user:username}/follow', 'follow');
+    Route::get('/{user:username}/unfollow', 'unfollow');
+    Route::get('/{user:username}/post', 'post');
 });
 
 // Public Chat Routes

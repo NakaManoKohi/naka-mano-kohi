@@ -5,21 +5,21 @@
     <main class="col-9 pe-2">
       <section class="col-12 bg-primary-grey card border-0">
         <div class="card-header bg-brown text-white">
-          <h3><a href="/" class="text-decoration-none text-white">Home</a></h3>
+          <h3><a href="/" class="text-decoration-none text-white">Home</a> / <a href="/post" class="text-decoration-none text-white">Post</a></h3>
         </div>
-        <div class="card-body col-8 mx-auto">
+        <div class="card-body col-8 mx-auto" style="max-width: 800px">
             @foreach ($posts as $post)
             <div class="card card-body border border-5 border-yellow blog-card-highlight my-3">
                 <div class="col-12 blog-card-desc gap-1">
                     <div class="d-flex flex-row">
                         <img src="/images/lilgru.jpg" alt="profile" width="50" height="50" class="rounded-circle ms-2">
                         <div class="d-flex flex-column">
-                            <h4 class="ms-3">{{ $post->user->name }}</h4>
+                            <h4 class="ms-3"><a href="/{{ $post->user->username }}" class="text-decoration-none text-dark">{{ $post->user->name }}</a></h4>
                             <p class="ms-3">{{ $post->created_at->diffForHumans() }}</p>
                         </div>
                     </div>
+                    <img src="https://source.unsplash.com/300x300/?coffee" alt="image" height="500">
                     <p class="w-100">{!! $post->caption !!}</p>
-                    <img src="https://source.unsplash.com/500x500/?coffee" alt="image" height="500">
                 </div>
             </div>
             @endforeach

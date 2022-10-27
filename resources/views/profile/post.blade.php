@@ -1,6 +1,7 @@
 @extends('templates.main')
 @section('content')
   {{-- {{ dd($activities) }} --}}
+
   <div class="col-12 d-flex p-3">
     <aside class="pe-2 col-3">
       <div class="card bg-primary-grey profile-card">
@@ -38,15 +39,26 @@
               <h5 class="mb-0">Activity</h5></a>
             <a href="/{{ $user->username }}?tab=blog" class="profile-nav-item">
               <h5 class="mb-0">Blog</h5></a>
+            <a href="/{{ $user->username }}/post" class="profile-nav-item">
+              <h5 class="mb-0">Post</h5></a>
           </nav>
         </div>
         <div class="card bg-primary-grey flex-grow-1">
-          <div class="card-body">
-            @foreach ($activities as $activity)
-              <div class="col-12 d-flex justify-content-between">
-                <p class="m-0"><span class="fw-bold">{{ $activity->user_following }}</span> {{ $activity->status }} <span class="fw-bold">{{ $activity->user }}</span></p>
-                <p class="m-0">{{ $activity->updated_at }}</p>
-              </div>
+          <div class="card-body col-8 mx-auto" style="max-width: 800px">
+            @foreach ($posts as $post)
+            <div class="card card-body border border-5 border-yellow blog-card-highlight my-3">
+              <div class="col-12 blog-card-desc gap-1">
+                <div class="d-flex flex-row">
+                  <img src="/images/lilgru.jpg" alt="profile" width="50" height="50" class="rounded-circle ms-2">
+                    <div class="d-flex flex-column">
+                      <h4 class="ms-3"><a href="/{{ $post->user->username }}" class="text-decoration-none text-dark">{{ $post->user->name }}</a></h4>
+                      <p class="ms-3">{{ $post->created_at->diffForHumans() }}</p>
+                    </div>
+                  </div>
+                  <img src="https://source.unsplash.com/300x300/?coffee" alt="image" height="500">
+                  <p class="w-100">{!! $post->caption !!}</p>
+                </div>
+            </div>
             @endforeach
           </div>
         </div>
