@@ -169,3 +169,6 @@
     background-color: var(--secondary-grey);
     font-weight: bold;
 }
+.activity-circle{
+    right: calc(1.5px + 0.5rem + 5px);
+}

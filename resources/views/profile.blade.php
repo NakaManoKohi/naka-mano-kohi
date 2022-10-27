@@ -43,9 +43,17 @@
         <div class="card bg-primary-grey flex-grow-1">
           <div class="card-body">
             @foreach ($activities as $activity)
-              <div class="col-12 d-flex justify-content-between">
-                <p class="m-0"><span class="fw-bold">{{ $activity->user_following }}</span> {{ $activity->status }} <span class="fw-bold">{{ $activity->user }}</span></p>
-                <p class="m-0">{{ $activity->updated_at }}</p>
+              <div class="ms-2 ps-2 border-start border-3 border-dark d-flex flex-column">
+                <p class="m-0 position-relative">
+                  <svg height="10" width="10" class="position-relative activity-circle">
+                    <circle cx="5" cy="5" r="5" fill="black" />
+                  </svg>
+                  {{ $activity->updated_at }}</p>
+                <p class="mb-3 ps-4">
+                  <span class="fw-bold"><a href="/{{ $activity->user_following }}" class="text-decoration-none text-dark">{{ $activity->user_following }}</a></span>
+                   {{ $activity->status }} 
+                  <span class="fw-bold"><a href="/{{ $activity->user }}" class="text-decoration-none text-dark">{{ $activity->user }}</a></span>
+                </p>
               </div>
             @endforeach
           </div>
