@@ -10,12 +10,14 @@
         <div class="card-body">
             <div class="col-12 mb-3">
                 <div class="card card-body border border-5 border-yellow blog-card-highlight">
-                    <div class="col-6 blog-card-desc gap-1">
-                        <h2 class="title">{{ $events[0]->title }}</h2>
-                        <h5 class="text-brown m-0"> <i class="fa-solid fa-calendar-days"></i> {{ $events[0]->date->diffForHumans() }}</h5>
-                        <p class="desc">{{ $events[0]->excerpt }}</p>
-                        <a href="/event/{{ $events[0]->slug }}" class="btn btn-primary btn-sm w-fit">Read More</a>
-                    </div>
+                  <img src="{{ $events[0]->image }}" alt="" loading="lazy" class="blog-card-image">
+                  <div class="blog-card-background"></div>
+                  <div class="col-6 blog-card-desc gap-1">
+                    <h2 class="title">{{ $events[0]->title }}</h2>
+                    <h5 class="text-brown m-0"> <i class="fa-solid fa-calendar-days"></i> {{ $events[0]->date->diffForHumans() }}</h5>
+                    <p class="desc">{{ $events[0]->excerpt }}</p>
+                    <a href="/event/{{ $events[0]->slug }}" class="btn btn-primary btn-sm w-fit">Read More</a>
+                  </div>
                 </div>
             </div>
           <h4 class="h4 px-4 mb-3 fw-bold">Events</h4>
@@ -23,6 +25,8 @@
             @foreach ($events->skip(1) as $event)
             <div class="blog-card col-6">
               <div class="card card-body border border-5 border-yellow blog-card-small">
+                <img src="{{ $event->image }}" alt="" loading="lazy" class="blog-card-image">
+                <div class="blog-card-background"></div>
                 <div class="col-8 blog-card-desc gap-1">
                   <h5 class="title">{{ $event->title }}</h5>
                   <h6 class="text-brown m-0"> <i class="fa-solid fa-calendar-days"></i> {{ $event->date->diffForHumans() }}</h6>

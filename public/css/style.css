@@ -60,10 +60,29 @@
 .blog-card:nth-child(odd){padding-right: 0.5rem;}
 .blog-card:nth-child(even){padding-left: 0.5rem;}
 .blog-card-small{height: 15rem;}
+.blog-card-small, .blog-card-highlight {
+    overflow: hidden;
+}
+.blog-card-background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, var(--bs-white), transparent);
+}
+.blog-card-image{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: fit-content;
+}
 .blog-card-desc{
     display: flex;
     flex-direction: column;
     height: 100%;
+    z-index: 99;
 }
 .blog-card-desc>.title{
     text-overflow: ellipsis;

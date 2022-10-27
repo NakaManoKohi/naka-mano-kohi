@@ -11,6 +11,8 @@
           <h6 class="px-4 mb-3 fw-bold">Events</h6>
           <div class="col-12 mb-3">
             <div class="card card-body border border-5 border-yellow blog-card-highlight">
+              <img src="{{ $events[0]->image }}" alt="" loading="lazy" class="blog-card-image">
+              <div class="blog-card-background"></div>
               <div class="col-6 blog-card-desc gap-1">
                 <h2 class="title">{{ $events[0]->title }}</h2>
                 <h5 class="text-brown m-0"> <i class="fa-solid fa-calendar-days"></i> {{ $events[0]->date->diffForHumans() }}</h5>
@@ -23,7 +25,9 @@
           <div class="d-flex flex-wrap col-12">
             @foreach ($blogs as $blog)
             <div class="blog-card col-6">
-              <div class="card card-body border border-5 border-yellow blog-card-small" data="images/lilgru.jpg">
+              <div class="card card-body border border-5 border-yellow blog-card-small">
+                <img src="{{ $blog->image }}" alt="" loading="lazy" class="blog-card-image">
+                <div class="blog-card-background"></div>
                 <div class="col-8 blog-card-desc gap-1">
                   <h5 class="title">{{ $blog->title }}</h5>
                   <p style="font-size: 12px;" class="desc">{{ $blog->excerpt }}</p>
