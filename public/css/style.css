@@ -150,3 +150,12 @@
     background-color: var(--secondary-grey);
     font-weight: bold;
 }
+
+/* Post CSS */
+.text-condensed{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}

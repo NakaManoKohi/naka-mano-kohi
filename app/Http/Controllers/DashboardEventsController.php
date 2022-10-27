@@ -18,7 +18,7 @@ class DashboardEventsController extends Controller
     {
         return view('dashboard.events.index',[
             'title' => "Dashboard Events",
-            'events' => $events->latest()->get()
+            'events' => $events->latest()->paginate(5)
         ]);
     }
 
