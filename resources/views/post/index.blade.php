@@ -18,8 +18,12 @@
                             <p class="ms-3">{{ $post->created_at->diffForHumans() }}</p>
                         </div>
                     </div>
-                    <img src="https://source.unsplash.com/300x300/?coffee" alt="image" height="500">
-                    <p class="w-100">{!! $post->caption !!}</p>
+                    @if($post->image)
+                      <img src="storage/{{ $post->image }}" alt="image" height="500">
+                    @else
+                      <img src="https://source.unsplash.com/300x300/?coffee" alt="image" height="500">
+                    @endif
+                    <p class="w-100 mt-3 fs-5">{!! $post->caption !!}</p>
                 </div>
             </div>
             @endforeach

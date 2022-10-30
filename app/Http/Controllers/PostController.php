@@ -7,6 +7,9 @@ use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use Illuminate\Support\Facades\DB;
 
+use \Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Http\Request;
+
 class PostController extends Controller
 {
 
@@ -41,7 +44,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('post.create',[
+            'title' => 'Post'
+        ]);
     }
 
     /**
@@ -52,7 +57,19 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        //
+        $validatedData = $request->validate([
+            'caption' => 'required|max:2500'
+        ]);
+
+        if($request->file('image')){
+            $validatedData['image'] = $request->file('image')->store('images');
+        }
+
+        $validatedData['user_id'] = auth()->user()->id;
+
+        Post::create($validatedData);
+
+        return redirect('/post')->with('success', 'The Post Successfully Created');
     }
 
     /**
@@ -99,4 +116,5 @@ class PostController extends Controller
     {
         //
     }
+
 }

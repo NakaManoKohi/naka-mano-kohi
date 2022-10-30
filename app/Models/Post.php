@@ -8,16 +8,9 @@ use Cviebrock\EloquentSluggable\Sluggable;
 
 class Post extends Model
 {
-    use HasFactory, sluggable;
+    use HasFactory;
 
-    public function sluggable(): array
-    {
-        return [
-            'slug' => [
-                'source' => 'title'
-            ]
-        ];
-    }
+    protected $guarded = ['id'];
 
     public function user(){
         return $this->belongsTo(User::class);

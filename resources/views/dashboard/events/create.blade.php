@@ -5,9 +5,9 @@
     <form method="post" action="/dashboard/event" enctype="multipart/form-data">
       @csrf
         <div class="mb-3">
-          <label for="title" class="form-label">Title</label>
-          <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" required autofocus value="{{ old('title') }}">
-          @error('title')
+          <label for="caption" class="form-label">Caption</label>
+          <input type="text" class="form-control @error('caption') is-invalid @enderror" id="caption" name="caption" required autofocus value="{{ old('caption') }}">
+          @error('caption')
             <div class="invalid-feedback">
               {{ $message }}
             </div>
@@ -63,15 +63,4 @@
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
 </div>
-
-<script>
-  const title = document.querySelector('#title');
-  const slug = document.querySelector('#slug');
-
-  title.addEventListener('change', function(){
-      fetch('/dashboard/blog/checkSlug?title=' + title.value)
-      .then(response => response.json())
-      .then(data => slug.value = data.slug)
-  })
-</script>
 @endsection

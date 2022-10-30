@@ -31,3 +31,20 @@ $(document).ready(() => {
         // console.log(activateButton);
     });
 })
+
+const title = document.querySelector('#title');
+const slug = document.querySelector('#slug');
+
+title.addEventListener('change', function(){
+    fetch('/dashboard/blog/checkSlug?title=' + title.value)
+    .then(response => response.json())
+    .then(data => slug.value = data.slug)
+})
+
+const caption = document.querySelector('#caption');
+
+caption.addEventListener('change', function(){
+    fetch('/post/checkSlug?caption=' + caption.value)
+    .then(response => response.json())
+    .then(data => slug.value = data.slug)
+})
