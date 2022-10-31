@@ -6,6 +6,7 @@ use App\Models\Blog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Facades\Storage;
 
 
 class DashboardBlogController extends Controller
@@ -99,16 +100,18 @@ class DashboardBlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
-        $validatedData = $request->validate([
+        $rules = [
             'title' => 'required|max:255|min:1',
             'image' => 'image|file|max:1024',
             'body' => 'required'
-        ]);
+        ];
 
         if($request->slug != $blog->slug){
-            $validatedData['slug'] = 'required|unique:blogs';
+            $rules['slug'] = 'required|unique:blogs';
         }
         
+        $validatedData = $request->validate($rules);
+
         if($request->file('image')){
             $validatedData['image'] = $request->file('image')->store('images');
         }
@@ -129,6 +132,10 @@ class DashboardBlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
+        if($blog->image){
+            Storage::delete($blog->image);
+        }
+        
         Blog::destroy($blog->id);
 
         return redirect('/dashboard/blog')->with('success', 'The blog has been deleted');

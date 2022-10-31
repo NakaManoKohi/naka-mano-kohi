@@ -40,7 +40,7 @@ title.addEventListener('change', function(){
     fetch('/dashboard/blog/checkSlug?title=' + title.value)
     .then(response => response.json())
     .then(data => slug.value = data.slug)
-})
+});
 
 // Image Preview
 function previewImg(){
