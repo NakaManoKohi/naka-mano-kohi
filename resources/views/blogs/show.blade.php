@@ -10,11 +10,11 @@
         <div class="card-body">
           <div class="row justify-content-center">
             <div class="col-8">
-              @if($blog->image)
+              {{-- @if($blog->image) --}}
                 <img src="{{ asset('storage/' . $blog->image) }}" alt="{{ $blog->title . 'Image' }}" width="250" class="mx-auto d-block">
-              @else
+              {{-- @else
                 <img src="https://source.unsplash.com/1000x400/?coffee" alt="{{ $blog->title }}-image" class="w-75">
-              @endif
+              @endif --}}
               <h3 class="mt-3">{{ $blog->title }}</h3>
               <article class="mt-2">
                 {!! $blog->body !!}

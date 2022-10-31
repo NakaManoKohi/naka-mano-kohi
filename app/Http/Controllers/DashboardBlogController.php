@@ -113,6 +113,9 @@ class DashboardBlogController extends Controller
         $validatedData = $request->validate($rules);
 
         if($request->file('image')){
+            if($request->oldImage){
+                Storage::delete($request->oldImage);
+            }
             $validatedData['image'] = $request->file('image')->store('images');
         }
 
