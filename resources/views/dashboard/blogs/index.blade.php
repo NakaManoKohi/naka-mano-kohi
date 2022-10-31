@@ -24,11 +24,7 @@
                         <td>
                         <a href="/dashboard/blog/{{ $blog->slug }}" class="btn btn-info"><i class="fa-solid fa-circle-info"></i> Detail</a>
                         <a href="/dashboard/blog/{{ $blog->slug }}/edit" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
-                        <form action="/dashboard/blog/{{ $blog->slug }}" method="post" class="d-inline">
-                            @method('delete')
-                            @csrf
-                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')"><i class="fa-solid fa-trash"></i> Delete</button>
-                        </form>
+                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="{{ $blog->slug }}" id="deleteBlog"><i class="fa-solid fa-trash"></i> Delete</button>
                     </td>
                 </tr>
                 @endforeach
@@ -36,6 +32,27 @@
         </table>
         <div class="mt-4 d-flex justify-content-end">
             {{ $blogs->links() }}
+        </div>
+    </div>
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalTitle"></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are You sure?
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <form method="post" class="d-inline" name="deleteBlog">
+                    @method('delete')
+                    @csrf
+                    <button type="submit" class="btn btn-primary">Yes</button>
+                </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>

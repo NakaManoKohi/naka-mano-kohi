@@ -1,13 +1,13 @@
 // Modal Suspend user Jquery
 const suspendUserButton = document.querySelectorAll('#suspendUser');
-// const suspendUserUsername = suspendUserButton.getAttribute('data-id');
-
 const activateUserButton = document.querySelectorAll('#activateUser');
-// const activateUserUsername = activateUserButton.getAttribute('data-id');
+const deleteBlog = document.querySelectorAll('#deleteBlog');
+const deleteEvent = document.querySelectorAll('#deleteEvent');
 
 const modalLabel = document.getElementById('modalTitle');
-
 const confirmButtonModal = document.getElementById('confirm');
+const formDelBlog = document.deleteBlog;
+const formDelEvent = document.deleteEvent;
 
 
 // $(suspendUserButton).on("click", ()=>{
@@ -28,7 +28,22 @@ $(document).ready(() => {
             modalLabel.innerText = 'Activate User'
             confirmButtonModal.setAttribute('href', '/dashboard/user/' + userUsername + '/activate');
         });
-        // console.log(activateButton);
+    });
+
+    deleteEvent.forEach(delEvent => {
+        delEvent.addEventListener('click', ()=>{
+            let slug = delEvent.getAttribute('data-id');
+            modalLabel.innerText = 'Delete Event';
+            formDelEvent.action = `/dashboard/event/${slug}`;
+        });
+    });
+
+    deleteBlog.forEach(delBlog => {
+        delBlog.addEventListener('click', ()=>{
+            let slug = delBlog.getAttribute('data-id');
+            modalLabel.innerText = 'Delete Blog';
+            formDelBlog.action = `/dashboard/blog/${slug}`;
+        });
     });
 })
 
