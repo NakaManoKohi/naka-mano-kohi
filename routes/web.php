@@ -107,7 +107,7 @@ Route::get('/dashboard', function(){
     return view('dashboard.index',[
         'title' => 'Dashboard'
     ]); 
-});
+})->middleware('level:1||2');
 
 // Dashboard Blog Routes
 Route::get('/dashboard/blog/checkSlug', [DashboardBlogController::class, 'checkSlug']);
