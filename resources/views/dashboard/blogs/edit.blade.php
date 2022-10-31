@@ -43,7 +43,7 @@
           {{-- @else --}}
             {{-- <img class="img-preview img-fluid mb-3 d-block" width="250"> --}}
           {{-- @endif --}}
-
+          <input type="hidden" name="oldImage" value="{{ $blog->image }}">
           <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image" onchange="previewImg()">
         </div>
         <div class="mb-3">
