@@ -47,7 +47,7 @@
         <img class="img-preview img-fluid mb-3" width="250">
         <div class="mb-3">
           <label for="formFile" class="form-label">Upload Image</label>
-          <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image" onchange="previewImage()">
+          <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image" onchange="previewImg()">
         </div>
         <div class="mb-3">
           <label for="body" class="form-label">Body</label>

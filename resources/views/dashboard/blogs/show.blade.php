@@ -6,7 +6,7 @@
       <section class="col-12 bg-primary-grey card border-0">
         <div class="card-body">
         <a href="/dashboard/blog" class="btn btn-success me-1"><i class="fa-solid fa-arrow-left"></i> Back to Blogs</a>
-        <a href="#" class="btn btn-warning me-1"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
+        <a href="/dashboard/blog/{{ $blog->slug }}/edit" class="btn btn-warning me-1"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
         <a href="#" class="btn btn-danger me-1"><i class="fa-solid fa-trash"></i> Delete</a>
           <div class="row mt-3">
             <div class="col-8">

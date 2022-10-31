@@ -100,12 +100,18 @@ class DashboardBlogController extends Controller
     public function update(Request $request, Blog $blog)
     {
         $validatedData = $request->validate([
-            'title' => 'required|max:255|min:5',
-            'slug' => 'required|unique:blogs',
+            'title' => 'required|max:255|min:1',
             'image' => 'image|file|max:1024',
-            'category_id' => 'required',
             'body' => 'required'
         ]);
+
+        if($request->slug != $blog->slug){
+            $validatedData['slug'] = 'required|unique:blogs';
+        }
+        
+        if($request->file('image')){
+            $validatedData['image'] = $request->file('image')->store('images');
+        }
 
         $validatedData['user_id'] = auth()->user()->id;
         $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);

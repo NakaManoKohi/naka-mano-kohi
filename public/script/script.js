@@ -32,6 +32,7 @@ $(document).ready(() => {
     });
 })
 
+// Slug maker
 const title = document.querySelector('#title');
 const slug = document.querySelector('#slug');
 
@@ -41,10 +42,14 @@ title.addEventListener('change', function(){
     .then(data => slug.value = data.slug)
 })
 
-const caption = document.querySelector('#caption');
+// Image Preview
+function previewImg(){
+    const image = document.querySelector('#image');
+    const imgPreview = document.querySelector('.img-preview');
+    const ofReader = new FileReader();
+    ofReader.readAsDataURL(image.files[0]);
 
-caption.addEventListener('change', function(){
-    fetch('/post/checkSlug?caption=' + caption.value)
-    .then(response => response.json())
-    .then(data => slug.value = data.slug)
-})
+    ofReader.onload = function(oFREvent){
+      imgPreview.src = oFREvent.target.result;
+    }
+  }

@@ -23,7 +23,7 @@
             </div>
           @enderror
         </div>
-        <input type="hidden" value="1" name="category_id">
+        {{-- <input type="hidden" value="1" name="category_id"> --}}
         {{-- <div class="mb-3">
           <label for="category" class="form-label">Category</label>
           <select class="form-select" name="category_id">
@@ -38,8 +38,13 @@
         </div> --}}
         <div class="mb-3">
           <label for="formFile" class="form-label">Upload Image</label>
-          <img class="img-preview img-fluid mb-3">
-          <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image" onchange="previewImage()">
+          {{-- @if($blog->image) --}}
+            <img src="{{ asset('storage/'. $blog->image) }}" class="img-preview img-fluid mb-3 d-block" width="250">
+          {{-- @else --}}
+            {{-- <img class="img-preview img-fluid mb-3 d-block" width="250"> --}}
+          {{-- @endif --}}
+
+          <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image" onchange="previewImg()">
         </div>
         <div class="mb-3">
           <label for="body" class="form-label">Body</label>
@@ -55,13 +60,4 @@
         <button type="submit" class="btn btn-primary">Update</button>
       </form>
 </div>
-
-<script>
-    const title = document.querySelector('#title');
-    const slug = document.querySelector('#title');
-
-    title.addEventListener('change', function(){
-        fetch('/dashboard/blog/checkSlug?title=' + title.value).then(response => response.json()).then(data => slug.value = data.slug)
-    })
-</script>
 @endsection
