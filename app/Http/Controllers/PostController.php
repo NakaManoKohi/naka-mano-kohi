@@ -13,6 +13,10 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
 
+    public function __construct() {
+        $this->middleware(['auth', 'benefit:1||2'])->only('create');
+    }
+
     public function getTimezone() {
         $ip = file_get_contents("http://ipecho.net/plain");
         $url = 'http://ip-api.com/json/'.$ip;
