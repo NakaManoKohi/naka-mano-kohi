@@ -64,6 +64,7 @@ Route::get('/{home}', function () {
 Route::controller(SettingController::class)->group(function() {
     Route::get('/setting{general}', 'index')->where('general', '(|/general)');
     Route::get('/setting/profile', 'profile')->middleware('auth');
+    Route::put('/setting/profile/{user:username}', 'updateProfile')->middleware('auth');
     Route::get('/setting/notifications', 'notifications')->middleware('auth');
     Route::get('/setting/membership', 'membership')->middleware('auth');
     Route::get('/setting/password', 'password')->middleware('auth');
@@ -100,7 +101,7 @@ Route::resource('/post', PostController::class);
 Route::get('/search',[SearchController::class, 'index']);
 
 // Dashboard Search Route
-Route::get('/dashboard/search', [DashboardSearchController::class, 'index']);
+Route::get('/dashboard/search', [DashboardSearchController::class, 'index'])->middleware(['auth', 'level:1||2']);
 
 // Dashboard Route
 Route::get('/dashboard', function(){
@@ -111,17 +112,17 @@ Route::get('/dashboard', function(){
 
 // Dashboard Blog Routes
 Route::get('/dashboard/blog/checkSlug', [DashboardBlogController::class, 'checkSlug']);
-Route::resource('/dashboard/blog', DashboardBlogController::class);
+Route::resource('/dashboard/blog', DashboardBlogController::class)->middleware(['auth', 'level:1||2']);
 
 // Dashboard User Routes
-Route::resource('/dashboard/user', DashboardUserController::class);
+Route::resource('/dashboard/user', DashboardUserController::class)->middleware(['auth', 'level:1||2']);
 Route::controller(DashboardUserController::class)->group(function(){
-    Route::get('/dashboard/user/{user:username}/activate', 'activate');
-    Route::get('/dashboard/user/{user:username}/suspend', 'suspend');
+    Route::get('/dashboard/user/{user:username}/activate', 'activate')->middleware(['auth', 'level:1||2']);
+    Route::get('/dashboard/user/{user:username}/suspend', 'suspend')->middleware(['auth', 'level:1||2']);
 });
 
 // Dashboard Event Routes
-Route::resource('/dashboard/event', DashboardEventsController::class);
+Route::resource('/dashboard/event', DashboardEventsController::class)->middleware(['auth', 'level:1||2']);
 
 // Profile Routes
 Route::controller(ProfileController::class)->group(function(){
