@@ -68,6 +68,7 @@ Route::controller(SettingController::class)->group(function() {
     Route::get('/setting/notifications', 'notifications')->middleware('auth');
     Route::get('/setting/membership', 'membership')->middleware('auth');
     Route::get('/setting/password', 'password')->middleware('auth');
+    Route::put('/setting/password/{user:username}', 'updatePassword')->middleware('auth');
 });
 
 // Authenticate Routes

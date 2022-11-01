@@ -9,12 +9,12 @@
     </div>
   @endif
     <div class="d-flex">
-      <form action="/setting/profile/{{ $user[0]['username'] }}" method="post" class="col-8 d-flex flex-column gap-3 pe-2">
+      <form action="/setting/profile/{{ auth()->user()->username }}" method="post" class="col-8 d-flex flex-column gap-3 pe-2">
         @method('put')
         @csrf
-        <input type="text" name="name" id="" class="border border-3 border-dark rounded bg-secondary-grey p-2" value="{{ $user[0]['name'] }}">
-        <input type="text" name="username" id="" class="border border-3 border-dark rounded bg-secondary-grey p-2"value="{{ $user[0]['username'] }}">
-        <input type="text" name="email" id="" class="border border-3 border-dark rounded bg-secondary-grey p-2" value="{{ $user[0]['email'] }}">
+        <input type="text" name="name" id="" class="border border-3 border-dark rounded bg-secondary-grey p-2" value="{{ auth()->user()->name }}">
+        <input type="text" name="username" id="" class="border border-3 border-dark rounded bg-secondary-grey p-2"value="{{ auth()->user()->username }}">
+        <input type="text" name="email" id="" class="border border-3 border-dark rounded bg-secondary-grey p-2" value="{{ auth()->user()->email }}">
         <input type="text" name="" id="" class="border border-3 border-dark rounded bg-secondary-grey p-2" placeholder="Input nama Bapak lo">
         <textarea name="" id="" rows="4" class="col-12 border border-3 border-dark rounded bg-secondary-grey p-2" placeholder="Ceritakan kekuranganmu disini..."></textarea>
         <button class="col-3 ms-auto button button-brown mb-3 fw-bold border border-3 border-dark rounded" type="submit">Update</button>
