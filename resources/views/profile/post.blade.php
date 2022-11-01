@@ -9,7 +9,7 @@
           <h4 class="mb-0">{{ $user->username }}'s Profile</h4>
         </div>
         <div class="card-body d-flex flex-column align-items-center">
-          <img src="/images/lilgru.jpg" alt="profile.jpg" class="col-9 rounded-circle border border-5 border-dark mb-4">
+          <img src="{{ asset('storage/'. $user->image) }}" alt="profile.jpg" class="col-9 rounded-circle border border-5 border-dark mb-4">
           <h4 class="w-100 fw-bold mb-0">{{ $user->name }}</h4>
           <h5 class="fw-normal w-100">{{ $user->username }}</h5>
           @auth
@@ -49,7 +49,7 @@
             <div class="card card-body border border-5 border-yellow blog-card-highlight my-3">
               <div class="col-12 blog-card-desc gap-1">
                 <div class="d-flex flex-row">
-                  <img src="/images/lilgru.jpg" alt="profile" width="50" height="50" class="rounded-circle ms-2">
+                  <img src="{{ asset('storage/' . $post->user->image) }}" alt="profile" width="50" height="50" class="rounded-circle ms-2">
                     <div class="d-flex flex-column">
                       <h4 class="ms-3"><a href="/{{ $post->user->username }}/post" class="text-decoration-none text-dark">{{ $post->user->name }}</a></h4>
                       <p class="ms-3">{{ $post->created_at->diffForHumans() }}</p>

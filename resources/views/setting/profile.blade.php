@@ -20,12 +20,13 @@
         <button class="col-3 ms-auto button button-brown mb-3 fw-bold border border-3 border-dark rounded" type="submit">Update</button>
       </form>
       <div class="col-4 d-flex flex-column justify-content-start align-items-center pb-3 ps-2">
-        <img src="{{ asset('storage/' . auth()->user()->image) }}" alt="profile.jpg" width="200" class="rounded-circle border border-3 border-dark" height="200">
+        <img src="{{ asset('storage/' . auth()->user()->image) }}" alt="profile.jpg" width="200" class="rounded-circle border border-3 border-dark img-preview" height="200">
+        {{-- <img class="img-preview img-fluid mb-3" width="250"> --}}
         <form action="/setting/profile/updateProfileImage/{{ auth()->user()->username }}" method="post" enctype="multipart/form-data" class="d-flex flex-column p-3">
           @method('put')
           @csrf
           <label for="files" class="mb-2">Upload Image</label>
-          <input id="files" type="file" name="image" class="@error('image') is-invalid @enderror">
+          <input id="files" type="file" name="image" id="image" class="@error('image') is-invalid @enderror form-control" onchange="previewImg()">
           @error('image')
             <div class="invalid-feedback">
               {{ $message }}
@@ -36,4 +37,4 @@
       </div>
     </div>
   </div>
-@endsection
+@endsection\
