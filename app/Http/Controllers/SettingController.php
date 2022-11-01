@@ -54,7 +54,11 @@ class SettingController extends Controller
             if($validatedData['password'] == $validatedData['confirm_password']){
                 User::where('id', auth()->user()->id)->update(['password' => Hash::make($validatedData['password'])]);
                 return back()->with('success', 'Password has been changed');
-            }          
+            } else{
+                return back()->with('failed', 'Password confirmation failed');
+            }
+        } else{
+            return back()->with('failed', 'Your current password doesn\'t match with our credentials');
         }
 
     }
