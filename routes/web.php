@@ -68,6 +68,7 @@ Route::controller(SettingController::class)->group(function() {
     Route::get('/setting/membership', 'membership')->middleware('auth');
     Route::get('/setting/password', 'password')->middleware('auth');
     Route::put('/setting/password/{user:username}', 'updatePassword')->middleware('auth');
+    Route::put('/setting/profile/updateProfileImage/{user:username}', 'updateProfileImage')->middleware('auth');
 });
 
 // Authenticate Routes

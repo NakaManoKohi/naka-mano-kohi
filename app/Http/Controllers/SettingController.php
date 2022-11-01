@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Dotenv\Exception\ValidationException;
+use Illuminate\Support\Facades\Storage;
 
 class SettingController extends Controller
 {
@@ -34,6 +35,25 @@ class SettingController extends Controller
         User::where('id', auth()->user()->id)->update($validatedData);
 
         return back()->with('success', 'Profile has been updated');
+    }
+
+    public function updateProfileImage(Request $request){
+        $rules = [
+            'image' => 'image|file|max:1024'
+        ];
+
+        $validatedData = $request->validate($rules);
+
+        if($request->file('image')){
+            if($request->oldImage){
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['image'] = $request->file('image')->store('images');
+        }
+
+        User::where('id', auth()->user()->id)->update($validatedData);
+        return back()->with('success', 'Profile Image has been changed');
+
     }
     
     

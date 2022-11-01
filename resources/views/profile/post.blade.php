@@ -51,7 +51,7 @@
                 <div class="d-flex flex-row">
                   <img src="/images/lilgru.jpg" alt="profile" width="50" height="50" class="rounded-circle ms-2">
                     <div class="d-flex flex-column">
-                      <h4 class="ms-3"><a href="/{{ $post->user->username }}" class="text-decoration-none text-dark">{{ $post->user->name }}</a></h4>
+                      <h4 class="ms-3"><a href="/{{ $post->user->username }}/post" class="text-decoration-none text-dark">{{ $post->user->name }}</a></h4>
                       <p class="ms-3">{{ $post->created_at->diffForHumans() }}</p>
                     </div>
                   </div>
