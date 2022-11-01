@@ -1,12 +1,20 @@
 @extends('setting.templates.main')
 @section('settingContent')
-  <div class="d-flex flex-column gap-3">
-    <h4 class="border-bottom border-3 border-dark pb-1">Profile</h4>
+<div class="d-flex flex-column gap-3">
+  <h4 class="border-bottom border-3 border-dark pb-1">Profile</h4>
+  @if(session()->has('success'))
+    <div class="alert alert-success alert-dismissible fade show col-8" role="alert">
+      {{ session('success') }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+    </div>
+  @endif
     <div class="d-flex">
-      <form class="col-8 d-flex flex-column gap-3 pe-2">
-        <input type="text" name="name" id="" class="border border-3 border-dark rounded bg-secondary-grey p-2" value="{{ auth()->user()->name }}">
-        <input type="text" name="username" id="" class="border border-3 border-dark rounded bg-secondary-grey p-2"value="{{ auth()->user()->username }}">
-        <input type="text" name="email" id="" class="border border-3 border-dark rounded bg-secondary-grey p-2" value="{{ auth()->user()->email }}">
+      <form action="/setting/profile/{{ $user[0]['username'] }}" method="post" class="col-8 d-flex flex-column gap-3 pe-2">
+        @method('put')
+        @csrf
+        <input type="text" name="name" id="" class="border border-3 border-dark rounded bg-secondary-grey p-2" value="{{ $user[0]['name'] }}">
+        <input type="text" name="username" id="" class="border border-3 border-dark rounded bg-secondary-grey p-2"value="{{ $user[0]['username'] }}">
+        <input type="text" name="email" id="" class="border border-3 border-dark rounded bg-secondary-grey p-2" value="{{ $user[0]['email'] }}">
         <input type="text" name="" id="" class="border border-3 border-dark rounded bg-secondary-grey p-2" placeholder="Input nama Bapak lo">
         <textarea name="" id="" rows="4" class="col-12 border border-3 border-dark rounded bg-secondary-grey p-2" placeholder="Ceritakan kekuranganmu disini..."></textarea>
         <button class="col-3 ms-auto button button-brown mb-3 fw-bold border border-3 border-dark rounded" type="submit">Update</button>
