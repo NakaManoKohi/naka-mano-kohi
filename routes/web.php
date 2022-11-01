@@ -48,7 +48,6 @@ function getTimezone() {
 */
 
 // Home Route
-
 Route::get('/{home}', function () {
     return view('home', [
     'title' => 'Home',
@@ -75,7 +74,6 @@ Route::controller(LoginController::class)->group(function() {
     Route::post('/login', 'authenticate');
     Route::post('/logout', 'logout');
 });
-
 Route::controller(RegisterController::class)->group(function() {
     Route::get('/register', 'index');
     Route::post('/register', 'registerUser');
