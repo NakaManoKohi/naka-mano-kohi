@@ -184,11 +184,15 @@
 }
 
 .post{
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    opacity: 1;
+    height: 400px;
 }
 
-.post:hover{
+.post img{
+    cursor: pointer;
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+}
+
+.post img:hover{
     opacity: 0.5;
 }

@@ -44,32 +44,39 @@
           </nav>
         </div>
         <div class="card bg-primary-grey flex-grow-1">
-          <div class="card-body col-12 d-flex flex-row flex-wrap justify-content-center gap-1">
+          <div class="card-body col-12 d-flex flex-row flex-wrap gap-2 justify-content-center">
             @foreach ($posts as $post)
-            {{-- <div class="card card-body border border-5 border-yellow blog-card-highlight my-3 col-4">
-              <div class="col-12 blog-card-desc gap-1">
-                <div class="d-flex flex-row">
-                  <img src="{{ asset('storage/' . $post->user->image) }}" alt="profile" width="50" height="50" class="rounded-circle ms-2">
-                    <div class="d-flex flex-column">
-                      <h4 class="ms-3"><a href="/{{ $post->user->username }}/post" class="text-decoration-none text-dark">{{ $post->user->name }}</a></h4>
-                      <p class="ms-3">{{ $post->created_at->diffForHumans() }}</p>
-                    </div>
-                  </div>
-                  @if($post->image)
-                    <img src="{{ asset('storage/' . $post->image) }}" alt="image" height="200">
-                  @else
-                    <img src="https://source.unsplash.com/300x300/?coffee" alt="image" height="200">
-                  @endif
-                  <p class="w-100">{!! $post->caption !!}</p>
-                </div>
-            </div> --}}
             @if($post->image)
             <div class="post col-3">
-              <img class="col-12" src="{{ asset('storage/' . $post->image) }}" alt="image" height="300">
+              <img class="col-12" src="{{ asset('storage/' . $post->image) }}" alt="image" height="400">
+              @if($post->user->username == auth()->user()->username)
+              <div class="actions mt-2">
+                <a href="/post/{{ $post->id }}/edit" class="btn btn-warning">Edit</a>
+                <form action="/post/{{ $post->id }}" class="d-inline">
+                  @method('delete')
+                  @csrf
+                  <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+              </div>
+              @else
+
+              @endif
             </div>
             @else
             <div class="post col-3">
-              <img class="col-12" src="https://source.unsplash.com/300x300/?coffee" alt="image" height="300" onclick="window.location.href='#'">
+              <img class="col-12" src="https://source.unsplash.com/300x300/?coffee" alt="image" height="400" onclick="window.location.href='/post/{{ $post->id }}'">
+              @if($post->user->username == auth()->user()->username)
+              <div class="actions mt-2">
+                <a href="/post/{{ $post->id }}/edit" class="btn btn-warning">Edit</a>
+                <form action="/post/{{ $post->id }}" method="post" class="d-inline">
+                  @method('delete')
+                  @csrf
+                  <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                </form>
+              </div>
+              @else
+
+              @endif
             </div>
             @endif
             @endforeach
