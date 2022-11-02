@@ -35,18 +35,18 @@
       <div class="timeline-card d-flex flex-column align-items-stretch">
         <div class="pb-3 card bg-transparent border-0">
           <nav class="col-12 profile-nav">
-            <a href="/{{ $user->username }}?tab=activity" class="profile-nav-item active">
+            <a href="/{{ $user->username }}?tab=activity" class="profile-nav-item {{ Request::is($user->username . '/activity') ? 'active' : '' }}">
               <h5 class="mb-0">Activity</h5></a>
-            <a href="/{{ $user->username }}?tab=blog" class="profile-nav-item">
+            <a href="/{{ $user->username }}?tab=blog" class="profile-nav-item {{ Request::is($user->username . '/blog') ? 'active' : '' }}">
               <h5 class="mb-0">Blog</h5></a>
-            <a href="/{{ $user->username }}/post" class="profile-nav-item">
+            <a href="/{{ $user->username }}/post" class="profile-nav-item {{ Request::is($user->username . '/post*') ? 'active' : '' }}">
               <h5 class="mb-0">Post</h5></a>
           </nav>
         </div>
         <div class="card bg-primary-grey flex-grow-1">
-          <div class="card-body col-8 mx-auto" style="max-width: 800px">
+          <div class="card-body col-12 d-flex flex-row flex-wrap justify-content-center gap-1">
             @foreach ($posts as $post)
-            <div class="card card-body border border-5 border-yellow blog-card-highlight my-3">
+            {{-- <div class="card card-body border border-5 border-yellow blog-card-highlight my-3 col-4">
               <div class="col-12 blog-card-desc gap-1">
                 <div class="d-flex flex-row">
                   <img src="{{ asset('storage/' . $post->user->image) }}" alt="profile" width="50" height="50" class="rounded-circle ms-2">
@@ -55,10 +55,23 @@
                       <p class="ms-3">{{ $post->created_at->diffForHumans() }}</p>
                     </div>
                   </div>
-                  <img src="https://source.unsplash.com/300x300/?coffee" alt="image" height="500">
+                  @if($post->image)
+                    <img src="{{ asset('storage/' . $post->image) }}" alt="image" height="200">
+                  @else
+                    <img src="https://source.unsplash.com/300x300/?coffee" alt="image" height="200">
+                  @endif
                   <p class="w-100">{!! $post->caption !!}</p>
                 </div>
+            </div> --}}
+            @if($post->image)
+            <div class="post col-3">
+              <img class="col-12" src="{{ asset('storage/' . $post->image) }}" alt="image" height="300">
             </div>
+            @else
+            <div class="post col-3">
+              <img class="col-12" src="https://source.unsplash.com/300x300/?coffee" alt="image" height="300" onclick="window.location.href='#'">
+            </div>
+            @endif
             @endforeach
           </div>
         </div>
