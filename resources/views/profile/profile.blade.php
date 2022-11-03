@@ -9,7 +9,7 @@
           <h4 class="mb-0">{{ $user->username }}'s Profile</h4>
         </div>
         <div class="card-body d-flex flex-column align-items-center">
-          <img src="/images/lilgru.jpg" alt="profile.jpg" class="col-9 rounded-circle border border-5 border-dark mb-4">
+          <img src="{{ asset('storage/' . $user->image) }}" alt="profile.jpg" class="col-9 rounded-circle border border-5 border-dark mb-4">
           <h4 class="w-100 fw-bold mb-0">{{ $user->name }}</h4>
           <h5 class="fw-normal w-100">{{ $user->username }}</h5>
           @auth

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\User;
+use Dotenv\Exception\ValidationException;
+use Illuminate\Support\Facades\Storage;
 
 class SettingController extends Controller
 {
@@ -16,12 +19,11 @@ class SettingController extends Controller
 
     public function profile() {
         return view('setting.profile', [
-            'title' => 'Setting',
-            'user' => User::where('username', auth()->user()->username)->get()
+            'title' => 'Setting'
         ]);
     }
 
-    public function updateProfile(Request $request, User $user){
+    public function updateProfile(Request $request){
         $rules = [
             'name' => 'required',
             'username' => 'required',
@@ -30,9 +32,55 @@ class SettingController extends Controller
 
         $validatedData = $request->validate($rules);
 
-        User::where('id', $user->id)->update($validatedData);
+        User::where('id', auth()->user()->id)->update($validatedData);
 
-        return redirect('/setting/profile')->with('success', 'Profile has been updated');
+        return back()->with('success', 'Profile has been updated');
+    }
+
+    public function updateProfileImage(Request $request){
+        $rules = [
+            'image' => 'image|file|max:1024'
+        ];
+
+        $validatedData = $request->validate($rules);
+
+        if($request->file('image')){
+            if($request->oldImage){
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['image'] = $request->file('image')->store('images');
+        }
+
+        User::where('id', auth()->user()->id)->update($validatedData);
+        return back()->with('success', 'Profile Image has been changed');
+
+    }
+    
+    
+    public function password(User $user) {
+        return view('setting.password', [
+            'title' => 'Setting',
+        ]);
+    }
+
+    public function updatePassword(Request $request, User $user){
+        $validatedData = $request->validate([
+            'current_password' => 'required',
+            'password' => 'required|min:8',
+            'confirm_password' => 'required'
+        ]);
+
+        if(Hash::check($validatedData['current_password'], auth()->user()->password)){
+            if($validatedData['password'] == $validatedData['confirm_password']){
+                User::where('id', auth()->user()->id)->update(['password' => Hash::make($validatedData['password'])]);
+                return back()->with('success', 'Password has been changed');
+            } else{
+                return back()->with('failed', 'Password confirmation failed');
+            }
+        } else{
+            return back()->with('failed', 'Your current password doesn\'t match with our credentials');
+        }
+
     }
 
     public function notifications() {
@@ -47,9 +95,4 @@ class SettingController extends Controller
         ]);
     }
 
-    public function password() {
-        return view('setting.password', [
-            'title' => 'Setting'
-        ]);
-    }
 }

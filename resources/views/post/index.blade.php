@@ -12,7 +12,11 @@
             <div class="card card-body border border-5 border-yellow blog-card-highlight my-3">
                 <div class="col-12 blog-card-desc gap-1">
                     <div class="d-flex flex-row">
-                        <img src="/images/lilgru.jpg" alt="profile" width="50" height="50" class="rounded-circle ms-2">
+                        @if($post->user->image)
+                          <img src="{{ asset('storage/' . $post->user->image) }}" alt="profile" width="50" height="50" class="rounded-circle ms-2">
+                        @else 
+                          <img src="/images/lilgru.jpg" alt="profile" width="50" height="50" class="rounded-circle ms-2">
+                        @endif
                         <div class="d-flex flex-column">
                             <h4 class="ms-3"><a href="/{{ $post->user->username }}/post" class="text-decoration-none text-dark">{{ $post->user->name }}</a></h4>
                             <p class="ms-3">{{ $post->created_at->diffForHumans() }}</p>

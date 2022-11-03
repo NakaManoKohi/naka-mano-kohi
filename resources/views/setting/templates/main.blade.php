@@ -13,12 +13,12 @@
           @auth
             <a class="{{ Request::is('setting/profile') ? 'active' : '' }} setting-nav-item" href="/setting/profile">
               <h4 class="fw-normal text-white">Profile</h4></a>
+            <a class="{{ Request::is('setting/password') ? 'active' : '' }} setting-nav-item" href="/setting/password">
+              <h4 class="fw-normal text-white">Password</h4></a>
             <a class="{{ Request::is('setting/notifications') ? 'active' : '' }} setting-nav-item" href="/setting/notifications">
               <h4 class="fw-normal text-white">Notifications</h4></a>
             <a class="{{ Request::is('setting/membership') ? 'active' : '' }} setting-nav-item" href="/setting/membership">
               <h4 class="fw-normal text-white">Membership</h4></a>
-            <a class="{{ Request::is('setting/password') ? 'active' : '' }} setting-nav-item" href="/setting/password">
-              <h4 class="fw-normal text-white">Password</h4></a>
           @endauth
           </nav>
           <section class="col-9 p-3 setting-content">

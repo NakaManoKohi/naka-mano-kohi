@@ -182,3 +182,17 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
 }
+
+.post{
+    height: 400px;
+}
+
+.post img{
+    cursor: pointer;
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+}
+
+.post img:hover{
+    opacity: 0.5;
+}
