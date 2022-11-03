@@ -11,6 +11,14 @@
           <div class="row justify-content-center">
             <div class="col-8">
               <h3 class="mt-3">{{ $event->title }}</h3>
+              <div class="event-profile d-flex gap-1 mt-2 align-items-center">
+                @if($event->user->image == 'images/user.jpg')
+                  <img src="/{{ $event->user->image }}" alt="profile" width="35" height="35" class="rounded-circle ms-2">
+                @else 
+                  <img src="{{ asset('storage/' . $event->user->image) }}" alt="profile" width="35" height="35" class="rounded-circle ms-2">
+                @endif
+                <h6><a href="/{{ $event->user->username }}" class="text-decoration-none text-dark">{{ $event->user->name }}</a></h6>  
+              </div>
               <h5 class="mt-3 text-brown">{{ $event->date->diffForHumans() }}</h5>
               @if($event->image)
                 <img src="{{ asset('storage/' . $event->image) }}" alt="{{ $event->title . 'Image' }}" width="400" class="mx-auto d-block">

@@ -28,7 +28,11 @@
         <li class="nav-item btn-group">
           <a class="nav-link text-white text-decoration-none dropdown-toggle no-arrow me-4" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             {{ auth()->user()->name }}
-            <img src="{{ asset('storage/' . auth()->user()->image) }}" alt="profile" width="44" height="44" class="rounded-circle ms-2">
+            @if(auth()->user()->image == 'images/user.jpg')
+              <img src="/{{ auth()->user()->image }}" alt="profile" width="44" height="44" class="rounded-circle ms-2">
+            @else
+              <img src="{{ asset('storage/' . auth()->user()->image) }}" alt="profile" width="44" height="44" class="rounded-circle ms-2">
+            @endif
           </a>
           <ul class="dropdown-menu dropdown-menu-end mt-2 me-4">
             <li><a class="dropdown-item" href="/{{ auth()->user()->username }}">Profile</a></li>
