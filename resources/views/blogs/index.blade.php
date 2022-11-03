@@ -14,6 +14,14 @@
                     <div class="blog-card-background"></div>
                     <div class="col-6 blog-card-desc gap-1">
                         <h2 class="title">{{ $blogs[0]->title }}</h2>
+                        <div class="blog-profile d-flex gap-1 mt-2 align-items-center">
+                          @if($blogs[0]->user->image == 'images/user.jpg')
+                            <img src="/{{ $blogs[0]->user->image }}" alt="profile" width="35" height="35" class="rounded-circle ms-2">
+                          @else 
+                            <img src="{{ asset('storage/' . $blogs[0]->user->image) }}" alt="profile" width="35" height="35" class="rounded-circle ms-2">
+                          @endif
+                          <h6><a href="/{{ $blogs[0]->user->username }}" class="text-decoration-none text-dark">{{ $blogs[0]->user->name }}</a></h6>  
+                        </div>
                         <p class="desc">{{ $blogs[0]->excerpt }}</p>
                         <a href="/blog/{{ $blogs[0]->slug }}" class="btn btn-primary btn-sm w-fit">Read More</a>
                     </div>
@@ -28,6 +36,14 @@
                 <div class="blog-card-background"></div>
                 <div class="col-8 blog-card-desc gap-1">
                   <h5 class="title">{{ $blog->title }}</h5>
+                  <div class="blog-profile d-flex gap-1 mt-2 align-items-center">
+                    @if($blog->user->image == 'images/user.jpg')
+                      <img src="/{{ $blog->user->image }}" alt="profile" width="35" height="35" class="rounded-circle ms-2">
+                    @else 
+                      <img src="{{ asset('storage/' . $blog->user->image) }}" alt="profile" width="35" height="35" class="rounded-circle ms-2">
+                    @endif
+                    <h6><a href="/{{ $blog->user->username }}" class="text-decoration-none text-dark">{{ $blog->user->name }}</a></h6>  
+                  </div>
                   <p style="font-size: 12px;" class="desc">{{ $blog->excerpt }}</p>
                   <a href="/blog/{{ $blog->slug }}" class="btn btn-primary btn-sm w-fit">Read More</a>
                 </div>

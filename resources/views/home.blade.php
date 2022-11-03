@@ -53,7 +53,11 @@
           @foreach ($ranking as $user)
             <div class="card-body rounded" onclick="window.location='/{{ $user->username }}'" role="button">
               <div class="d-flex align-items-center">
-                <img src="images/lilgru.jpg" alt="profile" width="44" class="me-3 rounded-circle border-black-3">
+                @if($user->image == 'images/user.jpg')
+                  <img src="/{{ $user->image }}" alt="profile" height="44" class="rounded-circle ms-2">
+                @else
+                  <img src="{{ asset('storage/' . $user->image) }}" alt="profile" width="44" height="44" class="rounded-circle ms-2">
+                @endif
                 <div class="d-flex flex-column text-nowrap overflow-hidden">
                   <h6 class="h6 fw-bold m-0">Rank #{{ $i }}</h6>
                   <h6 class="h6 fw-normal m-0">{{ $user->username }}</h6>
@@ -83,6 +87,11 @@
                       @auth
                         @if ($chat->user_id === auth()->user()->id)
                           <div class="d-flex flex-row-reverse mb-3 chat-box">
+                            {{-- @if($chat->user->image == 'images/user.jpg')
+                              <img src="/{{ $chat->user->image }}" alt="profile" width="36" class="rounded-circle ms-2">
+                            @else
+                              <img src="{{ asset('storage/' . $chat->user->image) }}" alt="profile" width="36" class="rounded-circle ms-2">
+                            @endif --}}
                             <img src="/images/lilgru.jpg" width="36" class="h-fit rounded-circle chat-image-right">
                             <div class="card bg-brown p-2 w-fit align-self-end text-white position-relative border-0">
                               <svg viewBox="0 0 16 16" width="16" height="16" class="chat-arrow-right">

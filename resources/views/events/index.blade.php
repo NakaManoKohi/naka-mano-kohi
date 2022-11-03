@@ -14,6 +14,14 @@
                   <div class="blog-card-background"></div>
                   <div class="col-6 blog-card-desc gap-1">
                     <h2 class="title">{{ $events[0]->title }}</h2>
+                    <div class="event-profile d-flex gap-1 mt-2 align-items-center">
+                      @if($events[0]->user->image == 'images/user.jpg')
+                        <img src="/{{ $events[0]->user->image }}" alt="profile" width="35" height="35" class="rounded-circle ms-2">
+                      @else 
+                        <img src="{{ asset('storage/' . $events[0]->user->image) }}" alt="profile" width="35" height="35" class="rounded-circle ms-2">
+                      @endif
+                      <h6><a href="/{{ $events[0]->user->username }}" class="text-decoration-none text-dark">{{ $events[0]->user->name }}</a></h6>  
+                    </div>
                     <h5 class="text-brown m-0"> <i class="fa-solid fa-calendar-days"></i> {{ $events[0]->date->diffForHumans() }}</h5>
                     <p class="desc">{{ $events[0]->excerpt }}</p>
                     <a href="/event/{{ $events[0]->slug }}" class="btn btn-primary btn-sm w-fit">Read More</a>
@@ -29,6 +37,14 @@
                 <div class="blog-card-background"></div>
                 <div class="col-8 blog-card-desc gap-1">
                   <h5 class="title">{{ $event->title }}</h5>
+                  <div class="event-profile d-flex gap-1 mt-2 align-items-center">
+                    @if($event->user->image == 'images/user.jpg')
+                      <img src="/{{ $event->user->image }}" alt="profile" width="35" height="35" class="rounded-circle ms-2">
+                    @else 
+                      <img src="{{ asset('storage/' . $event->user->image) }}" alt="profile" width="35" height="35" class="rounded-circle ms-2">
+                    @endif
+                    <h6><a href="/{{ $event->user->username }}" class="text-decoration-none text-dark">{{ $event->user->name }}</a></h6>  
+                  </div>
                   <h6 class="text-brown m-0"> <i class="fa-solid fa-calendar-days"></i> {{ $event->date->diffForHumans() }}</h6>
                   <p style="font-size: 12px;" class="desc">{{ $event->excerpt }}</p>
                   <a href="/event/{{ $event->slug }}" class="btn btn-primary btn-sm w-fit">Read More</a>

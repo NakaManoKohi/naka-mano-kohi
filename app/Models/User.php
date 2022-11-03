@@ -57,4 +57,16 @@ class User extends Authenticatable
     public function followers(){
         return $this->hasMany(Follows::class, 'user_id', 'id')->where('deleted', false);
     }
+
+    public function chat(){
+        return $this->hasMany(PublicChat::class);
+    }
+
+    public function blog(){
+        return $this->hasMany(Blog::class);
+    }
+
+    public function event(){
+        return $this->hasMany(Events::class);
+    }
 }
