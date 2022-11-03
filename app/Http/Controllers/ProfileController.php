@@ -14,45 +14,53 @@ use Illuminate\Http\Request;
 class ProfileController extends Controller
 {
     
+    
     public function index(User $user)
     {
         $data = [
             'title' => 'Profile',
             'user' => $user,
-            'followers' => Follows::where('user_id', $user->id),
-            'following' => Follows::where('followed_by', $user->id),
+            'followers' => Follows::where([['user_id', $user->id], ['deleted', false]]),
+            'following' => Follows::where([['followed_by', $user->id], ['deleted', false]]),
         ];
-
-        $data['activities'] = DB::table('follows_histories')->join('users as user', 'follows_histories.user_id', '=', 'user.id')->join('users as user_following', 'follows_histories.followed_by', '=', 'user_following.id')->select('follows_histories.*', 'user.username as user', 'user_following.username as user_following')->where('followed_by', $user->id)->orderByDesc('updated_at')->get()->all();
-        // $data['activities'] = FollowsHistories::with(
-        //     ['user' => function($user){$user->where(Follows::select('user_id')->where('user_id', $user->id));}],
-        //     )->get()->all();
-        // FollowsHistories::where('followed_by', $user->id)->get()->all()
-        // array_merge(
-        //     Follows::where('followed_by', $user->id)->get()->toArray(), 
-        //     Blog::where('user_id', $user->id)->get()->toArray());
-        // usort($activities, function($a, $b){return strcmp($a['created_at'], $b['created_at']);});
-        // $data['activities'] = $activities;
-        if (auth()->user() != null) {
-            $data['following_user'] = Follows::where([['user_id', $user->id], ['followed_by', auth()->user()->id]])->count();
+        function status($rows, $delete, $use, $status) {
+            foreach ($rows as $key => $data) {
+                $data->date = $data->$use;
+                unset($data->$delete, $data->$use);
+                $data->status = $status;
+                if($status === 'unfollowing' && $data->deleted === 0) {
+                    unset($rows[$key]);
+                }
+            }
+            return $rows;
         }
-        // dd(Follows::select('user_id')->where('user_id', $user->id));
+        $A = status(Follows::where('followed_by', $user->id)->with(['follow', 'follower'])->get()->all(), 'updated_at', 'created_at', 'following');
+        $B = status(Follows::where('followed_by', $user->id)->with(['follow', 'follower'])->get()->all(), 'created_at', 'updated_at', 'unfollowing');
+        $data['activities'] = array_merge($A, $B);
+        usort($data['activities'], function($a, $b) {
+            $t1 = strtotime($a->date);
+            $t2 = strtotime($b->date);
+            return $t2 - $t1;
+        });
+        if (auth()->user() != null) {
+            $data['following_user'] = Follows::where([['user_id', $user->id], ['followed_by', auth()->user()->id], ['deleted', false]])->count();
+        }
         return view('profile.profile', $data);
     }
 
     public function follow(User $user) {
         Follows::create(['user_id' => $user->id, 'followed_by' => auth()->user()->id]);
-        FollowsHistories::create(['user_id' => $user->id, 'followed_by' => auth()->user()->id]);
-        return redirect('/'.$user->username);
+        return back();
     }
 
     public function unfollow(User $user){
-        $data = Follows::where([['user_id', $user->id], ['followed_by', auth()->user()->id]])->first()->getAttributes();
-        Follows::where($data)->delete();
-        $data['status'] = 'unfollowing';
-        $data['updated_at'] = date("Y-m-d h:i:s");
-        FollowsHistories::create($data);
-        return redirect('/'.$user->username);
+        Follows::where([
+            ['user_id', $user->id], 
+            ['followed_by', auth()->user()->id], 
+            ['deleted', false]])->update([
+                'updated_at' => date('Y-m-d H:i:s'), 
+                'deleted' => true]);
+        return back();
     }
 
     public function post(User $user, Post $post){

@@ -18,8 +18,8 @@ class CreateFollowsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->bigInteger('followed_by')->unsigned();
             $table->foreign('followed_by')->references('id')->on('users');
-            $table->enum('status', ['following', 'unfollowing'])->default('following');
             $table->timestamps();
+            $table->boolean('deleted')->default(false);
         });
     }
 

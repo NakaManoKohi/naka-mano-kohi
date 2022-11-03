@@ -51,11 +51,11 @@
                   <svg height="10" width="10" class="position-relative activity-circle">
                     <circle cx="5" cy="5" r="5" fill="black" />
                   </svg>
-                  {{ $activity->updated_at }}</p>
+                  {{ $activity->date }}</p>
                 <p class="mb-3 ps-4">
-                  <span class="fw-bold"><a href="/{{ $activity->user_following }}" class="text-decoration-none text-dark">{{ $activity->user_following }}</a></span>
+                  <span class="fw-bold"><a href="/{{ $activity->follower->username }}" class="text-decoration-none text-dark">{{ $activity->follower->username }}</a></span>
                    {{ $activity->status }} 
-                  <span class="fw-bold"><a href="/{{ $activity->user }}" class="text-decoration-none text-dark">{{ $activity->user }}</a></span>
+                  <span class="fw-bold"><a href="/{{ $activity->follow->username }}" class="text-decoration-none text-dark">{{ $activity->follow->username }}</a></span>
                 </p>
               </div>
             @endforeach
