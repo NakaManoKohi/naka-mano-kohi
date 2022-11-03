@@ -33,4 +33,8 @@ class Blog extends Model
             ->orWhere('body', 'like', '%' . $search . '%');
         });
     }
+
+    public function user() {
+        return $this->belongsTo(User::class, 'user_id', 'id')->select('id', 'username');
+    }
 }

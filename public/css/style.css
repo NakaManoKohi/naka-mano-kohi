@@ -151,6 +151,7 @@
 .setting-message:nth-child(1){border-top-left-radius: var(--bs-card-border-radius); border-top-right-radius: var(--bs-card-border-radius);}
 .setting-message:nth-last-child(1){border-bottom-left-radius: var(--bs-card-border-radius); border-bottom-right-radius: var(--bs-card-border-radius);}
 /* Page Profile */
+.profile {top: 1rem;}
 .profile-card, .timeline-card{min-height: calc(100vh - 108px);}
 .profile-nav{
     display: flex;

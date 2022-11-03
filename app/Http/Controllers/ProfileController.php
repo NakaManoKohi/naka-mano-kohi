@@ -13,27 +13,30 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-    function activities($user) {
-        function status($rows, $delete, $use, $status) {
-            foreach ($rows as $key => $data) {
-                $data->date = $data->$use;
-                unset($data->$delete, $data->$use);
-                $data->status = $status;
-                if($status === 'unfollowing' && $data->deleted === 0) {
-                    unset($rows[$key]);
-                }
+    function status($table, $rows, $delete, $use, $status) {
+        foreach ($rows as $key => $data) {
+            $data->table = $table;
+            $data->date = $data->$use;
+            unset($data->$delete, $data->$use);
+            $data->status = $status;
+            if($status === 'unfollowing' && $data->deleted === 0) {
+                unset($rows[$key]);
             }
-            return $rows;
         }
-        $A = status(Follows::where('followed_by', $user->id)->with(['follow', 'follower'])->get()->all(), 'updated_at', 'created_at', 'following');
-        $B = status(Follows::where('followed_by', $user->id)->with(['follow', 'follower'])->get()->all(), 'created_at', 'updated_at', 'unfollowing');
-        $AB = array_merge($A, $B);
-        usort($AB, function($a, $b) {
+        return $rows;
+    }
+
+    function activities($user) {
+        $following = $this->status('follows', Follows::where('followed_by', $user->id)->with(['follow', 'follower'])->get()->all(), 'updated_at', 'created_at', 'following');
+        $unfollowing = $this->status('follows', Follows::where('followed_by', $user->id)->with(['follow', 'follower'])->get()->all(), 'created_at', 'updated_at', 'unfollowing');
+        $makeBlog = $this->status('blog', Blog::where('user_id', $user->id)->with('user')->get()->all(), 'updated_at', 'created_at', 'create a blog');
+        $activities = array_merge($following, $unfollowing, $makeBlog);
+        usort($activities, function($a, $b) {
             $t1 = strtotime($a->date);
             $t2 = strtotime($b->date);
             return $t2 - $t1;
         });
-        return $AB;
+        return $activities;
     }
     
     public function index(User $user)
