@@ -1,7 +1,5 @@
 @extends('templates.main')
 @section('content')
-  {{-- {{ dd($activities) }} --}}
-
   <div class="col-12 d-flex p-3">
     <aside class="pe-2 col-3">
       <div class="card bg-primary-grey profile-card">
