@@ -73,8 +73,8 @@ class ProfileController extends Controller
         $data = [
             'title' => 'Profile',
             'user' => $user,
-            'followers' => Follows::where('user_id', $user->id),
-            'following' => Follows::where('followed_by', $user->id),
+            'followers' => Follows::where([['user_id', $user->id], ['deleted', false]]),
+            'following' => Follows::where([['followed_by', $user->id], ['deleted', false]]),
             'posts' => Post::where('user_id', $user->id)->get(),
             'activities' => $this->activities($user)
         ];
