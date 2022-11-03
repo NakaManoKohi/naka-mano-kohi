@@ -53,11 +53,7 @@
           @foreach ($ranking as $user)
             <div class="card-body rounded" onclick="window.location='/{{ $user->username }}'" role="button">
               <div class="d-flex align-items-center">
-                @if($user->image == 'images/user.jpg')
-                  <img src="/{{ $user->image }}" alt="profile" height="44" class="rounded-circle ms-2">
-                @else
-                  <img src="{{ asset('storage/' . $user->image) }}" alt="profile" width="44" height="44" class="rounded-circle ms-2">
-                @endif
+                <img src="{{ asset('storage/' . $user->image) }}" alt="profile" width="44" height="44" class="rounded-circle me-2">
                 <div class="d-flex flex-column text-nowrap overflow-hidden">
                   <h6 class="h6 fw-bold m-0">Rank #{{ $i }}</h6>
                   <h6 class="h6 fw-normal m-0">{{ $user->username }}</h6>
