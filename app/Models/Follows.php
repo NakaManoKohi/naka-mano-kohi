@@ -10,6 +10,10 @@ class Follows extends Model
     use HasFactory;
     protected $guarded = [];
 
+    public function ranking() {
+        return $this->belongsTo(User::class, 'user_id', 'id')->select('id', 'name', 'username');
+    }
+
     public function follow() {
         return $this->belongsTo(User::class, 'user_id', 'id')->select('id', 'username');
     }

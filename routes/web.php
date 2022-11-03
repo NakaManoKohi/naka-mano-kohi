@@ -54,7 +54,7 @@ Route::get('/{home}', function () {
     'blogs' => Blog::latest()->paginate(4),
     'events' => Events::latest()->get(),
     'date' => Carbon::now()->nthOfMonth(4, Carbon::SATURDAY),
-    'ranking' => DB::table('users')->leftJoin('follows', 'users.id', '=', 'follows.user_id')->select('users.*', DB::raw('count(follows.followed_by) as followers'))->groupBy('users.id')->orderByDesc('followers')->limit('10')->get()->all(),
+    'ranking' => User::withCount('followers')->groupBy('id')->orderByDesc('followers_count')->get()->all(),
     'publicChat' => DB::table('public_chats')->leftJoin('users', 'public_chats.user_id', '=', 'users.id')->select('public_chats.*', 'users.username')->orderByDesc('updated_at')->get()->all(),
     'tz' => getTimezone()
 ]);})->where('home', '(|home)');

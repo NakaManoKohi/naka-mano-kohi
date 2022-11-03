@@ -54,7 +54,7 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
-    public function follow(){
-        return $this->hasMany(Follows::class, 'user_id', 'id');
+    public function followers(){
+        return $this->hasMany(Follows::class, 'user_id', 'id')->where('deleted', false);
     }
 }

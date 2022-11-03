@@ -57,7 +57,7 @@
                 <div class="d-flex flex-column text-nowrap overflow-hidden">
                   <h6 class="h6 fw-bold m-0">Rank #{{ $i }}</h6>
                   <h6 class="h6 fw-normal m-0">{{ $user->username }}</h6>
-                  <h6 class="h6 fw-normal m-0">{{ $user->followers }} Followers</h6>
+                  <h6 class="h6 fw-normal m-0">{{ $user->followers_count }} Followers</h6>
                 </div>
               </div>
             </div>
