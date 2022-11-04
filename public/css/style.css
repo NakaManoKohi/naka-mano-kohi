@@ -10,6 +10,7 @@
 }
 .w-fit{width: fit-content;}
 .h-fit{height: fit-content;}
+.h-full{min-height: calc(100vh - 108px);}
 .text-ellipsis{text-overflow: ellipsis;}
 .text-brown{color: var(--brown);}
 .text-yellow{color: var(--yellow);}
