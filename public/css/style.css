@@ -11,6 +11,7 @@
 .w-fit{width: fit-content;}
 .h-fit{height: fit-content;}
 .h-full{min-height: calc(100vh - 108px);}
+.ratio-box{aspect-ratio: 1/1;}
 .text-ellipsis{text-overflow: ellipsis;}
 .text-brown{color: var(--brown);}
 .text-yellow{color: var(--yellow);}
