@@ -51,7 +51,7 @@ class ProfileController extends Controller
         if (auth()->user() != null) {
             $data['following_user'] = Follows::where([['user_id', $user->id], ['followed_by', auth()->user()->id], ['deleted', false]])->count();
         }
-        return view('profile.profile', $data);
+        return view('profile.index', $data);
     }
 
     public function follow(User $user) {
