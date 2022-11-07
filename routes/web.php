@@ -91,10 +91,11 @@ Route::controller(BlogController::class)->group(function(){
 });
 
 // Event Routes
-Route::controller(EventsController::class)->group(function(){
-    Route::get('/event', 'index');
-    Route::get('/event/{event:slug}', 'show');
-});
+Route::resource('/event', EventsController::class);
+// Route::controller(EventsController::class)->group(function(){
+//     Route::get('/event', 'index');
+//     Route::get('/event/{event:slug}', 'show');
+// });
 
 // Post Routes
 Route::resource('/post', PostController::class);

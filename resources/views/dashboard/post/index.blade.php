@@ -7,7 +7,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
     </div>
     @endif
-    <a href="/dashboard/blog/create" class="btn btn-primary">Create New Blog</a>
+    <a href="/dashboard/post/create" class="btn btn-primary">Create New Post</a>
     <div class="mt-3">
         <div class="table-responsive col-10">
             <table class="table table-striped">

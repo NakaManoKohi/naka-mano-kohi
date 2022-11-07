@@ -19,7 +19,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link {{ Request::is('dashboard/post*') ? 'active' : '' }}" href="/dashboard/post">
-          <i class="fa-solid fa-calendar-days"></i>
+          <i class="fa-solid fa-image"></i>
           Posts
           </a>
         </li>

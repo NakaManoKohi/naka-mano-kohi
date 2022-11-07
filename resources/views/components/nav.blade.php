@@ -22,7 +22,7 @@
           <ul class="dropdown-menu dropdown-menu-end mt-2">
             <li><a class="dropdown-item" href="/post/create">Post</a></li>
             <li><a class="dropdown-item" href="/dashboard/blog/create">Blog</a></li>
-            <li><a class="dropdown-item" href="/dashboard/event/create">Event</a></li>
+            <li><a class="dropdown-item" href="/event/create">Event</a></li>
           </ul>
         </li>
         <li class="nav-item btn-group">
