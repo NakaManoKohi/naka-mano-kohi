@@ -64,13 +64,13 @@ Route::get('/{home}', function () {
 // Setting Route
 Route::controller(SettingController::class)->group(function() {
     Route::get('/setting{general}', 'index')->where('general', '(|/general)');
-    Route::get('/setting/profile', 'profile')->middleware('auth');
-    Route::put('/setting/profile/{user:username}', 'updateProfile')->middleware('auth');
-    Route::get('/setting/notifications', 'notifications')->middleware('auth');
-    Route::get('/setting/membership', 'membership')->middleware('auth');
-    Route::get('/setting/password', 'password')->middleware('auth');
-    Route::put('/setting/password/{user:username}', 'updatePassword')->middleware('auth');
-    Route::put('/setting/profile/updateProfileImage/{user:username}', 'updateProfileImage')->middleware('auth');
+    Route::get('/setting/profile', 'profile');
+    Route::put('/setting/profile/{user:username}', 'updateProfile');
+    Route::get('/setting/notifications', 'notifications');
+    Route::get('/setting/membership', 'membership');
+    Route::get('/setting/password', 'password');
+    Route::put('/setting/password/{user:username}', 'updatePassword');
+    Route::put('/setting/profile/updateProfileImage/{user:username}', 'updateProfileImage');
 });
 
 // Authenticate Routes
