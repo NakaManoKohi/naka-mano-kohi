@@ -21,9 +21,11 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PublicChatController;
 use App\Http\Controllers\DashboardBlogController;
+use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\DashboardEventsController;
 use App\Http\Controllers\DashboardSearchController;
+
 
 
 
@@ -123,6 +125,9 @@ Route::controller(DashboardUserController::class)->group(function(){
 
 // Dashboard Event Routes
 Route::resource('/dashboard/event', DashboardEventsController::class)->middleware(['auth', 'level:1||2']);
+
+// Dashboard Posts Routes
+Route::resource('/dashboard/post', DashboardPostController::class);
 
 // Profile Routes
 Route::controller(ProfileController::class)->group(function(){

@@ -3,11 +3,14 @@ const suspendUserButton = document.querySelectorAll('#suspendUser');
 const activateUserButton = document.querySelectorAll('#activateUser');
 const deleteBlog = document.querySelectorAll('#deleteBlog');
 const deleteEvent = document.querySelectorAll('#deleteEvent');
+const deletePost = document.querySelectorAll('#deletePost');
 
 const modalLabel = document.getElementById('modalTitle');
 const confirmButtonModal = document.getElementById('confirm');
 const formDelBlog = document.deleteBlog;
 const formDelEvent = document.deleteEvent;
+const formDelPost = document.deletePost;
+
 
 
 // $(suspendUserButton).on("click", ()=>{
@@ -43,6 +46,14 @@ $(document).ready(() => {
             let slug = delBlog.getAttribute('data-id');
             modalLabel.innerText = 'Delete Blog';
             formDelBlog.action = `/dashboard/blog/${slug}`;
+        });
+    });
+
+    deletePost.forEach(delPost => {
+        delPost.addEventListener('click', ()=>{
+            let id = delPost.getAttribute('data-id');
+            modalLabel.innerText = 'Delete Post';
+            formDelPost.action = `/dashboard/post/${id}`;
         });
     });
 })

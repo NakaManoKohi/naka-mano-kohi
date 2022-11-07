@@ -13,27 +13,27 @@
             <table class="table table-striped">
                 <thead>
                     <th>No</th>
-                    <th>Title</th>
+                    <th>Caption</th>
                     <th>Author</th>
                     <th>Action</th>
                 </thead>
                 <tbody>
-                    @foreach ($blogs as $blog)
+                    @foreach ($posts as $post)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $blog->title }}</td>
-                        <td>{{ $blog->user->username }}</td>
+                        <td>{!! $post->caption !!}</td>
+                        <td>{{ $post->user->username }}</td>
                         <td>
-                        <a href="/dashboard/blog/{{ $blog->slug }}" class="btn btn-info"><i class="fa-solid fa-circle-info"></i> Detail</a>
-                        <a href="/dashboard/blog/{{ $blog->slug }}/edit" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
-                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="{{ $blog->slug }}" id="deleteBlog"><i class="fa-solid fa-trash"></i> Delete</button>
+                        <a href="/dashboard/post/{{ $post->id }}" class="btn btn-info"><i class="fa-solid fa-circle-info"></i> Detail</a>
+                        <a href="/dashboard/post/{{ $post->id }}/edit" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
+                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="{{ $post->id }}" id="deletePost"><i class="fa-solid fa-trash"></i> Delete</button>
                     </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
         <div class="mt-4 d-flex justify-content-end">
-            {{ $blogs->links() }}
+            {{ $posts->links() }}
         </div>
     </div>
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
@@ -48,7 +48,7 @@
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <form method="post" class="d-inline" name="deleteBlog">
+                <form method="post" class="d-inline" name="deletePost">
                     @method('delete')
                     @csrf
                     <button type="submit" class="btn btn-primary">Yes</button>

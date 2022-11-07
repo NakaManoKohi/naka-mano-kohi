@@ -20,7 +20,7 @@ class DashboardBlogController extends Controller
     {
         return view('dashboard.blogs.index',[
             'title' => 'Dashboard Blog',
-            'blogs' => Blog::where('user_id', auth()->user()->id)->latest()->paginate(10)
+            'blogs' => Blog::latest()->paginate(10)
         ]);
     }
 

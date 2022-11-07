@@ -9,12 +9,13 @@
     @endif
     <a href="/dashboard/event/create" class="btn btn-primary">Create New Events</a>
     <div class="mt-3">
-        <div class="table-responsive col-8">
+        <div class="table-responsive col-10">
             <table class="table table-striped">
                 <thead> 
                     <th>No</th>
                     <th>Title</th>
                     <th>Date</th>
+                    <th>Author</th>
                     <th>Action</th>
                 </thead>
                 <tbody>
@@ -22,8 +23,8 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $event->title }}</td>
-                        <td>{{ $event->date->diffForHumans() }}</td>
-                        <td>{{ $event->slug }}</td>
+                        <td>{{ $event->date}}</td>
+                        <td>{{ $event->user->username }}</td>
                         <td>
                         <a href="/dashboard/event/{{ $event->slug }}" class="btn btn-info"><i class="fa-solid fa-circle-info"></i> Detail</a>
                         <a href="/dashboard/event/{{ $event->slug }}/edit" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
