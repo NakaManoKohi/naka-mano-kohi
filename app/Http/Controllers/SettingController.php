@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\Storage;
 
 class SettingController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth')->except('index');
+    }
+
     public function index() {
         return view('setting.general', [
             'title' => 'Setting'
@@ -90,7 +94,7 @@ class SettingController extends Controller
     }
 
     public function membership() {
-        return view('setting.membership', [
+        return view('setting.membership.pricing', [
             'title' => 'Setting'
         ]);
     }
