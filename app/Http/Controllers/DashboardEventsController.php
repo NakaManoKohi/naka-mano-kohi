@@ -152,4 +152,15 @@ class DashboardEventsController extends Controller
         $slug = SlugService::createSlug(Events::class, 'slug', $request->title);
         return response()->json(['slug' => $slug]);
     }
+
+    public function suspend(Events $event){
+        Events::where('slug', $event->slug)->update(['suspend' => 1]);
+        
+        return redirect('dashboard/event')->with('suspended', $event->title . ' has been suspended');
+    }
+
+    public function activate(Events $event){
+        Events::where('slug', $event->slug)->update(['suspend' => 0]);
+        return redirect('/dashboard/event')->with('success', $event->title . ' has been activated');
+    }
 }

@@ -130,6 +130,10 @@ Route::controller(DashboardUserController::class)->group(function(){
 
 // Dashboard Event Routes
 Route::resource('/dashboard/event', DashboardEventsController::class)->middleware(['auth', 'level:1||2']);
+Route::controller(DashboardEventsController::class)->group(function(){
+    Route::get('/dashboard/event/{event:slug}/activate', 'activate');
+    Route::get('/dashboard/event/{event:slug}/suspend', 'suspend');
+});
 
 // Dashboard Posts Routes
 Route::resource('/dashboard/post', DashboardPostController::class);

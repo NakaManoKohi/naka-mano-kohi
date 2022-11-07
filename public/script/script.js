@@ -5,6 +5,9 @@ const activateUserButton = document.querySelectorAll('#activateUser');
 const suspendBlogButton = document.querySelectorAll('#suspendBlog');
 const activateBlogButton = document.querySelectorAll('#activateBlog');
 
+const suspendEventButton = document.querySelectorAll('#suspendEvent');
+const activateEventButton = document.querySelectorAll('#activateEvent');
+
 const deleteBlog = document.querySelectorAll('#deleteBlog');
 const deleteEvent = document.querySelectorAll('#deleteEvent');
 const deletePost = document.querySelectorAll('#deletePost');
@@ -21,6 +24,7 @@ const formDelPost = document.deletePost;
 // })
 
 $(document).ready(() => {
+    // Suspend User
     suspendUserButton.forEach(suspendButton => {
         suspendButton.addEventListener('click', ()=>{
             let userUsername = suspendButton.getAttribute('data-id');
@@ -29,6 +33,7 @@ $(document).ready(() => {
         });
     });
 
+    // Activate User
     activateUserButton.forEach(activateButton => {
         activateButton.addEventListener('click', ()=>{
             let userUsername = activateButton.getAttribute('data-id');
@@ -37,6 +42,7 @@ $(document).ready(() => {
         });
     });
 
+    // Suspend Blog
     suspendBlogButton.forEach(suspendButton => {
         suspendButton.addEventListener('click', ()=>{
             let blogSlug = suspendButton.getAttribute('data-id');
@@ -45,11 +51,30 @@ $(document).ready(() => {
         });
     });
 
+    // Activate Blog
     activateBlogButton.forEach(activateButton => {
         activateButton.addEventListener('click', ()=>{
             let blogSlug = activateButton.getAttribute('data-id');
             modalLabel.innerText = 'Activate Blog';
             confirmButtonModal.setAttribute('href', '/dashboard/blog/' + blogSlug + '/activate');
+        });
+    });
+
+    // Suspend Event
+    suspendEventButton.forEach(suspendButton => {
+        suspendButton.addEventListener('click', ()=>{
+            let eventSlug = suspendButton.getAttribute('data-id');
+            modalLabel.innerText = 'Suspend Event';
+            confirmButtonModal.setAttribute('href', '/dashboard/event/' + eventSlug + '/suspend');
+        });
+    });
+
+    // Activate Event
+    activateEventButton.forEach(activateButton => {
+        activateButton.addEventListener('click', ()=>{
+            let eventSlug = activateButton.getAttribute('data-id');
+            modalLabel.innerText = 'Activate Event';
+            confirmButtonModal.setAttribute('href', '/dashboard/event/' + eventSlug + '/activate');
         });
     });
 
