@@ -111,4 +111,15 @@ class DashboardPostController extends Controller
 
         return redirect('/dashboard/post')->with('success', 'Post has been deleted');
     }
+
+    public function suspend(Post $post){
+        Post::where('id', $post->id)->update(['suspend' => 1]);
+        
+        return redirect('dashboard/post')->with('suspended', $post->user->username . '\'s post has been suspended');
+    }
+
+    public function activate(Post $post){
+        Post::where('id', $post->id)->update(['suspend' => 0]);
+        return redirect('/dashboard/post')->with('success', $post->user->username . '\'s post has been activated');
+    }
 }

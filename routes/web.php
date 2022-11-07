@@ -137,6 +137,10 @@ Route::controller(DashboardEventsController::class)->group(function(){
 
 // Dashboard Posts Routes
 Route::resource('/dashboard/post', DashboardPostController::class);
+Route::controller(DashboardPostController::class)->group(function(){
+    Route::get('/dashboard/post/{post:id}/activate', 'activate');
+    Route::get('/dashboard/post/{post:id}/suspend', 'suspend');
+});
 
 // Profile Routes
 Route::controller(ProfileController::class)->group(function(){

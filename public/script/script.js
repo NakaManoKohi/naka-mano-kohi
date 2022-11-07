@@ -1,4 +1,4 @@
-// Modal Suspend user Jquery
+// Constant Variables
 const suspendUserButton = document.querySelectorAll('#suspendUser');
 const activateUserButton = document.querySelectorAll('#activateUser');
 
@@ -7,6 +7,9 @@ const activateBlogButton = document.querySelectorAll('#activateBlog');
 
 const suspendEventButton = document.querySelectorAll('#suspendEvent');
 const activateEventButton = document.querySelectorAll('#activateEvent');
+
+const suspendPostButton = document.querySelectorAll('#suspendPost');
+const activatePostButton = document.querySelectorAll('#activatePost');
 
 const deleteBlog = document.querySelectorAll('#deleteBlog');
 const deleteEvent = document.querySelectorAll('#deleteEvent');
@@ -75,6 +78,24 @@ $(document).ready(() => {
             let eventSlug = activateButton.getAttribute('data-id');
             modalLabel.innerText = 'Activate Event';
             confirmButtonModal.setAttribute('href', '/dashboard/event/' + eventSlug + '/activate');
+        });
+    });
+
+    // Suspend Post
+    suspendPostButton.forEach(suspendButton => {
+        suspendButton.addEventListener('click', ()=>{
+            let postId = suspendButton.getAttribute('data-id');
+            modalLabel.innerText = 'Suspend Post';
+            confirmButtonModal.setAttribute('href', '/dashboard/post/' + postId + '/suspend');
+        });
+    });
+
+    // Activate Post
+    activatePostButton.forEach(activateButton => {
+        activateButton.addEventListener('click', ()=>{
+            let postId = activateButton.getAttribute('data-id');
+            modalLabel.innerText = 'Activate Post';
+            confirmButtonModal.setAttribute('href', '/dashboard/post/' + postId + '/activate');
         });
     });
 
