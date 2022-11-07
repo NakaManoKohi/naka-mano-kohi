@@ -114,8 +114,12 @@ Route::get('/dashboard', function(){
 })->middleware(['auth', 'level:1||2']);
 
 // Dashboard Blog Routes
-Route::get('/dashboard/blog/checkSlug', [DashboardBlogController::class, 'checkSlug']);
 Route::resource('/dashboard/blog', DashboardBlogController::class)->middleware(['auth', 'level:1||2']);
+Route::get('/dashboard/blog/checkSlug', [DashboardBlogController::class, 'checkSlug']);
+Route::controller(DashboardBlogController::class)->group(function(){
+    Route::get('/dashboard/blog/{blog:slug}/activate', 'activate');
+    Route::get('/dashboard/blog/{blog:slug}/suspend', 'suspend');
+});
 
 // Dashboard User Routes
 Route::resource('/dashboard/user', DashboardUserController::class)->middleware(['auth', 'level:1||2']);

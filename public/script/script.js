@@ -1,6 +1,10 @@
 // Modal Suspend user Jquery
 const suspendUserButton = document.querySelectorAll('#suspendUser');
 const activateUserButton = document.querySelectorAll('#activateUser');
+
+const suspendBlogButton = document.querySelectorAll('#suspendBlog');
+const activateBlogButton = document.querySelectorAll('#activateBlog');
+
 const deleteBlog = document.querySelectorAll('#deleteBlog');
 const deleteEvent = document.querySelectorAll('#deleteEvent');
 const deletePost = document.querySelectorAll('#deletePost');
@@ -20,7 +24,7 @@ $(document).ready(() => {
     suspendUserButton.forEach(suspendButton => {
         suspendButton.addEventListener('click', ()=>{
             let userUsername = suspendButton.getAttribute('data-id');
-            modalLabel.innerText = 'Suspend User'
+            modalLabel.innerText = 'Suspend User';
             confirmButtonModal.setAttribute('href', '/dashboard/user/' + userUsername + '/suspend');
         });
     });
@@ -28,8 +32,24 @@ $(document).ready(() => {
     activateUserButton.forEach(activateButton => {
         activateButton.addEventListener('click', ()=>{
             let userUsername = activateButton.getAttribute('data-id');
-            modalLabel.innerText = 'Activate User'
+            modalLabel.innerText = 'Activate User';
             confirmButtonModal.setAttribute('href', '/dashboard/user/' + userUsername + '/activate');
+        });
+    });
+
+    suspendBlogButton.forEach(suspendButton => {
+        suspendButton.addEventListener('click', ()=>{
+            let blogSlug = suspendButton.getAttribute('data-id');
+            modalLabel.innerText = 'Suspend Blog';
+            confirmButtonModal.setAttribute('href', '/dashboard/blog/' + blogSlug + '/suspend');
+        });
+    });
+
+    activateBlogButton.forEach(activateButton => {
+        activateButton.addEventListener('click', ()=>{
+            let blogSlug = activateButton.getAttribute('data-id');
+            modalLabel.innerText = 'Activate Blog';
+            confirmButtonModal.setAttribute('href', '/dashboard/blog/' + blogSlug + '/activate');
         });
     });
 
