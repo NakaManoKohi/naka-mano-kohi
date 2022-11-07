@@ -1,13 +1,20 @@
 // Modal Suspend user Jquery
 const suspendUserButton = document.querySelectorAll('#suspendUser');
 const activateUserButton = document.querySelectorAll('#activateUser');
+
+const suspendBlogButton = document.querySelectorAll('#suspendBlog');
+const activateBlogButton = document.querySelectorAll('#activateBlog');
+
 const deleteBlog = document.querySelectorAll('#deleteBlog');
 const deleteEvent = document.querySelectorAll('#deleteEvent');
+const deletePost = document.querySelectorAll('#deletePost');
 
 const modalLabel = document.getElementById('modalTitle');
 const confirmButtonModal = document.getElementById('confirm');
 const formDelBlog = document.deleteBlog;
 const formDelEvent = document.deleteEvent;
+const formDelPost = document.deletePost;
+
 
 
 // $(suspendUserButton).on("click", ()=>{
@@ -17,7 +24,7 @@ $(document).ready(() => {
     suspendUserButton.forEach(suspendButton => {
         suspendButton.addEventListener('click', ()=>{
             let userUsername = suspendButton.getAttribute('data-id');
-            modalLabel.innerText = 'Suspend User'
+            modalLabel.innerText = 'Suspend User';
             confirmButtonModal.setAttribute('href', '/dashboard/user/' + userUsername + '/suspend');
         });
     });
@@ -25,8 +32,24 @@ $(document).ready(() => {
     activateUserButton.forEach(activateButton => {
         activateButton.addEventListener('click', ()=>{
             let userUsername = activateButton.getAttribute('data-id');
-            modalLabel.innerText = 'Activate User'
+            modalLabel.innerText = 'Activate User';
             confirmButtonModal.setAttribute('href', '/dashboard/user/' + userUsername + '/activate');
+        });
+    });
+
+    suspendBlogButton.forEach(suspendButton => {
+        suspendButton.addEventListener('click', ()=>{
+            let blogSlug = suspendButton.getAttribute('data-id');
+            modalLabel.innerText = 'Suspend Blog';
+            confirmButtonModal.setAttribute('href', '/dashboard/blog/' + blogSlug + '/suspend');
+        });
+    });
+
+    activateBlogButton.forEach(activateButton => {
+        activateButton.addEventListener('click', ()=>{
+            let blogSlug = activateButton.getAttribute('data-id');
+            modalLabel.innerText = 'Activate Blog';
+            confirmButtonModal.setAttribute('href', '/dashboard/blog/' + blogSlug + '/activate');
         });
     });
 
@@ -43,6 +66,14 @@ $(document).ready(() => {
             let slug = delBlog.getAttribute('data-id');
             modalLabel.innerText = 'Delete Blog';
             formDelBlog.action = `/dashboard/blog/${slug}`;
+        });
+    });
+
+    deletePost.forEach(delPost => {
+        delPost.addEventListener('click', ()=>{
+            let id = delPost.getAttribute('data-id');
+            modalLabel.innerText = 'Delete Post';
+            formDelPost.action = `/dashboard/post/${id}`;
         });
     });
 })

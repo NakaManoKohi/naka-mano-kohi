@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration
             $table->foreignId('user_id');
             $table->text('caption');
             $table->string('image')->nullable();
+            $table->boolean('suspend')->default(0);
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });

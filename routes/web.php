@@ -21,9 +21,11 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PublicChatController;
 use App\Http\Controllers\DashboardBlogController;
+use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\DashboardEventsController;
 use App\Http\Controllers\DashboardSearchController;
+
 
 
 
@@ -89,10 +91,11 @@ Route::controller(BlogController::class)->group(function(){
 });
 
 // Event Routes
-Route::controller(EventsController::class)->group(function(){
-    Route::get('/event', 'index');
-    Route::get('/event/{event:slug}', 'show');
-});
+Route::resource('/event', EventsController::class);
+// Route::controller(EventsController::class)->group(function(){
+//     Route::get('/event', 'index');
+//     Route::get('/event/{event:slug}', 'show');
+// });
 
 // Post Routes
 Route::resource('/post', PostController::class);
@@ -111,8 +114,12 @@ Route::get('/dashboard', function(){
 })->middleware(['auth', 'level:1||2']);
 
 // Dashboard Blog Routes
-Route::get('/dashboard/blog/checkSlug', [DashboardBlogController::class, 'checkSlug']);
 Route::resource('/dashboard/blog', DashboardBlogController::class)->middleware(['auth', 'level:1||2']);
+Route::get('/dashboard/blog/checkSlug', [DashboardBlogController::class, 'checkSlug']);
+Route::controller(DashboardBlogController::class)->group(function(){
+    Route::get('/dashboard/blog/{blog:slug}/activate', 'activate');
+    Route::get('/dashboard/blog/{blog:slug}/suspend', 'suspend');
+});
 
 // Dashboard User Routes
 Route::resource('/dashboard/user', DashboardUserController::class)->middleware(['auth', 'level:1||2']);
@@ -123,6 +130,9 @@ Route::controller(DashboardUserController::class)->group(function(){
 
 // Dashboard Event Routes
 Route::resource('/dashboard/event', DashboardEventsController::class)->middleware(['auth', 'level:1||2']);
+
+// Dashboard Posts Routes
+Route::resource('/dashboard/post', DashboardPostController::class);
 
 // Profile Routes
 Route::controller(ProfileController::class)->group(function(){

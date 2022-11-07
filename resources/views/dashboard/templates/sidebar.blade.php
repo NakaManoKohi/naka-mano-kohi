@@ -18,6 +18,12 @@
             </a>
         </li>
         <li class="nav-item">
+          <a class="nav-link {{ Request::is('dashboard/post*') ? 'active' : '' }}" href="/dashboard/post">
+          <i class="fa-solid fa-image"></i>
+          Posts
+          </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link {{ Request::is('dashboard/user*') ? 'active' : '' }}" href="/dashboard/user">
             <i class="fa-solid fa-user"></i>
             Users

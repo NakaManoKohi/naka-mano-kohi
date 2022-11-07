@@ -21,6 +21,7 @@ class CreateBlogsTable extends Migration
             $table->text('excerpt');
             $table->text('body');
             $table->string('image')->nullable();
+            $table->boolean('suspend')->default(0);
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });
