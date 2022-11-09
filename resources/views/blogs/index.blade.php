@@ -1,13 +1,19 @@
 @extends('templates.main')
 
 @section('content')
-<div class="col-12 d-flex p-3">
-    <main class="col-12 pe-2">
-      <section class="col-12 bg-primary-grey card border-0">
-        <div class="card-header bg-brown text-white">
-          <h3><a href="/" class="text-decoration-none text-white">Home</a> / <a href="/blog" class="text-decoration-none text-white">Blog</a></h3>
-        </div>
-        <div class="card-body">
+<main class="col-12 pe-2">
+      <div class="col-12 d-flex p-3">
+        <section class="col-12 bg-primary-grey card border-0">
+          <div class="card-header bg-brown text-white">
+            <h3><a href="/" class="text-decoration-none text-white">Home</a> / <a href="/blog" class="text-decoration-none text-white">Blog</a></h3>
+          </div>
+          <div class="card-body">
+          @if(session()->has('success'))
+            <div class="alert alert-success alert-dismissible fade show col-4" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+            </div>
+          @endif
             <div class="col-12 mb-3">
                 <div class="card card-body border border-5 border-yellow blog-card-highlight">
                     <img src="/storage/{{ $blogs[0]->image }}" alt="" loading="lazy" class="blog-card-image">

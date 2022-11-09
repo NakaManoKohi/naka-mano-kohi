@@ -85,10 +85,11 @@ Route::controller(RegisterController::class)->group(function() {
 });
 
 // Blog Routes
-Route::controller(BlogController::class)->group(function(){
-    Route::get('/blog', 'index');
-    Route::get('/blog/{blog:slug}', 'show');
-});
+// Route::controller(BlogController::class)->group(function(){
+//     Route::get('/blog', 'index');
+//     Route::get('/blog/{blog:slug}', 'show');
+// });
+Route::resource('/blog',BlogController::class);
 
 // Event Routes
 Route::resource('/event', EventsController::class);
