@@ -80,7 +80,7 @@ class EventsController extends Controller
 
         Events::create($validatedData);
 
-        return redirect('/')->with('success', 'New Event has been created');
+        return redirect('/event')->with('success', 'New Event has been created');
     }
 
     /**

@@ -8,6 +8,12 @@
           <h3><a href="/" class="text-decoration-none text-white">Home</a> / <a href="/event" class="text-decoration-none text-white">Event</a></h3>
         </div>
         <div class="card-body">
+          @if(session()->has('success'))
+            <div class="alert alert-success alert-dismissible fade show col-4" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+            </div>
+          @endif
             <div class="col-12 mb-3">
                 <div class="card card-body border border-5 border-yellow blog-card-highlight">
                   <img src="/storage/{{ $events[0]->image }}" alt="" loading="lazy" class="blog-card-image">
