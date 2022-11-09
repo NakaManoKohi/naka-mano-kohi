@@ -149,7 +149,7 @@ class DashboardEventsController extends Controller
     }
 
     public function checkSlug(Request $request){
-        $slug = SlugService::createSlug(Events::class, 'slug', $request->title);
+        $slug = SlugService::createSlug(Events::class, 'slug', $request->eventTitle);
         return response()->json(['slug' => $slug]);
     }
 

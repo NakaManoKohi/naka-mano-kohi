@@ -39,12 +39,13 @@
             @endphp
             <div class="d-flex flex-column-reverse">
               @foreach ($publicChat as $chat)
+              {{-- {{ dd($chat->user()) }} --}}
                 @if (strpos($chat->created_at, $time) === 0)
                   @auth
                     @if ($chat->user_id === auth()->user()->id)
                       <div class="d-flex flex-row-reverse mb-3 chat-box">
-                        {{-- @if($->image == 'images/user.jpg')
-                          <img src="/{{ $user->image }}" alt="profile" width="36" class="rounded-circle ms-2">
+                        {{-- @if($chat->user->image === 'images/user.jpg')
+                          <img src="/{{ $chat->user->image }}" alt="profile" width="36" class="rounded-circle ms-2">
                         @else
                           <img src="{{ asset('storage/' . $user->image) }}" alt="profile" width="36" class="rounded-circle ms-2">
                         @endif --}}

@@ -5,14 +5,14 @@
     <main class="col-9 pe-2">
       <section class="col-12 bg-primary-grey card border-0 h-full">
         <div class="card-header bg-brown text-white">
-          <h3>Create a Post</h3>
+          <h3>Create an Event</h3>
         </div>
         <div class="card-body col-12">
           <form method="post" action="/event" enctype="multipart/form-data">
             @csrf
               <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" required autofocus value="{{ old('title') }}">
+                <input type="text" class="form-control @error('title') is-invalid @enderror" id="eventTitle" name="title" required autofocus value="{{ old('title') }}">
                 @error('title')
                   <div class="invalid-feedback">
                     {{ $message }}
@@ -21,7 +21,7 @@
               </div>
               <div class="mb-3">
                 <label for="slug" class="form-label">Slug</label>
-                <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" required value="{{ old('slug') }}">
+                <input type="text" class="form-control @error('slug') is-invalid @enderror" id="eventSlug" name="slug" required value="{{ old('slug') }}">
                 @error('slug')
                   <div class="invalid-feedback">
                     {{ $message }}

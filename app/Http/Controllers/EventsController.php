@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Events;
+use App\Models\User;
 use App\Http\Requests\StoreEventsRequest;
 use App\Http\Requests\UpdateEventsRequest;
 use Illuminate\Support\Facades\DB;
@@ -48,7 +49,9 @@ class EventsController extends Controller
     {
         return view('events.create',[
             'title' => 'Create Event',
-            
+            'ranking' => User::withCount('followers')->groupBy('id')->orderByDesc('followers_count')->get()->all(),
+            'publicChat' => DB::table('public_chats')->leftJoin('users', 'public_chats.user_id', '=', 'users.id')->select('public_chats.*', 'users.username')->orderByDesc('updated_at')->get()->all(),
+            'tz' => getTimezone()
         ]);
     }
 

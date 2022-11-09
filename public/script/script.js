@@ -124,7 +124,7 @@ $(document).ready(() => {
     });
 })
 
-// Slug maker
+// Slug maker (blog)
 const title = document.querySelector('#title');
 const slug = document.querySelector('#slug');
 
@@ -133,6 +133,17 @@ title.addEventListener('change', function(){
     .then(response => response.json())
     .then(data => slug.value = data.slug)
 });
+
+// Slug maker (event)
+// const eventTitle = document.querySelector('#eventTitle');
+// const eventSlug = document.querySelector('#eventSlug');
+
+// eventTitle.addEventListener('change', function(){
+//     console.log(eventTitle.value);
+//     fetch('/dashboard/event/checkSlug?eventTitle=' + eventTitle.value)
+//     .then(response => response.json())
+//     .then(data => eventSlug.value = data.slug)
+// });
 
 // Image Preview
 function previewImg(){
