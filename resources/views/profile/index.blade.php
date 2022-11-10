@@ -26,17 +26,23 @@
                     {{ $activity->status }} 
                     <span class="fw-bold"><a href="/blog/{{ $activity->slug }}" class="text-decoration-none text-dark">"{{ $activity->title }}"</a></span>
                   </p>
-                  <div class="blog-card col-6 mb-3">
-                    <div class="card card-body border border-5 border-yellow blog-card-small">
-                      <img src="/storage/{{ $activity->image }}" alt="" loading="lazy" class="blog-card-image">
-                      <div class="blog-card-background"></div>
-                      <div class="col-8 blog-card-desc gap-1">
-                        <h5 class="title">{{ $activity->title }}</h5>
-                        <p style="font-size: 12px;" class="desc">{{ $activity->excerpt }}</p>
+                  <div class="card card-body border border-5 border-yellow blog-card-highlight">
+                    <img src="/storage/{{ $activity->image }}" alt="" loading="lazy" class="blog-card-image">
+                    <div class="blog-card-background"></div>
+                    <div class="col-6 blog-card-desc gap-1">
+                        <h2 class="title">{{ $activity->title }}</h2>
+                        <div class="blog-profile d-flex gap-1 mt-2 align-items-center">
+                              @if($activity->user->image == 'images/user.jpg')
+                            <img src="/{{ $activity->user->image }}" alt="profile" width="35" height="35" class="rounded-circle ms-2">
+                              @else 
+                            <img src="{{ asset('storage/' . $activity->user->image) }}" alt="profile" width="35" height="35" class="rounded-circle ms-2">
+                              @endif
+                          <h6><a href="/{{ $activity->user->username }}" class="text-decoration-none text-dark">{{ $activity->user->name }}</a></h6>  
+                        </div>
+                        <p class="desc">{{ $activity->excerpt }}</p>
                         <a href="/blog/{{ $activity->slug }}" class="btn btn-primary btn-sm w-fit">Read More</a>
-                      </div>
                     </div>
-                  </div>
+                </div>
                 @endif
               </div>
             @endforeach
