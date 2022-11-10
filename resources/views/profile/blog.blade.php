@@ -7,6 +7,12 @@
         @include('profile.components.nav')
         <div class="card bg-primary-grey flex-grow-1">
           <div class="card-body">
+            @if(session()->has('success'))
+            <div class="alert alert-success alert-dismissible fade show col-4" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+            </div>
+            @endif
             @foreach ($blogs as $blog)
               <div class="card card-body border border-5 border-yellow blog-card-highlight mb-3">
                 <img src="/storage/{{ $blog->image }}" alt="" loading="lazy" class="blog-card-image">

@@ -92,7 +92,7 @@ class ProfileController extends Controller
             'user' => $user,
             'followers' => Follows::where([['user_id', $user->id], ['deleted', false]]),
             'following' => Follows::where([['followed_by', $user->id], ['deleted', false]]),
-            'blogs' => Blog::where('user_id', $user->id)->get()
+            'blogs' => Blog::latest()->where('user_id', $user->id)->get()
         ];
         if (auth()->user() != null) { 
             $data['following_user'] = Follows::where([['user_id', $user->id], ['followed_by', auth()->user()->id]])->count();

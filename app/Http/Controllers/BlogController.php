@@ -61,7 +61,7 @@ class BlogController extends Controller
 
         Blog::create($validatedData);
 
-        return redirect('/blog')->with('success', 'New blog has been created');
+        return redirect('/' . auth()->user()->username . '/blog')->with('success', 'New blog has been created');
     
     }
 
