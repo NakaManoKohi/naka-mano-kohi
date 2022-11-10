@@ -19,7 +19,8 @@ class BlogController extends Controller
     {
         return view('blogs.index',[
             'title' => 'Blogs',
-            'blogs' => Blog::latest()->paginate(7)
+            'blogs' => Blog::latest()->paginate(7),
+            'aside' => aside()
         ]);
     }
 
@@ -32,9 +33,7 @@ class BlogController extends Controller
     {
         return view('blogs.create',[
             'title' => 'Dashboard Blog | Create',
-            'ranking' => User::withCount('followers')->groupBy('id')->orderByDesc('followers_count')->get()->all(),
-            'publicChat' => DB::table('public_chats')->leftJoin('users', 'public_chats.user_id', '=', 'users.id')->select('public_chats.*', 'users.username')->orderByDesc('updated_at')->get()->all(),
-            'tz' => getTimezone()
+            'aside' => aside()
         ]);
     }
 

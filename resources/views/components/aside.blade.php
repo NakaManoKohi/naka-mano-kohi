@@ -5,7 +5,7 @@
     </div>
     <div class="card-body ranking p-0 border-1-rem border-primary-grey overflow-auto scrollbar-none">
       @php $i = 1; @endphp
-      @foreach ($ranking as $user)
+      @foreach ($aside['ranking'] as $user)
         <div class="card-body rounded" onclick="window.location='/{{ $user->username }}'" role="button">
           <div class="d-flex align-items-center">
             @if($user->image == 'images/user.jpg')
@@ -30,12 +30,12 @@
     </div>
     <div class="card-body d-flex flex-column-reverse col-12 pb-0 overflow-auto">
       @php $time = 0; @endphp
-      @foreach ($publicChat as $chatDate)
+      @foreach ($aside['publicChat'] as $chatDate)
         <div class="d-flex flex-column col-12 h-auto">
-          @if ((\Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $chatDate->created_at)->setTimezone($tz))->format('Y-m-d') != $time)
-            <p class="p-2 card mx-auto">{{ (\Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $chatDate->created_at)->setTimezone($tz))->format('d/m/Y') }}</p>
+          @if ((\Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $chatDate->created_at)->setTimezone($aside['tz']))->format('Y-m-d') != $time)
+            <p class="p-2 card mx-auto">{{ (\Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $chatDate->created_at)->setTimezone($aside['tz']))->format('d/m/Y') }}</p>
             @php
-              $time = (\Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $chatDate->created_at)->setTimezone($tz))->format('Y-m-d');
+              $time = (\Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $chatDate->created_at)->setTimezone($aside['tz']))->format('Y-m-d');
             @endphp
             <div class="d-flex flex-column-reverse">
               @foreach ($publicChat as $chat)
@@ -72,7 +72,7 @@
                   @endauth
                       <p class="m-0">{{ $chat->message }}</p>
                     </div>
-                    <p class="m-0 align-self-end mx-1"><sub>{{ (\Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $chat->created_at)->setTimezone($tz))->format('h:i A') }}</sub></p>
+                    <p class="m-0 align-self-end mx-1"><sub>{{ (\Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $chat->created_at)->setTimezone($aside['tz']))->format('h:i A') }}</sub></p>
                   </div>
                 @endif
               @endforeach

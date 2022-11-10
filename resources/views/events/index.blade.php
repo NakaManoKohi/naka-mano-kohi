@@ -1,8 +1,8 @@
 @extends('templates.main')
 
 @section('content')
-<div class="col-12 d-flex p-3">
-    <main class="col-12 pe-2">
+  <div class="col-12 d-flex p-3">
+    <main class="col-9 pe-2">
       <section class="col-12 bg-primary-grey card border-0">
         <div class="card-header bg-brown text-white">
           <h3><a href="/" class="text-decoration-none text-white">Home</a> / <a href="/event" class="text-decoration-none text-white">Event</a></h3>
@@ -65,5 +65,6 @@
         </div>
       </section>
     </main>
+    @include('components.aside')
   </div>
 @endsection
