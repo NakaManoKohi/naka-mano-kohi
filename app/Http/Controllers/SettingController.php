@@ -31,7 +31,8 @@ class SettingController extends Controller
         $rules = [
             'name' => 'required',
             'username' => 'required',
-            'email' => 'email|required'
+            'email' => 'email|required',
+            'about' => 'required|max:255'
         ];
 
         $validatedData = $request->validate($rules);
