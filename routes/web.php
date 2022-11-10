@@ -147,7 +147,8 @@ Route::controller(DashboardPostController::class)->group(function(){
 // Profile Routes
 Route::controller(ProfileController::class)->group(function(){
     Route::get('/{user:username}{activity}', 'index')->where('activity', '(|/activity)');
-    Route::get('/{user:username}/blog', 'index');
+    Route::get('/{user:username}/blog', 'blog');
+    Route::get('/{user:username}/event', 'event');
     Route::get('/{user:username}/follow', 'follow');
     Route::get('/{user:username}/unfollow', 'unfollow');
     Route::get('/{user:username}/post', 'post');
