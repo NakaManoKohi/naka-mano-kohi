@@ -17,6 +17,18 @@
     <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
     <ul class="navbar-nav">
       @auth
+        @if(auth()->user()->benefit == 3)
+          <h5 class="benefit-badge bronze rounded">Bronze</h5>
+        @endif
+
+        @if(auth()->user()->benefit == 2)
+          <h5 class="benefit-badge silver rounded">Silver</h5>
+        @endif
+
+        @if(auth()->user()->benefit == 1)
+          <h5 class="benefit-badge gold rounded">Gold</h5>
+        @endif
+        
         <li class="nav-link btn-group d-flex align-items-center">
           <a class="nav-link text-white text-decoration-none dropdown-toggle no-arrow" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-plus"></i></a>
           <ul class="dropdown-menu dropdown-menu-end mt-2">

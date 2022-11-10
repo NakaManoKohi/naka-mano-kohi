@@ -1,5 +1,7 @@
 :root{
     --brown: rgb(178, 98, 33);
+    --bronze: rgb(178, 80, 13);
+    --silver: rgb(109, 109, 109);
     --yellow: rgb(254, 218, 57);
     --yellow-hovered: rgb(212, 173, 0);
     --primary-grey: rgb(238, 238, 238);
@@ -198,4 +200,21 @@
 
 .post img:hover{
     opacity: 0.5;
+}
+
+.benefit-badge{
+    padding: 20px;
+}
+
+.bronze{
+    background-color: var(--bronze);
+}
+
+.silver{
+    background-color: var(--silver);
+}
+
+.gold{
+    background-color: var(--yellow);
+    color: var(--brown);
 }
