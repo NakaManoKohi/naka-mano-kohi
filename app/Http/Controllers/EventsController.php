@@ -16,13 +16,6 @@ class EventsController extends Controller
         $this->middleware(['auth', 'benefit:1||2'])->only('create');
     }
 
-    public function getTimezone() {
-        $ip = file_get_contents("http://ipecho.net/plain");
-        $url = 'http://ip-api.com/json/'.$ip;
-        $tz = file_get_contents($url);
-        $tz = json_decode($tz,true)['timezone'];
-        return $tz;
-    }
     /**
      * Display a listing of the resource.
      *
@@ -33,10 +26,8 @@ class EventsController extends Controller
         return view('events.index',[
             'title' => "Events",
             'events' => Events::latest()->paginate(4),
-            'ranking' => DB::table('users')->leftJoin('follows', 'users.id', '=', 'follows.user_id')->select('users.*', DB::raw('count(follows.followed_by) as followers'))->groupBy('users.id')->orderByDesc('followers')->limit('10')->get()->all(),
             'date' => Carbon::now()->nthOfMonth(4, Carbon::SATURDAY),
-            'publicChat' => DB::table('public_chats')->leftJoin('users', 'public_chats.user_id', '=', 'users.id')->select('public_chats.*', 'users.username')->orderByDesc('updated_at')->get()->all(),
-            'tz' => getTimezone()
+            'aside' => aside()
         ]); 
     }
 
@@ -49,9 +40,7 @@ class EventsController extends Controller
     {
         return view('events.create',[
             'title' => 'Create Event',
-            'ranking' => User::withCount('followers')->groupBy('id')->orderByDesc('followers_count')->get()->all(),
-            'publicChat' => DB::table('public_chats')->leftJoin('users', 'public_chats.user_id', '=', 'users.id')->select('public_chats.*', 'users.username')->orderByDesc('updated_at')->get()->all(),
-            'tz' => getTimezone()
+            'aside' => aside()
         ]);
     }
 

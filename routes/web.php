@@ -38,6 +38,14 @@ function getTimezone() {
     return $tz;
 };
 
+function aside() {
+    return [
+    'ranking' => User::withCount('followers')->groupBy('id')->orderByDesc('followers_count')->get()->all(),
+    'publicChat' => DB::table('public_chats')->leftJoin('users', 'public_chats.user_id', '=', 'users.id')->select('public_chats.*', 'users.username')->orderByDesc('updated_at')->get()->all(),
+    'tz' => getTimezone()
+    ];
+}
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -56,9 +64,7 @@ Route::get('/{home}', function () {
     'blogs' => Blog::latest()->paginate(4),
     'events' => Events::latest()->get(),
     'date' => Carbon::now()->nthOfMonth(4, Carbon::SATURDAY),
-    'ranking' => User::withCount('followers')->groupBy('id')->orderByDesc('followers_count')->get()->all(),
-    'publicChat' => DB::table('public_chats')->leftJoin('users', 'public_chats.user_id', '=', 'users.id')->select('public_chats.*', 'users.username')->orderByDesc('updated_at')->get()->all(),
-    'tz' => getTimezone()
+    'aside' => aside()
 ]);})->where('home', '(|home)');
 
 // Setting Route

@@ -30,9 +30,7 @@ class PostController extends Controller
             'title' => 'Post',
             'posts' => Post::latest()->get(),
             'date' => Carbon::now()->nthOfMonth(4, Carbon::SATURDAY),
-            'ranking' => User::withCount('followers')->groupBy('id')->orderByDesc('followers_count')->get()->all(),
-            'publicChat' => DB::table('public_chats')->leftJoin('users', 'public_chats.user_id', '=', 'users.id')->select('public_chats.*', 'users.username')->orderByDesc('updated_at')->get()->all(),
-            'tz' => getTimezone()
+            'aside' => aside()
         ]);
     }
 
@@ -45,9 +43,7 @@ class PostController extends Controller
     {
         return view('post.create',[
             'title' => 'Post',
-            'ranking' => User::withCount('followers')->groupBy('id')->orderByDesc('followers_count')->get()->all(),
-            'publicChat' => DB::table('public_chats')->leftJoin('users', 'public_chats.user_id', '=', 'users.id')->select('public_chats.*', 'users.username')->orderByDesc('updated_at')->get()->all(),
-            'tz' => getTimezone()
+            'aside' => aside()
         ]);
     }
 
