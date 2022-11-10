@@ -32,7 +32,7 @@
                   <div class="d-flex gap-3">
                     <div class="gap-halfed-width">
                       @if($post->image)
-                        <img src="storage/{{ $post->image }}" alt="image" class="col-12">
+                        <img src="{{ asset('storage/' . $post->image) }}" alt="image" class="col-12">
                       @else
                         <img src="https://source.unsplash.com/300x300/?coffee" alt="image" class="col-12">
                       @endif

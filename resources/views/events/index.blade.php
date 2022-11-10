@@ -16,7 +16,7 @@
           @endif
             <div class="col-12 mb-3">
                 <div class="card card-body border border-5 border-yellow blog-card-highlight">
-                  <img src="/storage/{{ $events[0]->image }}" alt="" loading="lazy" class="blog-card-image">
+                  <img src="{{ asset('storage/' . $events[0]->image) }}" alt="" loading="lazy" class="blog-card-image">
                   <div class="blog-card-background"></div>
                   <div class="col-6 blog-card-desc gap-1">
                     <h2 class="title">{{ $events[0]->title }}</h2>

@@ -95,7 +95,8 @@ class PostController extends Controller
     {   
         return view('post.edit',[
             'title' => 'Post Edit',
-            'post' => $post
+            'post' => $post,
+            'aside' => aside()
         ]);
     }
 
