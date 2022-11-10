@@ -82,7 +82,11 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return view('post.show',[
+            'title' => "Post",
+            'post' => $post
+        ]);
+        
     }
 
     /**
