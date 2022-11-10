@@ -20,6 +20,7 @@
                           <h4 class="m-0"><a href="/{{ $post->user->username }}/post" class="text-decoration-none text-dark">{{ $post->user->name }}</a></h4>
                           <p class="m-0">{{ $post->created_at->diffForHumans() }}</p>
                       </div>
+                      @if(auth()->user()->username == $user->username)
                       <div class="actions ms-auto">
                         <a class="nav-link text-dark text-decoration-none dropdown-toggle no-arrow me-3 fs-4" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-solid fa-ellipsis-vertical"></i></a>
                         <ul class="dropdown-menu dropdown-menu-end mt-2">
@@ -30,9 +31,10 @@
                           <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
                         </form></li>
                         </ul>
-                        
-                        
                       </div>
+                      @else
+
+                      @endif
                   </div>
                   <div class="d-flex gap-3">
                     <div class="gap-halfed-width">
