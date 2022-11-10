@@ -28,4 +28,22 @@
       </main>
     </div>
   </div>
+    {{-- Modal --}}
+    <div class="modal fade" id="purchaseModal" tabindex="-1" aria-labelledby="purchaseModalLable" aria-hidden="true" style="z-index: 9999">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="modalTitle"></h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              Are You sure?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <a class="text-decoration-none text-white btn btn-primary" id="confirm">Yes</a>
+          </div>
+        </div>
+      </div>
+    </div>
 @endsection

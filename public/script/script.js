@@ -11,6 +11,10 @@ const activateEventButton = document.querySelectorAll('#activateEvent');
 const suspendPostButton = document.querySelectorAll('#suspendPost');
 const activatePostButton = document.querySelectorAll('#activatePost');
 
+const bronzeButton = document.querySelectorAll('#bronzePurchase');
+const silverButton = document.querySelectorAll('#silverPurchase')
+const goldButton = document.querySelectorAll('#goldPurchase');
+
 const deleteBlog = document.querySelectorAll('#deleteBlog');
 const deleteEvent = document.querySelectorAll('#deleteEvent');
 const deletePost = document.querySelectorAll('#deletePost');
@@ -120,6 +124,14 @@ $(document).ready(() => {
             let id = delPost.getAttribute('data-id');
             modalLabel.innerText = 'Delete Post';
             formDelPost.action = `/dashboard/post/${id}`;
+        });
+    });
+
+    // Benefits Purchase
+    bronzeButton.forEach(buyButton => {
+        buyButton.addEventListener('click', ()=>{
+            modalLabel.innerText = 'Bronze Membership';
+            confirmButtonModal.setAttribute('href', '/setting/bronze');
         });
     });
 })

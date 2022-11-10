@@ -100,4 +100,19 @@ class SettingController extends Controller
         ]);
     }
 
+    public function bronze(User $user){
+        User::where('username', $user->username)->update(['benefit'=> 3]);
+        return back()->with('success','You have purchased bronze badge');
+    }
+
+    public function silver(User $user){
+        User::where('username', $user->username)->update(['benefit' => 2]);
+        return back()->with('success', 'You have purchased silver badge');
+    }
+
+    public function gold(User $user){
+        User::where('username', $user->username)->update(['benefit' => 1]);
+        return back()->with('success', 'You have purchased gold badge');
+    }
+
 }

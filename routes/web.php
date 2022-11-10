@@ -77,6 +77,9 @@ Route::controller(SettingController::class)->group(function() {
     Route::get('/setting/password', 'password');
     Route::put('/setting/password/{user:username}', 'updatePassword');
     Route::put('/setting/profile/updateProfileImage/{user:username}', 'updateProfileImage');
+    Route::get('/setting/{user:username}/bronze/', 'bronze');
+    Route::get('/setting/{user:username}/silver/', 'silver');
+    Route::get('/setting/{user:username}/gold/', 'gold');
 });
 
 // Authenticate Routes
