@@ -21,12 +21,17 @@
                           <p class="m-0">{{ $post->created_at->diffForHumans() }}</p>
                       </div>
                       <div class="actions ms-auto">
-                        <a href="/post/{{ $post->id }}/edit" class="btn btn-warning">Edit</a>
-                        <form action="/post/{{ $post->id }}" method="post" class="d-inline">
+                        <a class="nav-link text-dark text-decoration-none dropdown-toggle no-arrow me-3 fs-4" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-solid fa-ellipsis-vertical"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-end mt-2">
+                          <li class="dropdown-item"><a href="/post/{{ $post->id }}/edit" class="btn btn-warning">Edit</a></li>
+                          <li><form action="/post/{{ $post->id }}" method="post" class="d-inline dropdown-item">
                           @method('delete')
                           @csrf
                           <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
-                        </form>
+                        </form></li>
+                        </ul>
+                        
+                        
                       </div>
                   </div>
                   <div class="d-flex gap-3">
