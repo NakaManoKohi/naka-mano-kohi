@@ -99,6 +99,7 @@ Route::controller(RegisterController::class)->group(function() {
 //     Route::get('/blog/{blog:slug}', 'show');
 // });
 Route::resource('/blog',BlogController::class);
+Route::get('/blog/checkSlug', [BlogController::class, 'checkSlug']);
 
 // Event Routes
 Route::resource('/event', EventsController::class);
@@ -127,8 +128,8 @@ Route::get('/dashboard', function(){
 Route::resource('/dashboard/blog', DashboardBlogController::class)->middleware(['auth', 'level:1||2']);
 Route::get('/dashboard/blog/checkSlug', [DashboardBlogController::class, 'checkSlug']);
 Route::controller(DashboardBlogController::class)->group(function(){
-    Route::get('/dashboard/blog/{blog:slug}/activate', 'activate');
-    Route::get('/dashboard/blog/{blog:slug}/suspend', 'suspend');
+    Route::get('/dashboard/blog/{blog:id}/activate', 'activate');
+    Route::get('/dashboard/blog/{blog:id}/suspend', 'suspend');
 });
 
 // Dashboard User Routes
@@ -142,8 +143,8 @@ Route::controller(DashboardUserController::class)->group(function(){
 Route::resource('/dashboard/event', DashboardEventsController::class)->middleware(['auth', 'level:1||2']);
 Route::controller(DashboardEventsController::class)->group(function(){
     Route::get('/dashboard/event/checkSlug', 'checkSlug');
-    Route::get('/dashboard/event/{event:slug}/activate', 'activate');
-    Route::get('/dashboard/event/{event:slug}/suspend', 'suspend');
+    Route::get('/dashboard/event/{event:id}/activate', 'activate');
+    Route::get('/dashboard/event/{event:id}/suspend', 'suspend');
 });
 
 // Dashboard Posts Routes

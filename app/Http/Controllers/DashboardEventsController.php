@@ -88,7 +88,8 @@ class DashboardEventsController extends Controller
     {
         return view('dashboard.events.edit',[
             'title' => "Dashboard Event | Edit $event->title",
-            'event' => $event
+            'event' => $event,
+            'aside' => aside()
         ]);
     }
 
@@ -154,13 +155,13 @@ class DashboardEventsController extends Controller
     }
 
     public function suspend(Events $event){
-        Events::where('slug', $event->slug)->update(['suspend' => 1]);
+        Events::where('id', $event->id)->update(['suspend' => 1]);
         
         return redirect('dashboard/event')->with('suspended', $event->title . ' has been suspended');
     }
 
     public function activate(Events $event){
-        Events::where('slug', $event->slug)->update(['suspend' => 0]);
+        Events::where('id', $event->id)->update(['suspend' => 0]);
         return redirect('/dashboard/event')->with('success', $event->title . ' has been activated');
     }
 }

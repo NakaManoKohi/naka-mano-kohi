@@ -84,7 +84,7 @@
     @auth
     <div class="card-footer">
       @if (auth()->user()->suspend === 1)
-        <button class="col-12 bg-danger fw-bold text-white rounded-pill">Your Account is Suspend</button>
+        <button class="col-12 bg-danger fw-bold text-white rounded-pill">Your Account is Suspended</button>
       @else
         <form action="/chat/public" method="POST" class="d-flex gap-2">
           @csrf

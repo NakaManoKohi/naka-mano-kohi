@@ -19,15 +19,6 @@
                   </div>
                 @enderror
               </div>
-              <div class="mb-3">
-                <label for="slug" class="form-label">Slug</label>
-                <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" required>
-                @error('slug')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                @enderror
-              </div>
               <img class="img-preview img-fluid mb-3" width="250">
               <div class="mb-3">
                 <label for="formFile" class="form-label">Upload Image</label>

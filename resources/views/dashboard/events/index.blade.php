@@ -38,9 +38,9 @@
                         {{-- <a href="/dashboard/event/{{ $event->slug }}/edit" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
                         <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="{{ $event->slug }}" id="deleteEvent"><i class="fa-solid fa-trash"></i> Delete</button> --}}
                         @if($event->suspend == 1)
-                            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#suspendModal" data-id="{{ $event->slug }}" id="activateEvent" >Activate</button>
+                            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#suspendModal" data-id="{{ $event->id }}" id="activateEvent" >Activate</button>
                         @else
-                            <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#suspendModal" data-id="{{ $event->slug }}" id="suspendEvent">Suspend</button>
+                            <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#suspendModal" data-id="{{ $event->id }}" id="suspendEvent">Suspend</button>
                         @endif
                     </td>
                 </tr>

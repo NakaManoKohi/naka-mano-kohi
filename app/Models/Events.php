@@ -13,11 +13,6 @@ class Events extends Model
     protected $guarded = ['id'];
     protected $dates = ['date'];
 
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
-
     public function sluggable(): array
     {
         return [

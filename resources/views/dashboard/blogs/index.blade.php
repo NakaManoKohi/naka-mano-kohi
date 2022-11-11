@@ -34,11 +34,11 @@
                         <td>{{ $blog->title }}</td>
                         <td>{{ $blog->user->username }}</td>
                         <td>
-                        <a href="/dashboard/blog/{{ $blog->slug }}" class="btn btn-info"><i class="fa-solid fa-circle-info"></i> Detail</a>
+                        <a href="/dashboard/blog/{{ $blog->id }}" class="btn btn-info"><i class="fa-solid fa-circle-info"></i> Detail</a>
                         @if($blog->suspend == 1)
-                            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#suspendModal" data-id="{{ $blog->slug }}" id="activateBlog" >Activate</button>
+                            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#suspendModal" data-id="{{ $blog->id }}" id="activateBlog" >Activate</button>
                         @else
-                            <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#suspendModal" data-id="{{ $blog->slug }}" id="suspendBlog">Suspend</button>
+                            <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#suspendModal" data-id="{{ $blog->id }}" id="suspendBlog">Suspend</button>
                         @endif
                         {{-- <a href="/dashboard/blog/{{ $blog->slug }}/edit" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
                         <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="{{ $blog->slug }}" id="deleteBlog"><i class="fa-solid fa-trash"></i> Delete</button> --}}

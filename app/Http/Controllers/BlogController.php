@@ -7,6 +7,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class BlogController extends Controller
 {
@@ -47,7 +49,6 @@ class BlogController extends Controller
     {
         $validatedData = $request->validate([
             'title' => 'required|max:255|min:1',
-            'slug' => 'required|unique:blogs',
             'image' => 'image|file|max:1024',
             'body' => 'required'
         ]);
@@ -87,7 +88,11 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        //
+        return view('blogs.edit',[
+            'title' => 'Blogs Edit',
+            'blog' => $blog,
+            'aside' => aside()
+        ]);
     }
 
     /**
@@ -99,7 +104,27 @@ class BlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
-        //
+        $rules = [
+            'title' => 'required|max:255|min:1',
+            'image' => 'image|file|max:1024',
+            'body' => 'required'
+        ];
+        
+        $validatedData = $request->validate($rules);
+
+        if($request->file('image')){
+            if($request->oldImage){
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['image'] = $request->file('image')->store('images');
+        }
+
+        $validatedData['user_id'] = auth()->user()->id;
+        $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
+
+        Blog::where('id', $blog->id)->update($validatedData);
+
+        return redirect('/' . auth()->user()->username . '/blog')->with('success', 'The blog has been edited');
     }
 
     /**
@@ -110,6 +135,17 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        //
+        if($blog->image){
+            Storage::delete($blog->image);
+        }
+        
+        Blog::destroy($blog->id);
+
+        return redirect('/' . auth()->user()->username . '/blog')->with('success', 'The blog has been deleted');
+    }
+
+    public function checkSlug(Request $request){
+        $slug = \Cviebrock\EloquentSluggable\Services\SlugService::createSlug(Blog::class, 'slug', $request->title);
+        return response()->json(['slug' => $slug]);
     }
 }

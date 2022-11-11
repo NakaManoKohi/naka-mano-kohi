@@ -9,6 +9,7 @@ use App\Http\Requests\UpdateEventsRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class EventsController extends Controller
 {   
@@ -54,7 +55,6 @@ class EventsController extends Controller
     {
         $validatedData = $request->validate([
             'title' => 'required|max:255',
-            'slug' => 'required|max:255',
             'image' => 'image|file|max:1024',
             'body' => 'required',
             'date' => 'required'
@@ -92,9 +92,14 @@ class EventsController extends Controller
      * @param  \App\Models\Events  $events
      * @return \Illuminate\Http\Response
      */
-    public function edit(Events $events)
+    public function edit(Events $event)
     {
-        //
+        return view('events.edit',[
+            'title' => "Dashboard Event | Edit $event->title",
+            'event' => $event,
+            'aside' => aside()
+
+        ]);
     }
 
     /**
@@ -104,9 +109,32 @@ class EventsController extends Controller
      * @param  \App\Models\Events  $events
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateEventsRequest $request, Events $events)
+    public function update(UpdateEventsRequest $request, Events $event)
     {
-        //
+        $rules = [
+            'title' => 'required|max:255',
+            'image' => 'image|file|max:1024',
+            'body' => 'required',
+            'date' => 'required'
+        ];
+        
+        $validatedData = $request->validate($rules);
+
+        if($request->file('image')){
+            if($request->oldImage){
+                Storage::delete($request->oldImage);
+            }
+
+            $validatedData['image'] = $request->file('image')->store('images');
+        }
+
+
+        $validatedData['user_id'] = auth()->user()->id;
+        $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
+
+        Events::where('id', $event->id)->update($validatedData);    
+
+        return redirect('/' . auth()->user()->username . '/event')->with('success', 'The Event has been edited');
     }
 
     /**
@@ -115,8 +143,14 @@ class EventsController extends Controller
      * @param  \App\Models\Events  $events
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Events $events)
+    public function destroy(Events $event)
     {
-        //
+        if($event->image){
+            Storage::delete($event->image);
+        }
+
+        Events::destroy($event->id);
+
+        return redirect('/' . auth()->user()->username . '/event')->with('success', 'The Event has been deleted');
     }
 }

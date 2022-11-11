@@ -5,38 +5,31 @@
     <main class="col-9 pe-2">
       <section class="col-12 bg-primary-grey card border-0 h-full">
         <div class="card-header bg-brown text-white">
-          <h3>Create an Event</h3>
+          <h3>Create a Blog</h3>
         </div>
         <div class="card-body col-12">
-          <form method="post" action="/event" enctype="multipart/form-data">
+          <form method="post" action="/blog/{{ $blog->id }}" enctype="multipart/form-data">
+            @method('put')
             @csrf
               <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control @error('title') is-invalid @enderror" id="eventTitle" name="title" required autofocus value="{{ old('title') }}">
+                <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" required autofocus value="{{ $blog->title }}">
                 @error('title')
                   <div class="invalid-feedback">
                     {{ $message }}
                   </div>
                 @enderror
               </div>
-              <div class="mb-3">
-                <label for="date" class="form-label">Date</label>
-                <input type="datetime-local" class="form-control @error('date') is-invalid @enderror" id="date" name="date" required value="{{ old('date') }}">
-                @error('date')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                @enderror
-              </div>
-              <img class="img-preview img-fluid mb-3" width="250">
+                <input type="hidden" class="form-control @error('slug') is-invalid @enderror" id="id" name="id_blog" required value="{{ $blog->id }}">
               <div class="mb-3">
                 <label for="formFile" class="form-label">Upload Image</label>
+                {{-- @if($blog->image) --}}
+                  <img src="{{ asset('storage/'. $blog->image) }}" class="img-preview img-fluid mb-3 d-block" width="250">
+                {{-- @else --}}
+                  {{-- <img class="img-preview img-fluid mb-3 d-block" width="250"> --}}
+                {{-- @endif --}}
+                <input type="hidden" name="oldImage" value="{{ $blog->image }}">
                 <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image" onchange="previewImg()">
-                @error('image')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                @enderror
               </div>
               <div class="mb-3">
                 <label for="body" class="form-label">Body</label>
@@ -45,11 +38,11 @@
                   {{ $message }}
                 </p>
                 @enderror
-                <input id="body" type="hidden" name="body" value="{{ old('body') }}" required>
+                <input id="body" type="hidden" name="body" value="{{ $blog->body }}" required>
                 <trix-editor input="body"></trix-editor>
               </div>
                
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary">Update</button>
             </form>
         </div>
       </section>

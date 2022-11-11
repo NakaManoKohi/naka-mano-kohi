@@ -145,18 +145,18 @@ class DashboardBlogController extends Controller
     }
 
     public function checkSlug(Request $request){
-        $slug = SlugService::createSlug(Blog::class, 'slug', $request->title);
+        $slug = \Cviebrock\EloquentSluggable\Services\SlugService::createSlug(Blog::class, 'slug', $request->title);
         return response()->json(['slug' => $slug]);
     }
 
     public function suspend(Blog $blog){
-        Blog::where('slug', $blog->slug)->update(['suspend' => 1]);
+        Blog::where('id', $blog->id)->update(['suspend' => 1]);
         
         return redirect('dashboard/blog')->with('suspended', $blog->title . ' has been suspended');
     }
 
     public function activate(Blog $blog){
-        Blog::where('slug', $blog->slug)->update(['suspend' => 0]);
+        Blog::where('id', $blog->id)->update(['suspend' => 0]);
         return redirect('/dashboard/blog')->with('success', $blog->title . ' has been activated');
     }
 }

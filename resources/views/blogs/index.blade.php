@@ -29,7 +29,7 @@
                         <h6><a href="/{{ $blogs[0]->user->username }}" class="text-decoration-none text-dark">{{ $blogs[0]->user->name }}</a></h6>  
                       </div>
                       <p class="desc">{{ $blogs[0]->excerpt }}</p>
-                      <a href="/blog/{{ $blogs[0]->slug }}" class="btn btn-primary btn-sm w-fit">Read More</a>
+                      <a href="/blog/{{ $blogs[0]->id }}" class="btn btn-primary btn-sm w-fit">Read More</a>
                   </div>
               </div>
           </div>
@@ -51,7 +51,7 @@
                   <h6><a href="/{{ $blog->user->username }}" class="text-decoration-none text-dark">{{ $blog->user->name }}</a></h6>  
                 </div>
                 <p style="font-size: 12px;" class="desc">{{ $blog->excerpt }}</p>
-                <a href="/blog/{{ $blog->slug }}" class="btn btn-primary btn-sm w-fit">Read More</a>
+                <a href="/blog/{{ $blog->id }}" class="btn btn-primary btn-sm w-fit">Read More</a>
               </div>
             </div>
           </div>

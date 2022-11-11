@@ -30,7 +30,7 @@
                     </div>
                     <h5 class="text-brown m-0"> <i class="fa-solid fa-calendar-days"></i> {{ $events[0]->date->diffForHumans() }}</h5>
                     <p class="desc">{{ $events[0]->excerpt }}</p>
-                    <a href="/event/{{ $events[0]->slug }}" class="btn btn-primary btn-sm w-fit">Read More</a>
+                    <a href="/event/{{ $events[0]->id }}" class="btn btn-primary btn-sm w-fit">Read More</a>
                   </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                   </div>
                   <h6 class="text-brown m-0"> <i class="fa-solid fa-calendar-days"></i> {{ $event->date->diffForHumans() }}</h6>
                   <p style="font-size: 12px;" class="desc">{{ $event->excerpt }}</p>
-                  <a href="/event/{{ $event->slug }}" class="btn btn-primary btn-sm w-fit">Read More</a>
+                  <a href="/event/{{ $event->id }}" class="btn btn-primary btn-sm w-fit">Read More</a>
                 </div>
               </div>
             </div>
