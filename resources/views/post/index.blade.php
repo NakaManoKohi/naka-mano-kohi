@@ -12,6 +12,11 @@
             <div class="card card-body border border-5 border-yellow blog-card-highlight my-3">
                 <div class="col-12 blog-card-desc gap-1 d-flex flex-column">
                     <div class="d-flex flex-row">
+                        @if($post->suspend == 1)
+                          <p class="btn btn-warning" style="position:absolute; z-index: 9999; right: 20px;"><i class="fa-solid fa-triangle-exclamation"></i></p>
+                        @else
+                        
+                        @endif
                         @if($post->user->image == 'images/user.jpg')
                           <img src="/{{ $post->user->image }}" alt="profile" width="50" height="50" class="rounded-circle ms-2">
                         @else 

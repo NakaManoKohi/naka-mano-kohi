@@ -20,6 +20,11 @@
                   <div class="blog-card-background"></div>
                   <div class="col-6 blog-card-desc gap-1">
                     <h2 class="title">{{ $events[0]->title }}</h2>
+                    @if($events[0]->suspend == 1)
+                      <p class="btn btn-warning" style="position:absolute; z-index: 9999; right: 20px;"><i class="fa-solid fa-triangle-exclamation"></i></p>
+                    @else
+                    
+                    @endif
                     <div class="event-profile d-flex gap-1 mt-2 align-items-center">
                       @if($events[0]->user->image == 'images/user.jpg')
                         <img src="/{{ $events[0]->user->image }}" alt="profile" width="35" height="35" class="rounded-circle ms-2">
@@ -43,6 +48,11 @@
                 <div class="blog-card-background"></div>
                 <div class="col-8 blog-card-desc gap-1">
                   <h5 class="title">{{ $event->title }}</h5>
+                  @if($event->suspend == 1)
+                    <p class="btn btn-warning" style="position:absolute; z-index: 9999; right: 20px;"><i class="fa-solid fa-triangle-exclamation"></i></p>
+                  @else
+                  
+                  @endif
                   <div class="event-profile d-flex gap-1 mt-2 align-items-center">
                     @if($event->user->image == 'images/user.jpg')
                       <img src="/{{ $event->user->image }}" alt="profile" width="35" height="35" class="rounded-circle ms-2">

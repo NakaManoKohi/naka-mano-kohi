@@ -21,6 +21,11 @@
               <div class="blog-card-background"></div>
               <div class="col-6 blog-card-desc gap-1">
                 <h2 class="title">{{ $events[0]->title }}</h2>
+                @if($events[0]->suspend == 1)
+                  <p class="btn btn-warning" style="position:absolute; z-index: 9999; right: 20px;"><i class="fa-solid fa-triangle-exclamation"></i></p>
+                @else
+                
+                @endif
                 <h5 class="text-brown m-0"> <i class="fa-solid fa-calendar-days"></i> {{ $events[0]->date->diffForHumans() }}</h5>
                 <p class="desc">{{ $events[0]->excerpt }}</p>
                 <a href="/event/{{ $events[0]->slug }}" class="btn btn-primary btn-sm w-fit">Read More</a>
@@ -36,6 +41,11 @@
                 <div class="blog-card-background"></div>
                 <div class="col-8 blog-card-desc gap-1">
                   <h5 class="title">{{ $blog->title }}</h5>
+                  @if($blog->suspend == 1)
+                    <p class="btn btn-warning" style="position:absolute; z-index: 9999; right: 20px;"><i class="fa-solid fa-triangle-exclamation"></i></p>
+                  @else
+                  
+                  @endif
                   <p style="font-size: 12px;" class="desc">{{ $blog->excerpt }}</p>
                   <a href="/blog/{{ $blog->slug }}" class="btn btn-primary btn-sm w-fit">Read More</a>
                 </div>

@@ -31,6 +31,11 @@
                   @else
 
                   @endif
+                  @if($event->suspend == 1)
+                    <p class="btn btn-warning" style="position:absolute; z-index: 9999; right: 80px;"><i class="fa-solid fa-triangle-exclamation"></i> PROBLEM</p>
+                  @else
+                  
+                  @endif
                 <h2 class="title">{{ $event->title }}</h2>
                 <div class="event-profile d-flex gap-1 mt-2 align-items-center">
                   @if($event->user->image == 'images/user.jpg')

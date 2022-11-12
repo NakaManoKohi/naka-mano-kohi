@@ -15,4 +15,10 @@ class Post extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    public function scopeFilter($query, Array $filters){
+        $query->when($filters['search'] ?? false, function($query, $search){
+            return $query->where('caption', 'like', '%' . $search . '%' );
+        });
+    }
 }
