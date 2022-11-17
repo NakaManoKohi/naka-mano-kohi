@@ -18,15 +18,17 @@
     <ul class="navbar-nav">
       @auth
         @if(auth()->user()->benefit == 3)
-          <h5 class="benefit-badge bronze rounded">Bronze</h5>
-        @endif
-
-        @if(auth()->user()->benefit == 2)
-          <h5 class="benefit-badge silver rounded">Silver</h5>
-        @endif
-
-        @if(auth()->user()->benefit == 1)
-          <h5 class="benefit-badge gold rounded">Gold</h5>
+          <div class="d-flex align-items-center card card-body border-0 silver rounded">
+            <h5 class="m-0">Silver</h5>
+          </div>
+        @elseif(auth()->user()->benefit == 2)
+          <div class="d-flex align-items-center card card-body border-0 silver rounded">
+            <h5 class="m-0">Silver</h5>
+          </div>
+        @elseif(auth()->user()->benefit == 1)
+          <div class="d-flex align-items-center card card-body border-0 silver rounded">
+            <h5 class="m-0">Silver</h5>
+          </div>
         @endif
 
         <li class="nav-link btn-group d-flex align-items-center">

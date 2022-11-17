@@ -202,10 +202,6 @@
     opacity: 0.5;
 }
 
-.benefit-badge{
-    padding: 20px;
-}
-
 .bronze{
     background-color: var(--bronze);
 }
