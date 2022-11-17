@@ -38,7 +38,7 @@
               $time = (\Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $chatDate->created_at)->setTimezone($aside['tz']))->format('Y-m-d');
             @endphp
             <div class="d-flex flex-column-reverse">
-              @foreach ($publicChat as $chat)
+              @foreach ($aside['publicChat'] as $chat)
               {{-- {{ dd($chat->user()) }} --}}
                 @if (strpos($chat->created_at, $time) === 0)
                   @auth
