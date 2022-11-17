@@ -18,16 +18,16 @@
     <ul class="navbar-nav">
       @auth
         @if(auth()->user()->benefit == 3)
-          <div class="d-flex align-items-center card card-body border-0 silver rounded">
-            <h5 class="m-0">Silver</h5>
+          <div class="d-flex align-items-center card card-body border-0 bronze rounded">
+            <h5 class="m-0">Bronze</h5>
           </div>
         @elseif(auth()->user()->benefit == 2)
           <div class="d-flex align-items-center card card-body border-0 silver rounded">
             <h5 class="m-0">Silver</h5>
           </div>
         @elseif(auth()->user()->benefit == 1)
-          <div class="d-flex align-items-center card card-body border-0 silver rounded">
-            <h5 class="m-0">Silver</h5>
+          <div class="d-flex align-items-center card card-body border-0 gold rounded">
+            <h5 class="m-0">Gold</h5>
           </div>
         @endif
 
@@ -35,8 +35,12 @@
           <a class="nav-link text-white text-decoration-none dropdown-toggle no-arrow" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-plus"></i></a>
           <ul class="dropdown-menu dropdown-menu-end mt-2">
             <li><a class="dropdown-item" href="/post/create">Post</a></li>
+            @if(auth()->user()->benefit == 2)
+            <li><a class="dropdown-item" href="/blog/create">Blog</a></li>
+            @elseif(auth()->user()->benefit == 1)
             <li><a class="dropdown-item" href="/blog/create">Blog</a></li>
             <li><a class="dropdown-item" href="/event/create">Event</a></li>
+            @endif
           </ul>
         </li>
         <li class="nav-item btn-group">
