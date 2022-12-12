@@ -5,7 +5,7 @@
     <main class="col-9 pe-2">
       <section class="col-12 bg-primary-grey card border-0 h-full">
         <div class="card-header bg-brown text-white">
-          <h3>Create a Blog</h3>
+          <h3>Edit a Blog</h3>
         </div>
         <div class="card-body col-12">
           <form method="post" action="/blog/{{ $blog->id }}" enctype="multipart/form-data">

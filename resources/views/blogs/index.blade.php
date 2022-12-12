@@ -21,7 +21,7 @@
                   <div class="col-6 blog-card-desc gap-1">
                       <h2 class="title">{{ $blogs[0]->title }}</h2>
                       @if($blogs[0]->suspend == 1)
-                        <p class="btn btn-warning" style="position:absolute; z-index: 9999; right: 20px;"><i class="fa-solid fa-triangle-exclamation"></i> PROBLEM</p>
+                        <p class="btn btn-warning" style="position:absolute; z-index: 9999; right: 20px;"><i class="fa-solid fa-triangle-exclamation"></i></p>
                       @else
                       
                       @endif
@@ -48,7 +48,7 @@
               <div class="col-8 blog-card-desc gap-1">
                 <h5 class="title">{{ $blog->title }}</h5>
                 @if($blog->suspend == 1)
-                  <p class="btn btn-warning" style="position:absolute; z-index: 9999; right: 20px;"><i class="fa-solid fa-triangle-exclamation"></i> PROBLEM</p>
+                  <p class="btn btn-warning" style="position:absolute; z-index: 9999; right: 20px;"><i class="fa-solid fa-triangle-exclamation"></i></p>
                 @else
                 
                 @endif

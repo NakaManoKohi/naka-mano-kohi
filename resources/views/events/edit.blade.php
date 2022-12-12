@@ -5,7 +5,7 @@
     <main class="col-9 pe-2">
       <section class="col-12 bg-primary-grey card border-0 h-full">
         <div class="card-header bg-brown text-white">
-          <h3>Create an Event</h3>
+          <h3>Edit an Event</h3>
         </div>
         <div class="card-body col-12">
           <form method="post" action="/event/{{ $event->id }}" enctype="multipart/form-data">

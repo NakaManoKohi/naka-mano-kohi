@@ -30,8 +30,8 @@
                   @else
 
                   @endif
-                @if($event->suspend == 1)
-                  <p class="btn btn-warning" style="position:absolute; z-index: 9999; right: 80px;"><i class="fa-solid fa-triangle-exclamation"></i> PROBLEM</p>
+                @if($blog->suspend == 1)
+                  <p class="btn btn-warning" style="position:absolute; z-index: 9999; right: 80px;"><i class="fa-solid fa-triangle-exclamation"></i></p>
                 @else
                 
                 @endif
