@@ -28,18 +28,18 @@ class DatabaseSeeder extends Seeder
         Benefit::create(['benefit'=>'user']);
         
         User::create([
-            'name' => "Eka Nata",
-            'username' => "dreamerdream",
-            'email' => "ekanata1411@gmail.com",
+            'name' => "Admin",
+            'username' => "admin",
+            'email' => "admin@example.com",
             'password' => bcrypt("password"),
             'level' => 1,
             'benefit' => 1
         ]);
 
         User::create([
-            'name' => "Govin",
-            'username' => "ExRyze",
-            'email' => "vaisyagovinandas@gmail.com",
+            'name' => "SubAdmin",
+            'username' => "subadmin",
+            'email' => "subadmin@example.com",
             'password' => bcrypt("password"),
             'level' => 2,
             'benefit' => 2
